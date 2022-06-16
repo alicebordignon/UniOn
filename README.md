@@ -11,11 +11,12 @@
    
    c) How can I compare different universities in the same discipline field? 
    
+   
    ## PARENT-ORIENTED ONTOLOGY
    
    a) Which are the closest and best universities for my son/daughter?
    
-   b) How much money the university requires? 
+   b) How much money the university requires? Are there study grants?  
    
    c) What is the best university for my son/daughter in terms of employment prospects? 
    
@@ -23,9 +24,12 @@
    
    a) Can I do statistical analysis with my data?
    
-   b) Are there some differences between the North and the South of Italy in terms of educational offer? 
+   b) Are there some differences between the North and the South of Italy in terms of educational offer? If yes, in which disciplines?
    
-   c) If yes, in which disciplines? 
+   c) Are there some numerical differences between males and females in the italian universities? If yes, in which disciplines?
+   
+   d) Are there some relevant numerical differences between graduate and out of course students? If yes, in which disciplines?
+   
 
 
 # METADATA 
