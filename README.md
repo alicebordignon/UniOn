@@ -26,7 +26,7 @@
    
    b) Are there some differences between the North and the South of Italy in terms of educational offer? If yes, in which disciplines?
    
-   c) Are there some numerical differences between males and females in the italian universities? If yes, in which disciplines?
+   c) Are there some numerical differences between males and females (both students and professors) in the italian universities? If yes, in which disciplines?
    
    d) Are there some relevant numerical differences between graduate and out of course students? If yes, in which disciplines?
    
@@ -43,7 +43,8 @@
 4. #### Dipartimenti/Facoltà 
    ##### Corsi
    Lingua del corso 
-5. Numero di iscritti 
-6. Opinione studenti
-7. Prospettive di lavoro 
-8. Contatti (mail, numero di telefono) 
+5. Numero di iscritti
+6. Contribuzione media (€)
+7. Opinione studenti
+8. Prospettive di lavoro 
+9. Contatti (mail, numero di telefono) 
