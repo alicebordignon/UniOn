@@ -43,9 +43,9 @@
 4. #### Dipartimenti/Facoltà 
    ##### Corsi
    Lingua del corso 
-5. ####Numero di iscritti
-   #####Numero uomini
-   #####Numero donne
+5. #### Numero di iscritti
+   ##### Numero uomini
+   ##### Numero donne
 7. Contribuzione media (€)
 8. Opinione studenti
 9. Prospettive di lavoro 
