@@ -33,7 +33,7 @@
 ## UNIVERSITA'
 1. Data di fondazione 
 2. ### Regione 
-   Città 
+   #### Città 
    Coordinate geografiche (utili per data representation) 
 3. Rettore
 4. ### Dipartimenti/Facoltà 
