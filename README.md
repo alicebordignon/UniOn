@@ -26,3 +26,19 @@
    b) Are there some differences between the North and the South of Italy in terms of educational offer? 
    
    c) If yes, in which disciplines? 
+
+
+# METADATA 
+
+## UNIVERSITA'
+1. Data di fondazione 
+2. ### Regione 
+   Città 
+   Coordinate geografiche (utili per data representation) 
+3. Rettore
+4. ### Dipartimenti/Facoltà 
+   #### Corsi
+   Lingua del corso 
+5. Numero di iscritti 
+6. Opinione studenti
+7. Prospettive di lavoro 
