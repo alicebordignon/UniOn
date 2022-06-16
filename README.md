@@ -1,6 +1,4 @@
 # KRKE
- 
-# KRKE
 
 1. Collection of data: explore the domain through SPARQL queries on Wikidata. Search for metadata about Italian universities, download the results as a JSON file or save them as a CSV file.
 2. Competency questions: what is the scope of our ontology? We can consider different scenarios. 
