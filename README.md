@@ -42,3 +42,4 @@
 5. Numero di iscritti 
 6. Opinione studenti
 7. Prospettive di lavoro 
+8. Contatti (mail, numero di telefono) 
