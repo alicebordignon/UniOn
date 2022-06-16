@@ -43,8 +43,10 @@
 4. #### Dipartimenti/Facoltà 
    ##### Corsi
    Lingua del corso 
-5. Numero di iscritti
-6. Contribuzione media (€)
-7. Opinione studenti
-8. Prospettive di lavoro 
-9. Contatti (mail, numero di telefono) 
+5. ####Numero di iscritti
+   #####Numero uomini
+   #####Numero donne
+7. Contribuzione media (€)
+8. Opinione studenti
+9. Prospettive di lavoro 
+10. Contatti (mail, numero di telefono) 
