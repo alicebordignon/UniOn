@@ -30,6 +30,31 @@
    
    d) Are there some relevant numerical differences between graduate and out of course students? If yes, in which disciplines?
    
+   
+   ## MODEL OF ITALIAN UNIVERSITY SYSTEM
+   
+   a) Come potremmo comparare il sistema universitario italiano ad altri sistemi universitari a livello internazionale? 
+   
+   b) Come riutilizzare il modello astratto per tutte le università italiane? 
+   
+   c) Come comprendere al meglio il sistema universitario italiano? Magari in vista di un possibile cambiamento 
+   
+   
+   COMPETENCY QUESTIONS
+   
+   a) Si può accedere ad un master di secondo livello solo con la triennale? 
+   
+   b) Di quanti CFU c'è bisogno per completare la laurea triennale? 
+   
+   c) Chi è il rettore dell'Università di Bologna? 
+   
+   e) Quale legge stabilisce il regolamento in dipartimenti? 
+   
+   
+   
+##  UTILITA'
+
+1. 
 
 
 # METADATA 
