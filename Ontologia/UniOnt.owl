@@ -1,0 +1,737 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#"
+     xml:base="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24"
+     xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:ours="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24">
+        <rdfs:comment>A marvellous ontology about Italian Universities&apos; formative offer :)</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#delivers -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#delivers">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isDeliveredBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#ItalianPublicUniversity"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
+        <rdfs:comment>Links Public Italian UNIVERSITY with the DEGREE PROGRAMMES it delivers</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasAccessType -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasAccessType">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isAccessTypeOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasAssessmentMethod -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasAssessmentMethod">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Course"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#AssessmentMethod"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasCampus -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasCampus"/>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasCurricula -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasCurricula"/>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasEducationalActivity -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasEducationalActivity">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isEducationalActivityOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isAccessTypeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isAccessTypeOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isAssessmentMethodOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isAssessmentMethodOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isDeliveredBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isDeliveredBy"/>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isEducationalActivityOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isEducationalActivityOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isManagedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isManagedBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#manages"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isOfferedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isOfferedBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#offers"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#manages -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#manages">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Department"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
+        <rdfs:comment>Links DEPARTMENT to DEGREE PROGRAMME</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#offers -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#offers">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasEducationalActivity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#delivers"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment>Superproperty that joins the UNIVERSITY with a given EXAM via the the degree programme.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#releases -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#releases"/>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#dul:hasLocation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#dul:hasLocation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#dul:Place"/>
+        <rdfs:comment>Links DEGREE PROGRAMME and PLACE</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#dul:hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#dul:hasPart">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#dul:isPartOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#ItalianPublicUniversity"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Department"/>
+        <rdfs:comment>Links UNIVERSITY w/ DEPARTMENT</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#dul:isPartOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#dul:isPartOf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasAcademicYear -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasAcademicYear">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasCfu -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasCfu"/>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasDegreeClass -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasDegreeClass">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasIdentifier"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasIdentifier"/>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasSsd -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasSsd">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasIdentifier"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasTeachingCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasTeachingCode">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasIdentifier"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasTeachingLanguage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasTeachingLanguage">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#language"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasYearsOfDuration -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasYearsOfDuration">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isCompulsory -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isCompulsory">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#EducationalActivity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#AcademicField -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#AcademicField">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasEducationalActivity"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The fields involved in an educational offer of a university (Humanities, Business, Sciences etc.).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#AccessType -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#AccessType">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isAccessTypeOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The requirements to access a specific degree&apos;s programme (e.g. Examination, Certificate, Project submission etc.) </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#AssessmentMethod -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#AssessmentMethod">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isAssessmentMethodOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#EducationalActivity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The evaluation modality for each educational activity (e.g. Written exam, Oral exam etc.) </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#BachelorDegree -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#BachelorDegree">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Campus -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Campus"/>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Course -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Course">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#EducationalActivity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasSsd"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Curriculum -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Curriculum">
+        <rdfs:comment>E.g. Literature divided in Classical and Modern studies</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasAccessType"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#AccessType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasCampus"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Campus"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasEducationalActivity"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#EducationalActivity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isDeliveredBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#ItalianPublicUniversity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isManagedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Department"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#dul:hasLocation"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#dul:Place"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasCurricula"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Curriculum"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A university-specific degree programme referring to a more general academic field (e.g. Digital Humanities and Digital Knowledge degree programme at UniBo)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Department -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Department">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#manages"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#dul:isPartOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#ItalianPublicUniversity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Organizational structure that within Italian universities promotes and coordinates the activities of one or more sectors of scientific research that are homogeneous in terms of aims and methods.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#EducationalActivity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#EducationalActivity">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasIdentifier"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasCfu"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#isCompulsory"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Any kind of educational activity: exams, internships, laboratories, seminars etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Eligibility -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Eligibility">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#AssessmentMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#InternationalDegree -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#InternationalDegree">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#releases"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#InternationalQualification"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#InternationalQualification -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#InternationalQualification">
+        <rdfs:comment>A qualification (or degree) is an award you receive after completing a programme of study. There are several types of qualifications varying in level of study and length of time.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Internship -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Internship">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#EducationalActivity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasTeachingCode"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#ItalianPublicUniversity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#ItalianPublicUniversity">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#delivers"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#dul:hasPart"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Department"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A specific public italian university (e.g. Unibo)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Laboratory -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Laboratory">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#EducationalActivity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasTeachingCode"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#LimitedAccess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#LimitedAccess">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#AccessType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#LimitedAccessDegree -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#LimitedAccessDegree">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasAccessType"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#LimitedAccess"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#OpenAccessDegree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#MasterDegree -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#MasterDegree">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#OpenAccess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#OpenAccess">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#AccessType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#OpenAccessDegree -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#OpenAccessDegree">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasAccessType"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#OpenAccess"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#OralExam -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#OralExam">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#AssessmentMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Project -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Project">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#AssessmentMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Seminar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Seminar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#EducationalActivity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#hasTeachingCode"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#SingleCycleDegree -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#SingleCycleDegree">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#WrittenExam -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#WrittenExam">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#AssessmentMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#dul:Place -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#dul:Place">
+        <rdfs:comment>Place where the educational activity takes place. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#BachelorDegreeDHDKUnibo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#BachelorDegreeDHDKUnibo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DHDK -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DHDK">
+        <rdf:type rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#MasterDegree"/>
+        <releases rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#MultipleQualification"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Digital_Humanities -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Digital_Humanities"/>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Giurisprudenza -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Giurisprudenza">
+        <rdf:type rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
+        <releases rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#MultipleQualification"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#JointQualification -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#JointQualification">
+        <rdf:type rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#InternationalQualification"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#MultipleQualification -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#MultipleQualification">
+        <rdf:type rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#InternationalQualification"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Unibo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Unibo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#ItalianPublicUniversity"/>
+        <delivers rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DHDK"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#BachelorDegree"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#MasterDegree"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#SingleCycleDegree"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Course"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Internship"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Laboratory"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Seminar"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Eligibility"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#OralExam"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Project"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#WrittenExam"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
