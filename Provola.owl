@@ -42,14 +42,20 @@
 <owl:ObjectProperty rdf:about="#isAccessTypeOf"/>
 
 <owl:ObjectProperty rdf:about="#hasAssessmentMethod">
+  <owl:inverseOf rdf:resource="#isAssessmentMethodOf"/>
   <rdfs:domain rdf:resource="#EducationalActivity"/>
   <rdfs:range rdf:resource="#AssessmentMethod"/>
 </owl:ObjectProperty>
 
+<owl:ObjectProperty rdf:about="#isAssessmentMethodOf"/>
+
 <owl:ObjectProperty rdf:about="#hasCampus">
+  <owl:inverseOf rdf:resource="#isCampusOf"/>
   <rdfs:domain rdf:resource="#DegreeProgramme"/>
   <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
 </owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isCampusOf"/>
 
 <owl:ObjectProperty rdf:about="#hasCurriculum">
   <owl:inverseOf rdf:resource="#isCurriculumOf"/>
@@ -64,12 +70,13 @@
 <owl:ObjectProperty rdf:about="#isEducationalActivityOf"/>
 
 <owl:ObjectProperty rdf:about="#hasPlaceOfTeaching">
+  <owl:inverseOf rdf:resource="#isPlaceOfTeachingOf"/>
   <rdfs:domain rdf:resource="#DegreeProgramme"/>
   <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
   <rdfs:comment>Links DEGREE PROGRAMME and PLACE</rdfs:comment>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#isAssessmentMethodOf"/>
+<owl:ObjectProperty rdf:about="#isPlaceOfTeachingOf"/>
 
 <owl:ObjectProperty rdf:about="#isManagedBy">
   <owl:inverseOf rdf:resource="#manages"/>
@@ -88,10 +95,10 @@
 <owl:ObjectProperty rdf:about="#offers">
   <owl:propertyChainAxiom>
     <rdf:Description>
-      <rdf:first rdf:resource="#hasEducationalActivity"/>
+      <rdf:first rdf:resource="#delivers"/>
       <rdf:rest>
         <rdf:Description>
-          <rdf:first rdf:resource="#delivers"/>
+          <rdf:first rdf:resource="#hasEducationalActivity"/>
           <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
         </rdf:Description>
       </rdf:rest>
@@ -100,54 +107,40 @@
   <rdfs:comment>Superproperty that joins the UNIVERSITY with a given EXAM via the the degree programme.</rdfs:comment>
 </owl:ObjectProperty>
 
+<owl:ObjectProperty rdf:about="#isReleasedBy">
+  <owl:inverseOf rdf:resource="#releases"/>
+</owl:ObjectProperty>
+
 <owl:ObjectProperty rdf:about="#releases">
   <rdfs:comment>Links DEGREE PROGRAMME and QUALIFICATION</rdfs:comment>
 </owl:ObjectProperty>
 
-<owl:DatatypeProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label">
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="#hasAcademicYear"/>
 
-<owl:DatatypeProperty rdf:about="#hasAcademicYear">
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-</owl:DatatypeProperty>
-
-<owl:DatatypeProperty rdf:about="#hasCfu">
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="#hasCfu"/>
 
 <owl:DatatypeProperty rdf:about="#hasDegreeClass">
   <rdfs:subPropertyOf rdf:resource="#hasIdentifier"/>
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
 </owl:DatatypeProperty>
 
 <owl:DatatypeProperty rdf:about="#hasIdentifier"/>
 
 <owl:DatatypeProperty rdf:about="#hasSsd">
   <rdfs:subPropertyOf rdf:resource="#hasIdentifier"/>
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
 </owl:DatatypeProperty>
 
 <owl:DatatypeProperty rdf:about="#hasTeachingCode">
   <rdfs:subPropertyOf rdf:resource="#hasIdentifier"/>
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
 </owl:DatatypeProperty>
 
-<owl:DatatypeProperty rdf:about="#hasTeachingLanguage">
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#language"/>
-</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="#hasTeachingLanguage"/>
 
-<owl:DatatypeProperty rdf:about="#hasUrl">
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="#hasUrl"/>
 
-<owl:DatatypeProperty rdf:about="#hasYearsOfDuration">
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="#hasYearsOfDuration"/>
 
 <owl:DatatypeProperty rdf:about="#isCompulsory">
   <rdfs:domain rdf:resource="#EducationalActivity"/>
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
 </owl:DatatypeProperty>
 
 <owl:Class rdf:about="#ItalianPublicUniversity">
@@ -246,50 +239,10 @@
       <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasUrl"/>
-      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasYearsOfDuration"/>
-      <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasDegreeClass"/>
-      <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
   <rdfs:comment>A university-specific degree programme referring to a more general academic field (e.g. Digital Humanities and Digital Knowledge degree programme at UniBo)</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="#EducationalActivity">
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasIdentifier"/>
-      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasCfu"/>
-      <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#isCompulsory"/>
-      <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
   <rdfs:comment>Any kind of educational activity: exams, internships, laboratories, seminars etc.</rdfs:comment>
 </owl:Class>
 
@@ -326,20 +279,6 @@
 
 <owl:Class rdf:about="#Course">
   <rdfs:subClassOf rdf:resource="#EducationalActivity"/>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasSsd"/>
-      <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasTeachingCode"/>
-      <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
 </owl:Class>
 
 <owl:Class rdf:about="#Curriculum">
@@ -352,13 +291,6 @@
 
 <owl:Class rdf:about="#FinalTest">
   <rdfs:subClassOf rdf:resource="#EducationalActivity"/>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasTeachingCode"/>
-      <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
 </owl:Class>
 
 <owl:Class rdf:about="#InternationalDegree">
@@ -367,24 +299,10 @@
 
 <owl:Class rdf:about="#Internship">
   <rdfs:subClassOf rdf:resource="#EducationalActivity"/>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasTeachingCode"/>
-      <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
 </owl:Class>
 
 <owl:Class rdf:about="#Laboratory">
   <rdfs:subClassOf rdf:resource="#EducationalActivity"/>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasTeachingCode"/>
-      <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
 </owl:Class>
 
 <owl:Class rdf:about="#LimitedAccessDegree">
@@ -422,13 +340,6 @@
 
 <owl:Class rdf:about="#Seminar">
   <rdfs:subClassOf rdf:resource="#EducationalActivity"/>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasTeachingCode"/>
-      <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-      <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
 </owl:Class>
 
 <owl:Class rdf:about="#SingleCycleDegree">
@@ -562,6 +473,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">L-3, DISCIPLINE DELLE ARTI FIGURATIVE, DELLA MUSICA, DELLO SPETTACOLO E DELLA MODA</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <AcademicField rdf:about="#Studi_umanistici">
@@ -691,7 +603,7 @@
 
 <Course rdf:about="#INFORMATICA_DI_BASE">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">INFORMATICA DI BASE</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12355</hasTeachingCode>
@@ -1241,6 +1153,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">L-5, FILOSOFIA</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ALGEBRA_E_GEOMETRIA_(1)">
@@ -1691,6 +1604,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">L-42, STORIA</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ANTROPOLOGIA_CULTURALE_(1)">
@@ -1821,7 +1735,7 @@
 
 <Course rdf:about="#FILOSOFIA_MORALE">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FILOSOFIA MORALE</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">393</hasTeachingCode>
@@ -1829,7 +1743,7 @@
 
 <Course rdf:about="#FILOSOFIA_TEORETICA">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FILOSOFIA TEORETICA</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">399</hasTeachingCode>
@@ -2068,7 +1982,7 @@
 
 <Course rdf:about="#STORIA_DELLA_FILOSOFIA">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">STORIA DELLA FILOSOFIA</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">961</hasTeachingCode>
@@ -2271,6 +2185,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LM-1, ANTROPOLOGIA CULTURALE ED ETNOLOGIA</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ANTROPOLOGIA_APPLICATA_(1)_(LM)">
@@ -2671,6 +2586,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LM-65, SCIENZE DELLO SPETTACOLO E PRODUZIONE MULTIMEDIALE</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#CULTURE_DELL'INTRATTENIMENTO_(1)_(LM)">
@@ -2952,6 +2868,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LM-15, FILOLOGIA, LETTERATURE E STORIA DELL ANTICHITÀ</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ARCHEOLOGIA_E_STORIA_DELL'ARTE_GRECA_(1)_(LM)">
@@ -3268,6 +3185,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LM-80, SCIENZE GEOGRAFICHE</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ANALISI_GEOSTATISTICA_DEI_DATI_TERRITORIALI_(1)_(LM)">
@@ -3280,7 +3198,7 @@
 
 <Course rdf:about="#CARTOGRAFIA_NUMERICA_(1)_(LM)">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CARTOGRAFIA NUMERICA (1) (LM)</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">72483</hasTeachingCode>
@@ -3585,6 +3503,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LM-89, STORIA DELL ARTE</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ARCHEOLOGIA_E_STORIA_DELL'ARTE_RAVENNATE_E_BIZANTINA_(1)_(LM)">
@@ -3964,6 +3883,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">L-42, STORIA</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ANTROPOLOGIA_DEL_PATRIMONIO_(1)">
@@ -4466,6 +4386,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LMR/02, CONSERVAZIONE E RESTAURO DEI BENI CULTURALI</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ANTROPOLOGIA_E_BIOLOGIA_APPLICATA_AI_BENI_CULTURALI">
@@ -4593,7 +4514,7 @@
 
 <Course rdf:about="#IDONEITA'_DI_LINGUA_INGLESE_(CORSO_AVANZATO)">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IDONEITA' DI LINGUA INGLESE (CORSO AVANZATO)</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70769</hasTeachingCode>
@@ -4849,6 +4770,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">L-3, DISCIPLINE DELLE ARTI FIGURATIVE, DELLA MUSICA, DELLO SPETTACOLO E DELLA MODA</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ARCHIVI_DI_IMPRESA_E_DELLA_MODA_(1)">
@@ -5158,6 +5080,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LM-78, SCIENZE FILOSOFICHE</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ESTETICA_FILOSOFICA_(LM)">
@@ -5517,6 +5440,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LM-45, MUSICOLOGIA E BENI MUSICALI / LM-65, SCIENZE DELLO SPETTACOLO E PRODUZIONE MULTIMEDIALE</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#DRAMMATURGIA_DELLO_SPAZIO_SCENICO_(1)_(LM)">
@@ -5862,11 +5786,12 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LM-5, ARCHIVISTICA E BIBLIOTECONOMIA</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ABILITÀ_INFORMATICHE">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ABILITÀ INFORMATICHE</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55248</hasTeachingCode>
@@ -5874,7 +5799,7 @@
 
 <Course rdf:about="#ALTRE_CONOSCENZE_UTILI_PER_L'INSERIMENTO_NEL_MONDO_DEL_LAVORO">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ALTRE CONOSCENZE UTILI PER L'INSERIMENTO NEL MONDO DEL LAVORO</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32054</hasTeachingCode>
@@ -6247,6 +6172,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LM-84, SCIENZE STORICHE</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano Inglese</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ANTROPOLOGIA_DEL_CORPO_E_DELLA_MALATTIA_(1)_(LM)">
@@ -6387,7 +6313,7 @@
 
 <Course rdf:about="#FINAL_EXAMINATION_(DISSERTATION)_(12_CFU)_(LM)">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FINAL EXAMINATION (DISSERTATION) (12 CFU) (LM)</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">86231</hasTeachingCode>
@@ -6395,7 +6321,7 @@
 
 <Course rdf:about="#FINAL_EXAMINATION_(DISSERTATION)_(LM)">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FINAL EXAMINATION (DISSERTATION) (LM)</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">82058</hasTeachingCode>
@@ -6753,7 +6679,7 @@
 
 <Course rdf:about="#PREPARATION_FOR_THE_FINAL_EXAMINATION_ABROAD_(6_CFU)_(LM)">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PREPARATION FOR THE FINAL EXAMINATION ABROAD (6 CFU) (LM)</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">86232</hasTeachingCode>
@@ -7062,11 +6988,12 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">L-1, BENI CULTURALI</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ABILITA'_INFORMATICHE">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ABILITA' INFORMATICHE</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58157</hasTeachingCode>
@@ -7130,7 +7057,7 @@
 
 <Course rdf:about="#ATTIVITA'_DI_SCAVO">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ATTIVITA' DI SCAVO</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">75968</hasTeachingCode>
@@ -7489,6 +7416,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">L-10, LETTERE</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#EPIGRAFIA_E_ISTITUZIONI_GRECHE_(1)">
@@ -7915,6 +7843,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LM-2, ARCHEOLOGIA</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ANTICHITÀ_CELTICHE_(1)_(LM)">
@@ -8223,6 +8152,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">L-20, SCIENZE DELLA COMUNICAZIONE</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ANALISI_DEI_LINGUAGGI_TELEVISIVI">
@@ -8465,6 +8395,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LM-92, TEORIE DELLA COMUNICAZIONE</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ANALISI_DELL'INTERAZIONE_(1)_(LM)">
@@ -8656,6 +8587,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LM-65, SCIENZE DELLO SPETTACOLO E PRODUZIONE MULTIMEDIALE</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inglese</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ANALYSIS_OF_EMERGING_LIFESTYLES">
@@ -8876,6 +8808,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">L-5, FILOSOFIA</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#DIDATTICA_DELLA_FILOSOFIA_(1)">
@@ -9004,6 +8937,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LM-2, ARCHEOLOGIA / LM-89, STORIA DELL ARTE</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#ANTICHITA'_FENICIE_E_PUNICHE">
@@ -9431,6 +9365,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LM-14, FILOLOGIA MODERNA</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italiano Inglese</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#CULTURE_LETTERARIE_DELLA_CONTEMPORANEITÀ_(1)_(LM)">
@@ -9507,7 +9442,7 @@
 
 <Course rdf:about="#FINAL_EXAMINATION_(DISSERTATION)_(_6_CFU)_(LM)">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FINAL EXAMINATION (DISSERTATION) ( 6 CFU) (LM)</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">86259</hasTeachingCode>
@@ -9546,7 +9481,7 @@
 
 <Course rdf:about="#INTRODUCTION_TO_ITALIAN_CULTURE_(1)_(LM)">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">INTRODUCTION TO ITALIAN CULTURE (1) (LM)</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">85115</hasTeachingCode>
@@ -9554,7 +9489,7 @@
 
 <Course rdf:about="#INTRODUCTION_TO_ITALIAN_CULTURE_(2)_(LM)">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">INTRODUCTION TO ITALIAN CULTURE (2) (LM)</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">85116</hasTeachingCode>
@@ -9586,7 +9521,7 @@
 
 <Course rdf:about="#LAVORO_BIBLIOGRAFICO_IN_PREPARAZIONE_ALLA_TESI_IN_LINGUA_(1)_(LM)">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">None</hasSsd>
+  <hasSsd rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Non disponibile</hasSsd>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LAVORO BIBLIOGRAFICO IN PREPARAZIONE ALLA TESI IN LINGUA (1) (LM)</rdfs:label>
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30604</hasTeachingCode>
@@ -9963,7 +9898,7 @@
   <hasAcademicField rdf:resource="#Studi_umanistici"/>
   <isDeliveredBy rdf:resource="#University_of_Bologna"/>
   <hasEducationalActivity rdf:resource="#BUSINESS_STRATEGY_AND_INNOVATION_IN_CULTURAL_INDUSTRIES_(1)_(LM)"/>
-  <isManagedBy rdf:resource="#Classical_Philology_and_Italian_Studies_-_FICLIT"/>
+  <isManagedBy rdf:resource="#Filologia_Classica_e_Italianistica_-_FICLIT"/>
   <releases rdf:resource="#SingleQualification"/>
   <hasCampus rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Bologna"/>
   <hasPlaceOfTeaching rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Bologna"/>
@@ -9994,6 +9929,7 @@
   <hasAcademicYear rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2018/2019</hasAcademicYear>
   <hasDegreeClass rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LM-43, METODOLOGIE INFORMATICHE PER LE DISCIPLINE UMANISTICHE</hasDegreeClass>
   <hasYearsOfDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</hasYearsOfDuration>
+  <hasTeachingLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inglese</hasTeachingLanguage>
 </DegreeProgramme>
 
 <Course rdf:about="#BUSINESS_STRATEGY_AND_INNOVATION_IN_CULTURAL_INDUSTRIES_(1)_(LM)">
@@ -10003,12 +9939,6 @@
   <hasCfu rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</hasCfu>
   <hasTeachingCode rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">85462</hasTeachingCode>
 </Course>
-
-<Department rdf:about="#Classical_Philology_and_Italian_Studies_-_FICLIT">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <DUL.:isPartOf rdf:resource="#University_of_Bologna"/>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Classical Philology and Italian Studies - FICLIT</rdfs:label>
-</Department>
 
 <Course rdf:about="#DIGITAL_COPYRIGHT_AND_RELATED_RIGHTS_(1)_(LM)">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>

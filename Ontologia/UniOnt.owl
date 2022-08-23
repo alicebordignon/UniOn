@@ -72,6 +72,7 @@
     <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasAssessmentMethod -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasAssessmentMethod">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#isAssessmentMethodOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#EducationalActivity"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#AssessmentMethod"/>
     </owl:ObjectProperty>
@@ -81,6 +82,7 @@
     <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasCampus -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasCampus">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#isCampusOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#DegreeProgramme"/>
         <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
     </owl:ObjectProperty>
@@ -106,6 +108,7 @@
     <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasPlaceOfTeaching -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasPlaceOfTeaching">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#isPlaceOfTeachingOf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#DegreeProgramme"/>
         <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
         <rdfs:comment>Links DEGREE PROGRAMME and PLACE</rdfs:comment>
@@ -128,6 +131,12 @@
     <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/uni#isAssessmentMethodOf -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#isAssessmentMethodOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/uni#isCampusOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#isCampusOf"/>
     
 
 
@@ -165,6 +174,20 @@
     
 
 
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/uni#isPlaceOfTeachingOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#isPlaceOfTeachingOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/uni#isReleasedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#isReleasedBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#releases"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/uni#manages -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#manages">
@@ -179,8 +202,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#offers">
         <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasEducationalActivity"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#delivers"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasEducationalActivity"/>
         </owl:propertyChainAxiom>
         <rdfs:comment>Superproperty that joins the UNIVERSITY with a given EXAM via the the degree programme.</rdfs:comment>
     </owl:ObjectProperty>
@@ -208,17 +231,13 @@
 
     <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasAcademicYear -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasAcademicYear">
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasAcademicYear"/>
     
 
 
     <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasCfu -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasCfu">
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasCfu"/>
     
 
 
@@ -226,7 +245,6 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasDegreeClass">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasIdentifier"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
@@ -241,7 +259,6 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasSsd">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasIdentifier"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
@@ -250,32 +267,25 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasTeachingCode">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasIdentifier"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasTeachingLanguage -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasTeachingLanguage">
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#language"/>
-    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasTeachingLanguage"/>
     
 
 
     <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasUrl -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasUrl">
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasUrl"/>
     
 
 
     <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasYearsOfDuration -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasYearsOfDuration">
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasYearsOfDuration"/>
     
 
 
@@ -283,15 +293,6 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#isCompulsory">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#EducationalActivity"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
-
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label">
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
@@ -362,20 +363,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#Course">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#EducationalActivity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasSsd"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasTeachingCode"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -448,26 +435,6 @@
                 <owl:onClass rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#AccessType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasUrl"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasYearsOfDuration"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasDegreeClass"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:comment>A university-specific degree programme referring to a more general academic field (e.g. Digital Humanities and Digital Knowledge degree programme at UniBo)</rdfs:comment>
     </owl:Class>
     
@@ -498,26 +465,6 @@
     <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/uni#EducationalActivity -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#EducationalActivity">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasIdentifier"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasCfu"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#isCompulsory"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:comment>Any kind of educational activity: exams, internships, laboratories, seminars etc.</rdfs:comment>
     </owl:Class>
     
@@ -527,13 +474,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#FinalTest">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#EducationalActivity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasTeachingCode"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -550,13 +490,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#Internship">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#EducationalActivity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasTeachingCode"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -589,13 +522,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#Laboratory">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#EducationalActivity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasTeachingCode"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -657,13 +583,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#Seminar">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#EducationalActivity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/uni#hasTeachingCode"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
