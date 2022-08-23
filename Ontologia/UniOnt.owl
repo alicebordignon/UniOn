@@ -659,42 +659,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#BachelorDegreeDHDKUnibo -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#BachelorDegreeDHDKUnibo"/>
-    
-
-
-    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DHDK -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DHDK">
-        <rdf:type rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#MasterDegree"/>
-        <hasAccessType rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#OpenAccess"/>
-        <releases rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#MultipleQualification"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Digital_Humanities -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Digital_Humanities"/>
-    
-
-
     <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Eligibility -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Eligibility">
         <rdf:type rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#AssessmentMethod"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Giurisprudenza -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Giurisprudenza">
-        <rdf:type rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DegreeProgramme"/>
-        <releases rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#MultipleQualification"/>
     </owl:NamedIndividual>
     
 
@@ -751,15 +719,6 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#SingleQualification">
         <rdf:type rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Qualification"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Unibo -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#Unibo">
-        <rdf:type rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#ItalianPublicUniversity"/>
-        <delivers rdf:resource="http://www.semanticweb.org/francesca/ontologies/2022/6/untitled-ontology-24#DHDK"/>
     </owl:NamedIndividual>
     
 
