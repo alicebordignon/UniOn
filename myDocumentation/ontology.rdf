@@ -1,0 +1,905 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://purl.org/ontology/UniOn#"
+     xml:base="http://purl.org/ontology/UniOn"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://purl.org/ontology/UniOn">
+        <owl:versionIRI rdf:resource="http://purl.org/ontology/UniOn/09-2022"/>
+        <rdfs:comment>UniOn is an ontology representing Universities educational offer. It includes information to describe academic fields, degree programs, access methods and requirements, educational activities, titles and qualifications, location, organization and more</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#delivers -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#delivers">
+        <owl:inverseOf rdf:resource="http://purl.org/ontology/UniOn#isDeliveredBy"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#ItalianPublicUniversity"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>A property that relates an italian public university to the degree programmes it delivers.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasAcademicField -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#hasAcademicField">
+        <owl:inverseOf rdf:resource="http://purl.org/ontology/UniOn#isAcademicFieldOf"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#AcademicField"/>
+        <rdfs:comment>A property linking the degree programme to the academic field to which it belongs.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasAccessType -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#hasAccessType">
+        <owl:inverseOf rdf:resource="http://purl.org/ontology/UniOn#isAccessTypeOf"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#AccessType"/>
+        <rdfs:comment>A property relating the degree programme to the modality of access it requires.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasAssessmentMethod -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#hasAssessmentMethod">
+        <owl:inverseOf rdf:resource="http://purl.org/ontology/UniOn#isAssessmentMethodOf"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#AssessmentMethod"/>
+        <rdfs:comment>A property that relates an educational activity to a particular evaluation modality. Example of an assessment method include an oral or  writtem exam, the subsmission of a project or an eligibility.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasCampus -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#hasCampus">
+        <owl:inverseOf rdf:resource="http://purl.org/ontology/UniOn#isCampusOf"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
+        <rdfs:comment>A property that associates the degree programme to the particular place where the university campus is located.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasCurriculum -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#hasCurriculum">
+        <owl:inverseOf rdf:resource="http://purl.org/ontology/UniOn#isCurriculumOf"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#Curriculum"/>
+        <rdfs:comment>A property linking a degree programme to the curricula it offers.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasEducationalActivity -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#hasEducationalActivity">
+        <owl:inverseOf rdf:resource="http://purl.org/ontology/UniOn#isEducationalActivityOf"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <rdfs:comment>A property that associates a degree programme to the educational activities it delivers.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasPlaceOfTeaching -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#hasPlaceOfTeaching">
+        <owl:inverseOf rdf:resource="http://purl.org/ontology/UniOn#isPlaceOfTeachingOf"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
+        <rdfs:comment>A property that relates the degree programme to the place where its educational activities take place.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#isAcademicFieldOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#isAcademicFieldOf">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#AcademicField"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>A property describing the academic field to which a degree programme belongs.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#isAccessTypeOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#isAccessTypeOf">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#AccessType"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>A property indicating the modality of access a degree programme requires.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#isAssessmentMethodOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#isAssessmentMethodOf">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#AssessmentMethod"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <rdfs:comment>A property expressing  the evaluation modality of an educational activity. Example of an assessment method include an oral or  writtem exam, the subsmission of a project or an eligibility.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#isCampusOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#isCampusOf">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>A property indicating the place where the campus of a particular degree programme is located.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#isCurriculumOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#isCurriculumOf">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#Curriculum"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>A property that  indicates the curricula offered by the same degree programme.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#isDeliveredBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#isDeliveredBy">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#ItalianPublicUniversity"/>
+        <rdfs:comment>A property indicating the degree programmes delivered by an italian public university.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#isEducationalActivityOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#isEducationalActivityOf">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>A property indicating the educational activity delivered by a degree programme.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#isManagedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#isManagedBy">
+        <owl:inverseOf rdf:resource="http://purl.org/ontology/UniOn#manages"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#Department"/>
+        <rdfs:comment>A property indicating the university department managed by a public italian university.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#isOfferedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#isOfferedBy">
+        <owl:inverseOf rdf:resource="http://purl.org/ontology/UniOn#offers"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#ItalianPublicUniversity"/>
+        <rdfs:comment>Superproperty that joins an educational activity to a particular italian public university via the degree programme.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#isPlaceOfTeachingOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#isPlaceOfTeachingOf">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>A property that indicates the location where the degree programme&apos;s educational acitvities take place.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#isReleasedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#isReleasedBy">
+        <owl:inverseOf rdf:resource="http://purl.org/ontology/UniOn#releases"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#Qualification"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>A property expressing the official qualification released to the student after the completion of a degree programme.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#manages -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#manages">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#Department"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>A property that associates the university deparment to the degree programme it manages.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#offers -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#offers">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#ItalianPublicUniversity"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#delivers"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#hasEducationalActivity"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment>Superproperty that joins an italian public university with a particular educational activity via the degree programme.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#releases -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/UniOn#releases">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#Qualification"/>
+        <rdfs:comment>A property that relates the degree programme to the official qualification the students receives after completing the study programme.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart">
+        <owl:inverseOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#ItalianPublicUniversity"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#Department"/>
+        <rdfs:comment>A property indicating that one entity (the university) includes another entity (the department).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#Department"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/UniOn#ItalianPublicUniversity"/>
+        <rdfs:comment>A property indicating that one entity (the department) is a part of another entity (the university).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasAcademicYear -->
+
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/UniOn#hasAcademicYear">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>The period in which the degree programme carries its traning activity.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasCfu -->
+
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/UniOn#hasCfu">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <rdfs:comment>The CFUs of a particular educational activity. CFUs (university formative credits) are a numerical measure of the workload for each exam or activity.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasDegreeClass -->
+
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/UniOn#hasDegreeClass">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/ontology/UniOn#hasIdentifier"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>The degree class (a unique code) of each degree programme. (E.g. LM-43 - Information technology methods for the humanities)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasIdentifier -->
+
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/UniOn#hasIdentifier">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+                    <rdf:Description rdf:about="http://purl.org/ontology/UniOn#EducationalActivity"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:comment>A property that expresses the particular identifiers used by the italian university system to describe and identify degree programmes and educational activities. (E.g. Degree Class, Ssd and Teaching Code)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasSsd -->
+
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/UniOn#hasSsd">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/ontology/UniOn#hasIdentifier"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <rdfs:comment>The SSD of an educational activity. SSD stands for ‘scientific-disciplinary sectors’: they point to the disciplinary areas to which each educational activity belongs to.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasTeachingCode -->
+
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/UniOn#hasTeachingCode">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/ontology/UniOn#hasIdentifier"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <rdfs:comment>A numerical code chosen by each university to univocally identify its educational activities.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasTeachingLanguage -->
+
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/UniOn#hasTeachingLanguage">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>The language in which the degree programme is taught.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasUrl -->
+
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/UniOn#hasUrl">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>The Url pointing to the website of the degree programme.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#hasYearsOfDuration -->
+
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/UniOn#hasYearsOfDuration">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>The duration of a degree programme.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#isCompulsory -->
+
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ontology/UniOn#isCompulsory">
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <rdfs:comment>The property indicates if an educational activity is compulsory or not.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#AcademicField -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#AcademicField">
+        <rdfs:comment>The fields involved in an educational offer of a university (e.g. Humanities, Business, Sciences etc.).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#AccessType -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#AccessType">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#isAccessTypeOf"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The modality of  access the degree courses require.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#AssessmentMethod -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#AssessmentMethod">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#isAssessmentMethodOf"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The evaluation modality for each educational activity (e.g. Written exam, Oral exam etc.)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#BachelorDegree -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#BachelorDegree">
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>The bachelor degree (180 CFU) is a first cycle degree whose normative time to completion is three years.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#Course -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#Course">
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <rdfs:comment>A university course is made up of a set of lessons held by one teacher or several teachers.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#Curriculum -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#Curriculum">
+        <rdfs:comment>The same degree program can have multiple curricula that include different  training activities. E.g.  For the degree course in &quot;Literature&quot;, it is possible to choose between the curriculum in Classical or Modern studies.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#DegreeProgramme -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#DegreeProgramme">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasAcademicField"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#AcademicField"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasCampus"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasPlaceOfTeaching"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#isDeliveredBy"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#ItalianPublicUniversity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#isManagedBy"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#Department"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#releases"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#Qualification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasCurriculum"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.org/ontology/UniOn#Curriculum"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasEducationalActivity"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasAccessType"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.org/ontology/UniOn#AccessType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A university-specific degree programme referring to a more general academic field (e.g. Digital Humanities and Digital Knowledge degree programme at UniBo)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#Department -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#Department">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#manages"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#ItalianPublicUniversity"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment>Organizational structure that within Italian universities promotes and coordinates the activities of one or more sectors of scientific research that are homogeneous in terms of aims and methods.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#EducationalActivity -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#EducationalActivity">
+        <rdfs:comment>Any kind of educational activity: exams, internships, laboratories, seminars etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#FinalTest -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#FinalTest">
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <rdfs:comment>The final examination: it consists in producing a dissertation on a topic that is consistent with the learning objectives of the degree programme, drafted in an original manner under the guidance of a supervising professor</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#InternationalDegree -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#InternationalDegree">
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>A degree programme delivered in a foreign language.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#Internship -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#Internship">
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <rdfs:comment>An internship is a period of work experience offered by an organization or an institution for a limited period of time.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#ItalianPublicUniversity -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#ItalianPublicUniversity">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#delivers"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://purl.org/ontology/UniOn#Department"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment>A specific public italian university (e.g. Unibo)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#Laboratory -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#Laboratory">
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <rdfs:comment>A laboratory deals with specific topics related to the degree programme and involves practical activities.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#LimitedAccessDegree -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#LimitedAccessDegree">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasAccessType"/>
+                        <owl:hasValue rdf:resource="http://purl.org/ontology/UniOn#LimitedAccess"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://purl.org/ontology/UniOn#OpenAccessDegree"/>
+        <rdfs:comment>A degree programme in which places available are limited and enrollment is only possible after overcoming a selection.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#MasterDegree -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#MasterDegree">
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>The master degree is a second cycle degree (120 CFU) which can be earned in a two-year programme after the bachelor degree.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#OpenAccessDegree -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#OpenAccessDegree">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasAccessType"/>
+                        <owl:hasValue rdf:resource="http://purl.org/ontology/UniOn#OpenAccess"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment>A degree programme in which there is no maximum number of available places and enrollment does not entail passing through a selection. An entry test, however may be required.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#Qualification -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#Qualification">
+        <rdfs:comment>A qualification (or degree) is the official record of achievement you receive after completing a programme of study. There are several types of qualifications varying in level of study and length of time.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#Seminar -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#Seminar">
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <rdfs:comment>University seminars deal with a specific topic within a discipline from several points of view, involving specialists both internal and external to the university encouraging students to actively participate.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#SingleCycleDegree -->
+
+
+    <owl:Class rdf:about="http://purl.org/ontology/UniOn#SingleCycleDegree">
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+        <rdfs:comment>The single cycle degree is a five or six year degree (300 or 360 CFU), which does not require a previous first cycle degree for the admission</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place -->
+
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">
+        <rdfs:comment>Place where the educational activity takes place and where the university campus is located.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#Eligibility -->
+
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/UniOn#Eligibility">
+        <rdf:type rdf:resource="http://purl.org/ontology/UniOn#AssessmentMethod"/>
+        <rdfs:comment>Exam without grade (with eligible or not eligible result) which assesses the candidate competencies.</rdfs:comment>
+        <rdfs:label>Eligibility</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#JointQualification -->
+
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/UniOn#JointQualification">
+        <rdf:type rdf:resource="http://purl.org/ontology/UniOn#Qualification"/>
+        <rdfs:comment>Joint qualification means obtaining a single qualification recognised and validated by all the institutions running the joint programme.</rdfs:comment>
+        <rdfs:label>Joint Qualification</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#LimitedAccess -->
+
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/UniOn#LimitedAccess">
+        <rdf:type rdf:resource="http://purl.org/ontology/UniOn#AccessType"/>
+        <rdfs:comment>The type of access indicating that the places available are limited and enrollment is only possible after overcoming a selection.</rdfs:comment>
+        <rdfs:label>Limited Access</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#MultipleQualification -->
+
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/UniOn#MultipleQualification">
+        <rdf:type rdf:resource="http://purl.org/ontology/UniOn#Qualification"/>
+        <rdfs:comment>Double or multiple qualifications implies that, at the end of the programme, students obtain not only a degree from their home university but also the academic qualifications from the other participating universities where they have obtained learning credits</rdfs:comment>
+        <rdfs:label>Multiple Qualification</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#OpenAccess -->
+
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/UniOn#OpenAccess">
+        <rdf:type rdf:resource="http://purl.org/ontology/UniOn#AccessType"/>
+        <rdfs:comment>The type of access indicating that there is no maximum number of available places and enrollment does not entail passing through a selection. An entry test, however may be required.</rdfs:comment>
+        <rdfs:label>Open Access</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#OralExam -->
+
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/UniOn#OralExam">
+        <rdf:type rdf:resource="http://purl.org/ontology/UniOn#AssessmentMethod"/>
+        <rdfs:comment>An examination in spoken form to show how well a student has understood the material studied in the program.</rdfs:comment>
+        <rdfs:label>Oral Exam</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#Project -->
+
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/UniOn#Project">
+        <rdf:type rdf:resource="http://purl.org/ontology/UniOn#AssessmentMethod"/>
+        <rdfs:comment>Project-based assessments are an alternative to tests that allow students to engage with their learning in more concrete ways. Instead of merely studying theory, a hands-on project asks students to apply what they&apos;ve learned to an in-depth exploration of a topic.</rdfs:comment>
+        <rdfs:label>Project</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#SingleQualification -->
+
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/UniOn#SingleQualification">
+        <rdf:type rdf:resource="http://purl.org/ontology/UniOn#Qualification"/>
+        <rdfs:comment>A single qualification issued by the university.</rdfs:comment>
+        <rdfs:label>Single Qualification</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/ontology/UniOn#WrittenExam -->
+
+
+    <owl:NamedIndividual rdf:about="http://purl.org/ontology/UniOn#WrittenExam">
+        <rdf:type rdf:resource="http://purl.org/ontology/UniOn#AssessmentMethod"/>
+        <rdfs:comment>An assessment method that requires the student to answer some questions in writing (or electronically).</rdfs:comment>
+        <rdfs:label>Written Exam</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#BachelorDegree"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#MasterDegree"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#SingleCycleDegree"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#Course"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#Internship"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#Laboratory"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#Seminar"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+

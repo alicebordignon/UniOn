@@ -1,0 +1,1367 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "undefined" ],
+    "baseIris" : [ "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl", "http://purl.org/ontology/UniOn", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema" ],
+    "iri" : "http://purl.org/ontology/UniOn",
+    "comments" : {
+      "undefined" : "UniOn is an ontology representing Universities educational offer. It includes information to describe academic fields, degree programs, access methods and requirements, educational activities, titles and qualifications, location, organization and more"
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
+    "type" : "owl:Class"
+  }, {
+    "id" : "22",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "25",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "28",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "29",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "30",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "11",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "9",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "31",
+    "type" : "owl:Class"
+  }, {
+    "id" : "27",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "24",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "33",
+    "type" : "owl:Class"
+  }, {
+    "id" : "35",
+    "type" : "owl:Class"
+  }, {
+    "id" : "36",
+    "type" : "owl:intersectionOf"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "44",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "3",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "50",
+    "type" : "owl:Class"
+  }, {
+    "id" : "41",
+    "type" : "owl:Class"
+  }, {
+    "id" : "59",
+    "type" : "owl:Class"
+  }, {
+    "id" : "74",
+    "type" : "owl:Class"
+  }, {
+    "id" : "49",
+    "type" : "owl:Class"
+  }, {
+    "id" : "47",
+    "type" : "owl:intersectionOf"
+  }, {
+    "id" : "66",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "16",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place",
+    "baseIri" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Place"
+    },
+    "comment" : {
+      "undefined" : "Place where the educational activity takes place and where the university campus is located."
+    },
+    "attributes" : [ "external" ],
+    "id" : "0"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#Qualification",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Qualification"
+    },
+    "individuals" : [ {
+      "iri" : "http://purl.org/ontology/UniOn#SingleQualification",
+      "baseIri" : "http://purl.org/ontology/UniOn",
+      "comment" : {
+        "undefined" : "A single qualification issued by the university."
+      },
+      "labels" : {
+        "IRI-based" : "SingleQualification",
+        "undefined" : "Single Qualification"
+      }
+    }, {
+      "iri" : "http://purl.org/ontology/UniOn#MultipleQualification",
+      "baseIri" : "http://purl.org/ontology/UniOn",
+      "comment" : {
+        "undefined" : "Double or multiple qualifications implies that, at the end of the programme, students obtain not only a degree from their home university but also the academic qualifications from the other participating universities where they have obtained learning credits"
+      },
+      "labels" : {
+        "IRI-based" : "MultipleQualification",
+        "undefined" : "Multiple Qualification"
+      }
+    }, {
+      "iri" : "http://purl.org/ontology/UniOn#JointQualification",
+      "baseIri" : "http://purl.org/ontology/UniOn",
+      "comment" : {
+        "undefined" : "Joint qualification means obtaining a single qualification recognised and validated by all the institutions running the joint programme."
+      },
+      "labels" : {
+        "IRI-based" : "JointQualification",
+        "undefined" : "Joint Qualification"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A qualification (or degree) is the official record of achievement you receive after completing a programme of study. There are several types of qualifications varying in level of study and length of time."
+    },
+    "id" : "7"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#ItalianPublicUniversity",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ItalianPublicUniversity"
+    },
+    "comment" : {
+      "undefined" : "A specific public italian university (e.g. Unibo)"
+    },
+    "id" : "13"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#FinalTest",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FinalTest"
+    },
+    "comment" : {
+      "undefined" : "The final examination: it consists in producing a dissertation on a topic that is consistent with the learning objectives of the degree programme, drafted in an original manner under the guidance of a supervising professor"
+    },
+    "id" : "17",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "22",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "25",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#SingleCycleDegree",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "SingleCycleDegree"
+    },
+    "comment" : {
+      "undefined" : "The single cycle degree is a five or six year degree (300 or 360 CFU), which does not require a previous first cycle degree for the admission"
+    },
+    "id" : "5",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "28",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "29",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "30",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "11",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "9",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#Internship",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Internship"
+    },
+    "comment" : {
+      "undefined" : "An internship is a period of work experience offered by an organization or an institution for a limited period of time."
+    },
+    "id" : "31",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "27",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "24",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#MasterDegree",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MasterDegree"
+    },
+    "comment" : {
+      "undefined" : "The master degree is a second cycle degree (120 CFU) which can be earned in a two-year programme after the bachelor degree."
+    },
+    "id" : "19",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#Curriculum",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Curriculum"
+    },
+    "comment" : {
+      "undefined" : "The same degree program can have multiple curricula that include different  training activities. E.g.  For the degree course in \"Literature\", it is possible to choose between the curriculum in Classical or Modern studies."
+    },
+    "id" : "33"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#AcademicField",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AcademicField"
+    },
+    "comment" : {
+      "undefined" : "The fields involved in an educational offer of a university (e.g. Humanities, Business, Sciences etc.)."
+    },
+    "id" : "35"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#OpenAccessDegree",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "OpenAccessDegree"
+    },
+    "intersection" : [ "6" ],
+    "comment" : {
+      "undefined" : "A degree programme in which there is no maximum number of available places and enrollment does not entail passing through a selection. An entry test, however may be required."
+    },
+    "attributes" : [ "intersection" ],
+    "id" : "36"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#Laboratory",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Laboratory"
+    },
+    "comment" : {
+      "undefined" : "A laboratory deals with specific topics related to the degree programme and involves practical activities."
+    },
+    "id" : "37",
+    "superClasses" : [ "2" ]
+  }, {
+    "instances" : 0,
+    "union" : [ "2", "6" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "44"
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "3",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#DegreeProgramme",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DegreeProgramme"
+    },
+    "subClasses" : [ "19", "5", "49", "50" ],
+    "comment" : {
+      "undefined" : "A university-specific degree programme referring to a more general academic field (e.g. Digital Humanities and Digital Knowledge degree programme at UniBo)"
+    },
+    "id" : "6"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#InternationalDegree",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "InternationalDegree"
+    },
+    "comment" : {
+      "undefined" : "A degree programme delivered in a foreign language."
+    },
+    "id" : "50",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#AccessType",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AccessType"
+    },
+    "individuals" : [ {
+      "iri" : "http://purl.org/ontology/UniOn#LimitedAccess",
+      "baseIri" : "http://purl.org/ontology/UniOn",
+      "comment" : {
+        "undefined" : "The type of access indicating that the places available are limited and enrollment is only possible after overcoming a selection."
+      },
+      "labels" : {
+        "IRI-based" : "LimitedAccess",
+        "undefined" : "Limited Access"
+      }
+    }, {
+      "iri" : "http://purl.org/ontology/UniOn#OpenAccess",
+      "baseIri" : "http://purl.org/ontology/UniOn",
+      "comment" : {
+        "undefined" : "The type of access indicating that there is no maximum number of available places and enrollment does not entail passing through a selection. An entry test, however may be required."
+      },
+      "labels" : {
+        "IRI-based" : "OpenAccess",
+        "undefined" : "Open Access"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "The modality of  access the degree courses require."
+    },
+    "id" : "41"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#Seminar",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Seminar"
+    },
+    "comment" : {
+      "undefined" : "University seminars deal with a specific topic within a discipline from several points of view, involving specialists both internal and external to the university encouraging students to actively participate."
+    },
+    "id" : "59",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#Course",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Course"
+    },
+    "comment" : {
+      "undefined" : "A university course is made up of a set of lessons held by one teacher or several teachers."
+    },
+    "id" : "74",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#BachelorDegree",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "BachelorDegree"
+    },
+    "comment" : {
+      "undefined" : "The bachelor degree (180 CFU) is a first cycle degree whose normative time to completion is three years."
+    },
+    "id" : "49",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#LimitedAccessDegree",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LimitedAccessDegree"
+    },
+    "intersection" : [ "6" ],
+    "comment" : {
+      "undefined" : "A degree programme in which places available are limited and enrollment is only possible after overcoming a selection."
+    },
+    "attributes" : [ "intersection" ],
+    "id" : "47"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#AssessmentMethod",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AssessmentMethod"
+    },
+    "individuals" : [ {
+      "iri" : "http://purl.org/ontology/UniOn#OralExam",
+      "baseIri" : "http://purl.org/ontology/UniOn",
+      "comment" : {
+        "undefined" : "An examination in spoken form to show how well a student has understood the material studied in the program."
+      },
+      "labels" : {
+        "IRI-based" : "OralExam",
+        "undefined" : "Oral Exam"
+      }
+    }, {
+      "iri" : "http://purl.org/ontology/UniOn#Eligibility",
+      "baseIri" : "http://purl.org/ontology/UniOn",
+      "comment" : {
+        "undefined" : "Exam without grade (with eligible or not eligible result) which assesses the candidate competencies."
+      },
+      "labels" : {
+        "IRI-based" : "Eligibility",
+        "undefined" : "Eligibility"
+      }
+    }, {
+      "iri" : "http://purl.org/ontology/UniOn#WrittenExam",
+      "baseIri" : "http://purl.org/ontology/UniOn",
+      "comment" : {
+        "undefined" : "An assessment method that requires the student to answer some questions in writing (or electronically)."
+      },
+      "labels" : {
+        "IRI-based" : "WrittenExam",
+        "undefined" : "Written Exam"
+      }
+    }, {
+      "iri" : "http://purl.org/ontology/UniOn#Project",
+      "baseIri" : "http://purl.org/ontology/UniOn",
+      "comment" : {
+        "undefined" : "Project-based assessments are an alternative to tests that allow students to engage with their learning in more concrete ways. Instead of merely studying theory, a hands-on project asks students to apply what they've learned to an in-depth exploration of a topic."
+      },
+      "labels" : {
+        "IRI-based" : "Project",
+        "undefined" : "Project"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "The evaluation modality for each educational activity (e.g. Written exam, Oral exam etc.)"
+    },
+    "id" : "66"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#EducationalActivity",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "EducationalActivity"
+    },
+    "subClasses" : [ "17", "37", "59", "74", "31" ],
+    "comment" : {
+      "undefined" : "Any kind of educational activity: exams, internships, laboratories, seminars etc."
+    },
+    "id" : "2"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#Department",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Department"
+    },
+    "comment" : {
+      "undefined" : "Organizational structure that within Italian universities promotes and coordinates the activities of one or more sectors of scientific research that are homogeneous in terms of aims and methods."
+    },
+    "id" : "16"
+  } ],
+  "property" : [ {
+    "id" : "1",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "4",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "8",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "10",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "12",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "15",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "18",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "20",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "23",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "26",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "32",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "34",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "38",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "40",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "43",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "45",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "46",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "48",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "51",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "52",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "42",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "54",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "56",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "58",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "60",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "61",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "62",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "64",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "65",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "67",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "68",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "69",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "70",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "71",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "73",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "75",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "53",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "76",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "77",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "78",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "63",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "55",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "72",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "79",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "80",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "21",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "81",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "39",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "82",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "14",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "83",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "57",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "84",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "86",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "87",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "85",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "88",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "89",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "90",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "91",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "92",
+    "type" : "rdfs:SubClassOf"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "http://purl.org/ontology/UniOn#hasTeachingCode",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "hasTeachingCode"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "A numerical code chosen by each university to univocally identify its educational activities."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "1"
+  }, {
+    "range" : "6",
+    "domain" : "5",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "4"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasTeachingLanguage",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "hasTeachingLanguage"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "The language in which the degree programme is taught."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "8"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasAcademicYear",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "11",
+    "label" : {
+      "IRI-based" : "hasAcademicYear"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "The period in which the degree programme carries its traning activity."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "10"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#delivers",
+    "inverse" : "14",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "delivers"
+    },
+    "domain" : "13",
+    "comment" : {
+      "undefined" : "A property that relates an italian public university to the degree programmes it delivers."
+    },
+    "attributes" : [ "object" ],
+    "id" : "12"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#manages",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "manages"
+    },
+    "domain" : "16",
+    "comment" : {
+      "undefined" : "A property that associates the university deparment to the degree programme it manages."
+    },
+    "attributes" : [ "object" ],
+    "id" : "15"
+  }, {
+    "range" : "6",
+    "domain" : "19",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "18"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isReleasedBy",
+    "inverse" : "21",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "isReleasedBy"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "A property expressing the official qualification released to the student after the completion of a degree programme."
+    },
+    "attributes" : [ "object" ],
+    "id" : "20"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isCompulsory",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "24",
+    "label" : {
+      "IRI-based" : "isCompulsory"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "The property indicates if an educational activity is compulsory or not."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "23"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasDegreeClass",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "27",
+    "label" : {
+      "IRI-based" : "hasDegreeClass"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "The degree class (a unique code) of each degree programme. (E.g. LM-43 - Information technology methods for the humanities)"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "26"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasCfu",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "28",
+    "label" : {
+      "IRI-based" : "hasCfu"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "The CFUs of a particular educational activity. CFUs (university formative credits) are a numerical measure of the workload for each exam or activity."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "32"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasUrl",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "25",
+    "label" : {
+      "IRI-based" : "hasUrl"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "The Url pointing to the website of the degree programme."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "34"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasCampus",
+    "inverse" : "39",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "0",
+    "label" : {
+      "IRI-based" : "hasCampus"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "A property that associates the degree programme to the particular place where the university campus is located."
+    },
+    "attributes" : [ "object" ],
+    "id" : "38"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasAccessType",
+    "inverse" : "42",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "41",
+    "label" : {
+      "IRI-based" : "hasAccessType"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "A property relating the degree programme to the modality of access it requires."
+    },
+    "attributes" : [ "object" ],
+    "id" : "40"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasIdentifier",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "30",
+    "label" : {
+      "IRI-based" : "hasIdentifier"
+    },
+    "domain" : "44",
+    "comment" : {
+      "undefined" : "A property that expresses the particular identifiers used by the italian university system to describe and identify degree programmes and educational activities. (E.g. Degree Class, Ssd and Teaching Code)"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "43"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasSsd",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "hasSsd"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "The SSD of an educational activity. SSD stands for ‘scientific-disciplinary sectors’: they point to the disciplinary areas to which each educational activity belongs to."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "45"
+  }, {
+    "range" : "36",
+    "domain" : "47",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "46"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasCampus",
+    "inverse" : "39",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "0",
+    "label" : {
+      "IRI-based" : "hasCampus"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "A property that associates the degree programme to the particular place where the university campus is located."
+    },
+    "attributes" : [ "object", "someValues" ],
+    "id" : "48"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#releases",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "7",
+    "label" : {
+      "IRI-based" : "releases"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "A property that relates the degree programme to the official qualification the students receives after completing the study programme."
+    },
+    "attributes" : [ "object", "someValues" ],
+    "id" : "51"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasAcademicField",
+    "inverse" : "53",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "35",
+    "label" : {
+      "IRI-based" : "hasAcademicField"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "A property linking the degree programme to the academic field to which it belongs."
+    },
+    "attributes" : [ "object", "someValues" ],
+    "id" : "52"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isAccessTypeOf",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "isAccessTypeOf"
+    },
+    "domain" : "41",
+    "comment" : {
+      "undefined" : "A property indicating the modality of access a degree programme requires."
+    },
+    "attributes" : [ "object" ],
+    "id" : "42"
+  }, {
+    "iri" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart",
+    "inverse" : "55",
+    "baseIri" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl",
+    "range" : "16",
+    "label" : {
+      "IRI-based" : "hasPart"
+    },
+    "domain" : "13",
+    "comment" : {
+      "undefined" : "A property indicating that one entity (the university) includes another entity (the department)."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "54"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasPlaceOfTeaching",
+    "inverse" : "57",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "0",
+    "label" : {
+      "IRI-based" : "hasPlaceOfTeaching"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "A property that relates the degree programme to the place where its educational activities take place."
+    },
+    "attributes" : [ "object", "someValues" ],
+    "id" : "56"
+  }, {
+    "range" : "59",
+    "domain" : "37",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "58"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isDeliveredBy",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "isDeliveredBy"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "A property indicating the degree programmes delivered by an italian public university."
+    },
+    "attributes" : [ "object", "someValues" ],
+    "id" : "60"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isManagedBy",
+    "inverse" : "15",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "16",
+    "label" : {
+      "IRI-based" : "isManagedBy"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "A property indicating the university department managed by a public italian university."
+    },
+    "attributes" : [ "object", "someValues" ],
+    "id" : "61"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasEducationalActivity",
+    "inverse" : "63",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "hasEducationalActivity"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "A property that associates a degree programme to the educational activities it delivers."
+    },
+    "attributes" : [ "object" ],
+    "id" : "62"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasAcademicField",
+    "inverse" : "53",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "35",
+    "label" : {
+      "IRI-based" : "hasAcademicField"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "A property linking the degree programme to the academic field to which it belongs."
+    },
+    "attributes" : [ "object" ],
+    "id" : "64"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isAssessmentMethodOf",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "isAssessmentMethodOf"
+    },
+    "domain" : "66",
+    "comment" : {
+      "undefined" : "A property expressing  the evaluation modality of an educational activity. Example of an assessment method include an oral or  writtem exam, the subsmission of a project or an eligibility."
+    },
+    "attributes" : [ "object" ],
+    "id" : "65"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasYearsOfDuration",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "22",
+    "label" : {
+      "IRI-based" : "hasYearsOfDuration"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "The duration of a degree programme."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "67"
+  }, {
+    "range" : "19",
+    "domain" : "49",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "68"
+  }, {
+    "range" : "5",
+    "domain" : "49",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "69"
+  }, {
+    "range" : "5",
+    "domain" : "19",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "70"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasCurriculum",
+    "inverse" : "72",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "33",
+    "label" : {
+      "IRI-based" : "hasCurriculum"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "A property linking a degree programme to the curricula it offers."
+    },
+    "attributes" : [ "object" ],
+    "id" : "71"
+  }, {
+    "range" : "31",
+    "domain" : "74",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "73"
+  }, {
+    "range" : "37",
+    "domain" : "74",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "75"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isAcademicFieldOf",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "isAcademicFieldOf"
+    },
+    "domain" : "35",
+    "comment" : {
+      "undefined" : "A property describing the academic field to which a degree programme belongs."
+    },
+    "attributes" : [ "object" ],
+    "id" : "53"
+  }, {
+    "range" : "59",
+    "domain" : "74",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "76"
+  }, {
+    "range" : "37",
+    "domain" : "31",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "77"
+  }, {
+    "range" : "59",
+    "domain" : "31",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "78"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isEducationalActivityOf",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "isEducationalActivityOf"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "A property indicating the educational activity delivered by a degree programme."
+    },
+    "attributes" : [ "object" ],
+    "id" : "63"
+  }, {
+    "iri" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf",
+    "baseIri" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "isPartOf"
+    },
+    "domain" : "16",
+    "comment" : {
+      "undefined" : "A property indicating that one entity (the department) is a part of another entity (the university)."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "55"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isCurriculumOf",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "isCurriculumOf"
+    },
+    "domain" : "33",
+    "comment" : {
+      "undefined" : "A property that  indicates the curricula offered by the same degree programme."
+    },
+    "attributes" : [ "object" ],
+    "id" : "72"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isAccessTypeOf",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "isAccessTypeOf"
+    },
+    "domain" : "41",
+    "comment" : {
+      "undefined" : "A property indicating the modality of access a degree programme requires."
+    },
+    "attributes" : [ "object", "someValues" ],
+    "id" : "79"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isAssessmentMethodOf",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "isAssessmentMethodOf"
+    },
+    "domain" : "66",
+    "comment" : {
+      "undefined" : "A property expressing  the evaluation modality of an educational activity. Example of an assessment method include an oral or  writtem exam, the subsmission of a project or an eligibility."
+    },
+    "attributes" : [ "object", "someValues" ],
+    "id" : "80"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#releases",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "7",
+    "label" : {
+      "IRI-based" : "releases"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "A property that relates the degree programme to the official qualification the students receives after completing the study programme."
+    },
+    "attributes" : [ "object" ],
+    "id" : "21"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasAssessmentMethod",
+    "inverse" : "65",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "66",
+    "label" : {
+      "IRI-based" : "hasAssessmentMethod"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "A property that relates an educational activity to a particular evaluation modality. Example of an assessment method include an oral or  writtem exam, the subsmission of a project or an eligibility."
+    },
+    "attributes" : [ "object" ],
+    "id" : "81"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isCampusOf",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "isCampusOf"
+    },
+    "domain" : "0",
+    "comment" : {
+      "undefined" : "A property indicating the place where the campus of a particular degree programme is located."
+    },
+    "attributes" : [ "object" ],
+    "id" : "39"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#hasPlaceOfTeaching",
+    "inverse" : "57",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "0",
+    "label" : {
+      "IRI-based" : "hasPlaceOfTeaching"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "A property that relates the degree programme to the place where its educational activities take place."
+    },
+    "attributes" : [ "object" ],
+    "id" : "82"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isDeliveredBy",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "isDeliveredBy"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "A property indicating the degree programmes delivered by an italian public university."
+    },
+    "attributes" : [ "object" ],
+    "id" : "14"
+  }, {
+    "range" : "2",
+    "domain" : "74",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "83"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isPlaceOfTeachingOf",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "isPlaceOfTeachingOf"
+    },
+    "domain" : "0",
+    "comment" : {
+      "undefined" : "A property that indicates the location where the degree programme's educational acitvities take place."
+    },
+    "attributes" : [ "object" ],
+    "id" : "57"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isOfferedBy",
+    "inverse" : "85",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "isOfferedBy"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "Superproperty that joins an educational activity to a particular italian public university via the degree programme."
+    },
+    "attributes" : [ "object" ],
+    "id" : "84"
+  }, {
+    "range" : "2",
+    "domain" : "59",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "86"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#isManagedBy",
+    "inverse" : "15",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "16",
+    "label" : {
+      "IRI-based" : "isManagedBy"
+    },
+    "domain" : "6",
+    "comment" : {
+      "undefined" : "A property indicating the university department managed by a public italian university."
+    },
+    "attributes" : [ "object" ],
+    "id" : "87"
+  }, {
+    "iri" : "http://purl.org/ontology/UniOn#offers",
+    "baseIri" : "http://purl.org/ontology/UniOn",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "offers"
+    },
+    "domain" : "13",
+    "comment" : {
+      "undefined" : "Superproperty that joins an italian public university with a particular educational activity via the degree programme."
+    },
+    "attributes" : [ "object" ],
+    "id" : "85"
+  }, {
+    "range" : "2",
+    "domain" : "31",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "88"
+  }, {
+    "range" : "6",
+    "domain" : "50",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "89"
+  }, {
+    "range" : "6",
+    "domain" : "49",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "90"
+  }, {
+    "range" : "2",
+    "domain" : "37",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "91"
+  }, {
+    "range" : "2",
+    "domain" : "17",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "92"
+  } ]
+}
