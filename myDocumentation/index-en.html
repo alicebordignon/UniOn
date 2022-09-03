@@ -1,0 +1,2578 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+ <link rel="stylesheet" href="resources/primer.css" media="screen" />    <link rel="stylesheet" href="resources/rec.css" media="screen" />    <link rel="stylesheet" href="resources/extra.css" media="screen" />    <link rel="stylesheet" href="resources/owl.css" media="screen" />    <title>UniOn</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://purl.org/ontology/UniOn","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://purl.org/ontology/UniOn","name":"UniOn", "headline":"UniOn is an ontology representing Universities educational offer. It includes information to describe academic fields, degree programs, access methods and requirements, educational activities, titles and qualifications, location, organization and more", "datePublished":"Sat Sep 03 18:52:48 CEST 2022"}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>UniOn</h1>
+
+
+<dl>
+<dt>This version:</dt>
+<dd><a href="http://purl.org/ontology/UniOn/09-2022">http://purl.org/ontology/UniOn/09-2022</a></dd>
+<dt>Latest version:</dt>
+<dd><a href="http://purl.org/ontology/UniOn">http://purl.org/ontology/UniOn</a></dd>
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.rdf" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://insertlicenseURIhere.org" target="_blank"><img src="https://img.shields.io/badge/License-license%20name%20goes%20here-blue.svg" alt="http://insertlicenseURIhere.org" /></a>
+</dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
+<!-- <dt>Evaluation:</dt><dd><a href="OOPSEvaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --></dl>
+
+<hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
+UniOn is an ontology representing Universities educational offer. It includes information to describe academic fields, degree programs, access methods and requirements, educational activities, titles and qualifications, location, organization and more</span>
+</div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>uo</b></td><td>&lt;http://purl.org/ontology/UniOn&gt;</td></tr>
+<tr><td></td><td></td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema&gt;</td></tr>
+<tr><td><b>DUL</b></td><td>&lt;http://www.ontologydesignpatterns.org/ont/dul/DUL.owl&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">UniOn: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="hlist">
+   <li>
+      <a href="#AcademicField" title="http://purl.org/ontology/UniOn#AcademicField">
+         <span>academic field</span>
+      </a>
+   </li>
+   <li>
+      <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">
+         <span>access type</span>
+      </a>
+   </li>
+   <li>
+      <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">
+         <span>assessment method</span>
+      </a>
+   </li>
+   <li>
+      <a href="#BachelorDegree" title="http://purl.org/ontology/UniOn#BachelorDegree">
+         <span>bachelor degree</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Course" title="http://purl.org/ontology/UniOn#Course">
+         <span>course</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Curriculum" title="http://purl.org/ontology/UniOn#Curriculum">
+         <span>curriculum</span>
+      </a>
+   </li>
+   <li>
+      <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">
+         <span>degree programme</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Department" title="http://purl.org/ontology/UniOn#Department">
+         <span>department</span>
+      </a>
+   </li>
+   <li>
+      <a href="#EducationalActivity"
+         title="http://purl.org/ontology/UniOn#EducationalActivity">
+         <span>educational activity</span>
+      </a>
+   </li>
+   <li>
+      <a href="#FinalTest" title="http://purl.org/ontology/UniOn#FinalTest">
+         <span>final test</span>
+      </a>
+   </li>
+   <li>
+      <a href="#InternationalDegree"
+         title="http://purl.org/ontology/UniOn#InternationalDegree">
+         <span>international degree</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Internship" title="http://purl.org/ontology/UniOn#Internship">
+         <span>internship</span>
+      </a>
+   </li>
+   <li>
+      <a href="#ItalianPublicUniversity"
+         title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">
+         <span>italian public university</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Laboratory" title="http://purl.org/ontology/UniOn#Laboratory">
+         <span>laboratory</span>
+      </a>
+   </li>
+   <li>
+      <a href="#LimitedAccessDegree"
+         title="http://purl.org/ontology/UniOn#LimitedAccessDegree">
+         <span>limited access degree</span>
+      </a>
+   </li>
+   <li>
+      <a href="#MasterDegree" title="http://purl.org/ontology/UniOn#MasterDegree">
+         <span>master degree</span>
+      </a>
+   </li>
+   <li>
+      <a href="#OpenAccessDegree" title="http://purl.org/ontology/UniOn#OpenAccessDegree">
+         <span>open access degree</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+         title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">
+         <span>place</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">
+         <span>qualification</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Seminar" title="http://purl.org/ontology/UniOn#Seminar">
+         <span>seminar</span>
+      </a>
+   </li>
+   <li>
+      <a href="#SingleCycleDegree" title="http://purl.org/ontology/UniOn#SingleCycleDegree">
+         <span>single cycle degree</span>
+      </a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="hlist">
+   <li>
+      <a href="#delivers" title="http://purl.org/ontology/UniOn#delivers">
+         <span>delivers</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasAcademicField" title="http://purl.org/ontology/UniOn#hasAcademicField">
+         <span>has academic field</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasAccessType" title="http://purl.org/ontology/UniOn#hasAccessType">
+         <span>has access type</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasAssessmentMethod"
+         title="http://purl.org/ontology/UniOn#hasAssessmentMethod">
+         <span>has assessment method</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasCampus" title="http://purl.org/ontology/UniOn#hasCampus">
+         <span>has campus</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasCurriculum" title="http://purl.org/ontology/UniOn#hasCurriculum">
+         <span>has curriculum</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasEducationalActivity"
+         title="http://purl.org/ontology/UniOn#hasEducationalActivity">
+         <span>has educational activity</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart"
+         title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart">
+         <span>has part</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasPlaceOfTeaching"
+         title="http://purl.org/ontology/UniOn#hasPlaceOfTeaching">
+         <span>has place of teaching</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isAcademicFieldOf" title="http://purl.org/ontology/UniOn#isAcademicFieldOf">
+         <span>is academic field of</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isAccessTypeOf" title="http://purl.org/ontology/UniOn#isAccessTypeOf">
+         <span>is access type of</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isAssessmentMethodOf"
+         title="http://purl.org/ontology/UniOn#isAssessmentMethodOf">
+         <span>is assessment method of</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isCampusOf" title="http://purl.org/ontology/UniOn#isCampusOf">
+         <span>is campus of</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isCurriculumOf" title="http://purl.org/ontology/UniOn#isCurriculumOf">
+         <span>is curriculum of</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isDeliveredBy" title="http://purl.org/ontology/UniOn#isDeliveredBy">
+         <span>is delivered by</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isEducationalActivityOf"
+         title="http://purl.org/ontology/UniOn#isEducationalActivityOf">
+         <span>is educational activity of</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isManagedBy" title="http://purl.org/ontology/UniOn#isManagedBy">
+         <span>is managed by</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isOfferedBy" title="http://purl.org/ontology/UniOn#isOfferedBy">
+         <span>is offered by</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"
+         title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf">
+         <span>is part of</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isPlaceOfTeachingOf"
+         title="http://purl.org/ontology/UniOn#isPlaceOfTeachingOf">
+         <span>is place of teaching of</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isReleasedBy" title="http://purl.org/ontology/UniOn#isReleasedBy">
+         <span>is released by</span>
+      </a>
+   </li>
+   <li>
+      <a href="#manages" title="http://purl.org/ontology/UniOn#manages">
+         <span>manages</span>
+      </a>
+   </li>
+   <li>
+      <a href="#offers" title="http://purl.org/ontology/UniOn#offers">
+         <span>offers</span>
+      </a>
+   </li>
+   <li>
+      <a href="#releases" title="http://purl.org/ontology/UniOn#releases">
+         <span>releases</span>
+      </a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="hlist">
+   <li>
+      <a href="#hasAcademicYear" title="http://purl.org/ontology/UniOn#hasAcademicYear">
+         <span>has academic year</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasCfu" title="http://purl.org/ontology/UniOn#hasCfu">
+         <span>has cfu</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasDegreeClass" title="http://purl.org/ontology/UniOn#hasDegreeClass">
+         <span>has degree class</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasIdentifier" title="http://purl.org/ontology/UniOn#hasIdentifier">
+         <span>has identifier</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasSsd" title="http://purl.org/ontology/UniOn#hasSsd">
+         <span>has ssd</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasTeachingCode" title="http://purl.org/ontology/UniOn#hasTeachingCode">
+         <span>has teaching code</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasTeachingLanguage"
+         title="http://purl.org/ontology/UniOn#hasTeachingLanguage">
+         <span>has teaching language</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasUrl" title="http://purl.org/ontology/UniOn#hasUrl">
+         <span>has url</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasYearsOfDuration"
+         title="http://purl.org/ontology/UniOn#hasYearsOfDuration">
+         <span>has years of duration</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isCompulsory" title="http://purl.org/ontology/UniOn#isCompulsory">
+         <span>is compulsory</span>
+      </a>
+   </li>
+</ul><h4>Named Individuals</h4><ul xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" class="hlist">
+   <li>
+      <a href="#Eligibility" title="http://purl.org/ontology/UniOn#Eligibility">Eligibility</a>
+   </li>
+   <li>
+      <a href="#JointQualification"
+         title="http://purl.org/ontology/UniOn#JointQualification">Joint Qualification</a>
+   </li>
+   <li>
+      <a href="#LimitedAccess" title="http://purl.org/ontology/UniOn#LimitedAccess">Limited Access</a>
+   </li>
+   <li>
+      <a href="#MultipleQualification"
+         title="http://purl.org/ontology/UniOn#MultipleQualification">Multiple Qualification</a>
+   </li>
+   <li>
+      <a href="#OpenAccess" title="http://purl.org/ontology/UniOn#OpenAccess">Open Access</a>
+   </li>
+   <li>
+      <a href="#OralExam" title="http://purl.org/ontology/UniOn#OralExam">Oral Exam</a>
+   </li>
+   <li>
+      <a href="#Project" title="http://purl.org/ontology/UniOn#Project">Project</a>
+   </li>
+   <li>
+      <a href="#SingleQualification"
+         title="http://purl.org/ontology/UniOn#SingleQualification">Single Qualification</a>
+   </li>
+   <li>
+      <a href="#WrittenExam" title="http://purl.org/ontology/UniOn#WrittenExam">Written Exam</a>
+   </li>
+</ul><iframe align="center" width="100%" height ="500px" src="webvowl/index.html"></iframe> 
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">UniOn: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This is a placeholder text for the description of your ontology. The description should include an explanation and a diagram explaining how the classes are related, examples of usage, etc.</span>
+
+</div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for UniOn classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by UniOn.
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+   <h3 id="classes-headline" class="list">Classes</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#AcademicField" title="http://purl.org/ontology/UniOn#AcademicField">
+            <span>academic field</span>
+         </a>
+      </li>
+      <li>
+         <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">
+            <span>access type</span>
+         </a>
+      </li>
+      <li>
+         <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">
+            <span>assessment method</span>
+         </a>
+      </li>
+      <li>
+         <a href="#BachelorDegree" title="http://purl.org/ontology/UniOn#BachelorDegree">
+            <span>bachelor degree</span>
+         </a>
+      </li>
+      <li>
+         <a href="#Course" title="http://purl.org/ontology/UniOn#Course">
+            <span>course</span>
+         </a>
+      </li>
+      <li>
+         <a href="#Curriculum" title="http://purl.org/ontology/UniOn#Curriculum">
+            <span>curriculum</span>
+         </a>
+      </li>
+      <li>
+         <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">
+            <span>degree programme</span>
+         </a>
+      </li>
+      <li>
+         <a href="#Department" title="http://purl.org/ontology/UniOn#Department">
+            <span>department</span>
+         </a>
+      </li>
+      <li>
+         <a href="#EducationalActivity"
+            title="http://purl.org/ontology/UniOn#EducationalActivity">
+            <span>educational activity</span>
+         </a>
+      </li>
+      <li>
+         <a href="#FinalTest" title="http://purl.org/ontology/UniOn#FinalTest">
+            <span>final test</span>
+         </a>
+      </li>
+      <li>
+         <a href="#InternationalDegree"
+            title="http://purl.org/ontology/UniOn#InternationalDegree">
+            <span>international degree</span>
+         </a>
+      </li>
+      <li>
+         <a href="#Internship" title="http://purl.org/ontology/UniOn#Internship">
+            <span>internship</span>
+         </a>
+      </li>
+      <li>
+         <a href="#ItalianPublicUniversity"
+            title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">
+            <span>italian public university</span>
+         </a>
+      </li>
+      <li>
+         <a href="#Laboratory" title="http://purl.org/ontology/UniOn#Laboratory">
+            <span>laboratory</span>
+         </a>
+      </li>
+      <li>
+         <a href="#LimitedAccessDegree"
+            title="http://purl.org/ontology/UniOn#LimitedAccessDegree">
+            <span>limited access degree</span>
+         </a>
+      </li>
+      <li>
+         <a href="#MasterDegree" title="http://purl.org/ontology/UniOn#MasterDegree">
+            <span>master degree</span>
+         </a>
+      </li>
+      <li>
+         <a href="#OpenAccessDegree" title="http://purl.org/ontology/UniOn#OpenAccessDegree">
+            <span>open access degree</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+            title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">
+            <span>place</span>
+         </a>
+      </li>
+      <li>
+         <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">
+            <span>qualification</span>
+         </a>
+      </li>
+      <li>
+         <a href="#Seminar" title="http://purl.org/ontology/UniOn#Seminar">
+            <span>seminar</span>
+         </a>
+      </li>
+      <li>
+         <a href="#SingleCycleDegree" title="http://purl.org/ontology/UniOn#SingleCycleDegree">
+            <span>single cycle degree</span>
+         </a>
+      </li>
+   </ul>
+   <div class="entity" id="AcademicField">
+      <h3>academic field<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#AcademicField</p>
+      <div class="comment">
+         <span class="markdown">The fields involved in an educational offer of a university (e.g. Humanities, Business, Sciences etc.).</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#isAcademicFieldOf" title="http://purl.org/ontology/UniOn#isAcademicFieldOf">is academic field of</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasAcademicField" title="http://purl.org/ontology/UniOn#hasAcademicField">has academic field</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="AccessType">
+      <h3>access type<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#AccessType</p>
+      <div class="comment">
+         <span class="markdown">The modality of  access the degree courses require.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd/>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#isAccessTypeOf" title="http://purl.org/ontology/UniOn#isAccessTypeOf">is access type of</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasAccessType" title="http://purl.org/ontology/UniOn#hasAccessType">has access type</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#LimitedAccess" title="http://purl.org/ontology/UniOn#LimitedAccess">Limited Access</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OpenAccess" title="http://purl.org/ontology/UniOn#OpenAccess">Open Access</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="AssessmentMethod">
+      <h3>assessment method<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#AssessmentMethod</p>
+      <div class="comment">
+         <span class="markdown">The evaluation modality for each educational activity (e.g. Written exam, Oral exam etc.)</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd/>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#isAssessmentMethodOf"
+               title="http://purl.org/ontology/UniOn#isAssessmentMethodOf">is assessment method of</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasAssessmentMethod"
+               title="http://purl.org/ontology/UniOn#hasAssessmentMethod">has assessment method</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#Eligibility" title="http://purl.org/ontology/UniOn#Eligibility">Eligibility</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#OralExam" title="http://purl.org/ontology/UniOn#OralExam">Oral Exam</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#Project" title="http://purl.org/ontology/UniOn#Project">Project</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#WrittenExam" title="http://purl.org/ontology/UniOn#WrittenExam">Written Exam</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="BachelorDegree">
+      <h3>bachelor degree<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#BachelorDegree</p>
+      <div class="comment">
+         <span class="markdown">The bachelor degree (180 CFU) is a first cycle degree whose normative time to completion is three years.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#MasterDegree" title="http://purl.org/ontology/UniOn#MasterDegree">master degree</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#SingleCycleDegree" title="http://purl.org/ontology/UniOn#SingleCycleDegree">single cycle degree</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Course">
+      <h3>course<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#Course</p>
+      <div class="comment">
+         <span class="markdown">A university course is made up of a set of lessons held by one teacher or several teachers.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#Internship" title="http://purl.org/ontology/UniOn#Internship">internship</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Laboratory" title="http://purl.org/ontology/UniOn#Laboratory">laboratory</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Seminar" title="http://purl.org/ontology/UniOn#Seminar">seminar</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Curriculum">
+      <h3>curriculum<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#Curriculum</p>
+      <div class="comment">
+         <span class="markdown">The same degree program can have multiple curricula that include different  training activities. E.g.  For the degree course in "Literature", it is possible to choose between the curriculum in Classical or Modern studies.</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#isCurriculumOf" title="http://purl.org/ontology/UniOn#isCurriculumOf">is curriculum of</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasCurriculum" title="http://purl.org/ontology/UniOn#hasCurriculum">has curriculum</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="DegreeProgramme">
+      <h3>degree programme<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#DegreeProgramme</p>
+      <div class="comment">
+         <span class="markdown">A university-specific degree programme referring to a more general academic field (e.g. Digital Humanities and Digital Knowledge degree programme at UniBo)</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd/>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#BachelorDegree" title="http://purl.org/ontology/UniOn#BachelorDegree">bachelor degree</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#InternationalDegree"
+               title="http://purl.org/ontology/UniOn#InternationalDegree">international degree</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#MasterDegree" title="http://purl.org/ontology/UniOn#MasterDegree">master degree</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#SingleCycleDegree" title="http://purl.org/ontology/UniOn#SingleCycleDegree">single cycle degree</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#hasAcademicField" title="http://purl.org/ontology/UniOn#hasAcademicField">has academic field</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasAcademicYear" title="http://purl.org/ontology/UniOn#hasAcademicYear">has academic year</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasAccessType" title="http://purl.org/ontology/UniOn#hasAccessType">has access type</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasCampus" title="http://purl.org/ontology/UniOn#hasCampus">has campus</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasCurriculum" title="http://purl.org/ontology/UniOn#hasCurriculum">has curriculum</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasDegreeClass" title="http://purl.org/ontology/UniOn#hasDegreeClass">has degree class</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasEducationalActivity"
+               title="http://purl.org/ontology/UniOn#hasEducationalActivity">has educational activity</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasPlaceOfTeaching"
+               title="http://purl.org/ontology/UniOn#hasPlaceOfTeaching">has place of teaching</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasTeachingLanguage"
+               title="http://purl.org/ontology/UniOn#hasTeachingLanguage">has teaching language</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasUrl" title="http://purl.org/ontology/UniOn#hasUrl">has url</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasYearsOfDuration"
+               title="http://purl.org/ontology/UniOn#hasYearsOfDuration">has years of duration</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#isDeliveredBy" title="http://purl.org/ontology/UniOn#isDeliveredBy">is delivered by</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isManagedBy" title="http://purl.org/ontology/UniOn#isManagedBy">is managed by</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#releases" title="http://purl.org/ontology/UniOn#releases">releases</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#delivers" title="http://purl.org/ontology/UniOn#delivers">delivers</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isAcademicFieldOf" title="http://purl.org/ontology/UniOn#isAcademicFieldOf">is academic field of</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isAccessTypeOf" title="http://purl.org/ontology/UniOn#isAccessTypeOf">is access type of</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isCampusOf" title="http://purl.org/ontology/UniOn#isCampusOf">is campus of</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isCurriculumOf" title="http://purl.org/ontology/UniOn#isCurriculumOf">is curriculum of</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isEducationalActivityOf"
+               title="http://purl.org/ontology/UniOn#isEducationalActivityOf">is educational activity of</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isPlaceOfTeachingOf"
+               title="http://purl.org/ontology/UniOn#isPlaceOfTeachingOf">is place of teaching of</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isReleasedBy" title="http://purl.org/ontology/UniOn#isReleasedBy">is released by</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#manages" title="http://purl.org/ontology/UniOn#manages">manages</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Department">
+      <h3>department<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#Department</p>
+      <div class="comment">
+         <span class="markdown">Organizational structure that within Italian universities promotes and coordinates the activities of one or more sectors of scientific research that are homogeneous in terms of aims and methods.</span>
+      </div>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>(<a href="#manages" title="http://purl.org/ontology/UniOn#manages">manages</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">some</span> 
+            <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf">is part of</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">some</span> 
+            <a href="#ItalianPublicUniversity"
+               title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+            <sup class="type-c" title="class">c</sup>)</dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf">is part of</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#manages" title="http://purl.org/ontology/UniOn#manages">manages</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart">has part</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isManagedBy" title="http://purl.org/ontology/UniOn#isManagedBy">is managed by</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="EducationalActivity">
+      <h3>educational activity<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#EducationalActivity</p>
+      <div class="comment">
+         <span class="markdown">Any kind of educational activity: exams, internships, laboratories, seminars etc.</span>
+      </div>
+      <dl class="description">
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#Course" title="http://purl.org/ontology/UniOn#Course">course</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#FinalTest" title="http://purl.org/ontology/UniOn#FinalTest">final test</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Internship" title="http://purl.org/ontology/UniOn#Internship">internship</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Laboratory" title="http://purl.org/ontology/UniOn#Laboratory">laboratory</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Seminar" title="http://purl.org/ontology/UniOn#Seminar">seminar</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#hasAssessmentMethod"
+               title="http://purl.org/ontology/UniOn#hasAssessmentMethod">has assessment method</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasCfu" title="http://purl.org/ontology/UniOn#hasCfu">has cfu</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasSsd" title="http://purl.org/ontology/UniOn#hasSsd">has ssd</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasTeachingCode" title="http://purl.org/ontology/UniOn#hasTeachingCode">has teaching code</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#isCompulsory" title="http://purl.org/ontology/UniOn#isCompulsory">is compulsory</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#isEducationalActivityOf"
+               title="http://purl.org/ontology/UniOn#isEducationalActivityOf">is educational activity of</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isOfferedBy" title="http://purl.org/ontology/UniOn#isOfferedBy">is offered by</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasEducationalActivity"
+               title="http://purl.org/ontology/UniOn#hasEducationalActivity">has educational activity</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isAssessmentMethodOf"
+               title="http://purl.org/ontology/UniOn#isAssessmentMethodOf">is assessment method of</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#offers" title="http://purl.org/ontology/UniOn#offers">offers</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="FinalTest">
+      <h3>final test<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#FinalTest</p>
+      <div class="comment">
+         <span class="markdown">The final examination: it consists in producing a dissertation on a topic that is consistent with the learning objectives of the degree programme, drafted in an original manner under the guidance of a supervising professor</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="InternationalDegree">
+      <h3>international degree<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#InternationalDegree</p>
+      <div class="comment">
+         <span class="markdown">A degree programme delivered in a foreign language.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Internship">
+      <h3>internship<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#Internship</p>
+      <div class="comment">
+         <span class="markdown">An internship is a period of work experience offered by an organization or an institution for a limited period of time.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#Course" title="http://purl.org/ontology/UniOn#Course">course</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Laboratory" title="http://purl.org/ontology/UniOn#Laboratory">laboratory</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Seminar" title="http://purl.org/ontology/UniOn#Seminar">seminar</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="ItalianPublicUniversity">
+      <h3>italian public university<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#ItalianPublicUniversity</p>
+      <div class="comment">
+         <span class="markdown">A specific public italian university (e.g. Unibo)</span>
+      </div>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>(<a href="#delivers" title="http://purl.org/ontology/UniOn#delivers">delivers</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">min</span> 1 <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart">has part</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">min</span> 1 <a href="#Department" title="http://purl.org/ontology/UniOn#Department">department</a>
+            <sup class="type-c" title="class">c</sup>)</dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#delivers" title="http://purl.org/ontology/UniOn#delivers">delivers</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart">has part</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#offers" title="http://purl.org/ontology/UniOn#offers">offers</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#isDeliveredBy" title="http://purl.org/ontology/UniOn#isDeliveredBy">is delivered by</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isOfferedBy" title="http://purl.org/ontology/UniOn#isOfferedBy">is offered by</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf">is part of</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Laboratory">
+      <h3>laboratory<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#Laboratory</p>
+      <div class="comment">
+         <span class="markdown">A laboratory deals with specific topics related to the degree programme and involves practical activities.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#Course" title="http://purl.org/ontology/UniOn#Course">course</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Internship" title="http://purl.org/ontology/UniOn#Internship">internship</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Seminar" title="http://purl.org/ontology/UniOn#Seminar">seminar</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="LimitedAccessDegree">
+      <h3>limited access degree<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#LimitedAccessDegree</p>
+      <div class="comment">
+         <span class="markdown">A degree programme in which places available are limited and enrollment is only possible after overcoming a selection.</span>
+      </div>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>
+            <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup> 
+            <span class="logic">and</span> (<a href="#hasAccessType" title="http://purl.org/ontology/UniOn#hasAccessType">has access type</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">value</span> 
+            <a href="#LimitedAccess" title="http://purl.org/ontology/UniOn#LimitedAccess">Limited Access</a>)</dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#OpenAccessDegree" title="http://purl.org/ontology/UniOn#OpenAccessDegree">open access degree</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="MasterDegree">
+      <h3>master degree<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#MasterDegree</p>
+      <div class="comment">
+         <span class="markdown">The master degree is a second cycle degree (120 CFU) which can be earned in a two-year programme after the bachelor degree.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#BachelorDegree" title="http://purl.org/ontology/UniOn#BachelorDegree">bachelor degree</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#SingleCycleDegree" title="http://purl.org/ontology/UniOn#SingleCycleDegree">single cycle degree</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="OpenAccessDegree">
+      <h3>open access degree<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#OpenAccessDegree</p>
+      <div class="comment">
+         <span class="markdown">A degree programme in which there is no maximum number of available places and enrollment does not entail passing through a selection. An entry test, however may be required.</span>
+      </div>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>
+            <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup> 
+            <span class="logic">and</span> (<a href="#hasAccessType" title="http://purl.org/ontology/UniOn#hasAccessType">has access type</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="logic">value</span> 
+            <a href="#OpenAccess" title="http://purl.org/ontology/UniOn#OpenAccess">Open Access</a>)</dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#LimitedAccessDegree"
+               title="http://purl.org/ontology/UniOn#LimitedAccessDegree">limited access degree</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">
+      <h3>place<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place</p>
+      <div class="comment">
+         <span class="markdown">Place where the educational activity takes place and where the university campus is located.</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#isCampusOf" title="http://purl.org/ontology/UniOn#isCampusOf">is campus of</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#isPlaceOfTeachingOf"
+               title="http://purl.org/ontology/UniOn#isPlaceOfTeachingOf">is place of teaching of</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasCampus" title="http://purl.org/ontology/UniOn#hasCampus">has campus</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasPlaceOfTeaching"
+               title="http://purl.org/ontology/UniOn#hasPlaceOfTeaching">has place of teaching</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Qualification">
+      <h3>qualification<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#Qualification</p>
+      <div class="comment">
+         <span class="markdown">A qualification (or degree) is the official record of achievement you receive after completing a programme of study. There are several types of qualifications varying in level of study and length of time.</span>
+      </div>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#isReleasedBy" title="http://purl.org/ontology/UniOn#isReleasedBy">is released by</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#releases" title="http://purl.org/ontology/UniOn#releases">releases</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#JointQualification"
+               title="http://purl.org/ontology/UniOn#JointQualification">Joint Qualification</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#MultipleQualification"
+               title="http://purl.org/ontology/UniOn#MultipleQualification">Multiple Qualification</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#SingleQualification"
+               title="http://purl.org/ontology/UniOn#SingleQualification">Single Qualification</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Seminar">
+      <h3>seminar<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#Seminar</p>
+      <div class="comment">
+         <span class="markdown">University seminars deal with a specific topic within a discipline from several points of view, involving specialists both internal and external to the university encouraging students to actively participate.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#Course" title="http://purl.org/ontology/UniOn#Course">course</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Internship" title="http://purl.org/ontology/UniOn#Internship">internship</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Laboratory" title="http://purl.org/ontology/UniOn#Laboratory">laboratory</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="SingleCycleDegree">
+      <h3>single cycle degree<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#SingleCycleDegree</p>
+      <div class="comment">
+         <span class="markdown">The single cycle degree is a five or six year degree (300 or 360 CFU), which does not require a previous first cycle degree for the admission</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#BachelorDegree" title="http://purl.org/ontology/UniOn#BachelorDegree">bachelor degree</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#MasterDegree" title="http://purl.org/ontology/UniOn#MasterDegree">master degree</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+</div><div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+   <h3 id="properties" class="list">Object Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#delivers" title="http://purl.org/ontology/UniOn#delivers">
+            <span>delivers</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasAcademicField" title="http://purl.org/ontology/UniOn#hasAcademicField">
+            <span>has academic field</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasAccessType" title="http://purl.org/ontology/UniOn#hasAccessType">
+            <span>has access type</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasAssessmentMethod"
+            title="http://purl.org/ontology/UniOn#hasAssessmentMethod">
+            <span>has assessment method</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasCampus" title="http://purl.org/ontology/UniOn#hasCampus">
+            <span>has campus</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasCurriculum" title="http://purl.org/ontology/UniOn#hasCurriculum">
+            <span>has curriculum</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasEducationalActivity"
+            title="http://purl.org/ontology/UniOn#hasEducationalActivity">
+            <span>has educational activity</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart"
+            title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart">
+            <span>has part</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasPlaceOfTeaching"
+            title="http://purl.org/ontology/UniOn#hasPlaceOfTeaching">
+            <span>has place of teaching</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isAcademicFieldOf" title="http://purl.org/ontology/UniOn#isAcademicFieldOf">
+            <span>is academic field of</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isAccessTypeOf" title="http://purl.org/ontology/UniOn#isAccessTypeOf">
+            <span>is access type of</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isAssessmentMethodOf"
+            title="http://purl.org/ontology/UniOn#isAssessmentMethodOf">
+            <span>is assessment method of</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isCampusOf" title="http://purl.org/ontology/UniOn#isCampusOf">
+            <span>is campus of</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isCurriculumOf" title="http://purl.org/ontology/UniOn#isCurriculumOf">
+            <span>is curriculum of</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isDeliveredBy" title="http://purl.org/ontology/UniOn#isDeliveredBy">
+            <span>is delivered by</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isEducationalActivityOf"
+            title="http://purl.org/ontology/UniOn#isEducationalActivityOf">
+            <span>is educational activity of</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isManagedBy" title="http://purl.org/ontology/UniOn#isManagedBy">
+            <span>is managed by</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isOfferedBy" title="http://purl.org/ontology/UniOn#isOfferedBy">
+            <span>is offered by</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"
+            title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf">
+            <span>is part of</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isPlaceOfTeachingOf"
+            title="http://purl.org/ontology/UniOn#isPlaceOfTeachingOf">
+            <span>is place of teaching of</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isReleasedBy" title="http://purl.org/ontology/UniOn#isReleasedBy">
+            <span>is released by</span>
+         </a>
+      </li>
+      <li>
+         <a href="#manages" title="http://purl.org/ontology/UniOn#manages">
+            <span>manages</span>
+         </a>
+      </li>
+      <li>
+         <a href="#offers" title="http://purl.org/ontology/UniOn#offers">
+            <span>offers</span>
+         </a>
+      </li>
+      <li>
+         <a href="#releases" title="http://purl.org/ontology/UniOn#releases">
+            <span>releases</span>
+         </a>
+      </li>
+   </ul>
+   <div class="entity" id="delivers">
+      <h3>delivers<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#delivers</p>
+      <div class="comment">
+         <span class="markdown">A property that relates an italian public university to the degree programmes it delivers.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#ItalianPublicUniversity"
+                  title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#isDeliveredBy" title="http://purl.org/ontology/UniOn#isDeliveredBy">is delivered by</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasAcademicField">
+      <h3>has academic field<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasAcademicField</p>
+      <div class="comment">
+         <span class="markdown">A property linking the degree programme to the academic field to which it belongs.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#AcademicField" title="http://purl.org/ontology/UniOn#AcademicField">academic field</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#isAcademicFieldOf" title="http://purl.org/ontology/UniOn#isAcademicFieldOf">is academic field of</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasAccessType">
+      <h3>has access type<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasAccessType</p>
+      <div class="comment">
+         <span class="markdown">A property relating the degree programme to the modality of access it requires.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">access type</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#isAccessTypeOf" title="http://purl.org/ontology/UniOn#isAccessTypeOf">is access type of</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasAssessmentMethod">
+      <h3>has assessment method<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasAssessmentMethod</p>
+      <div class="comment">
+         <span class="markdown">A property that relates an educational activity to a particular evaluation modality. Example of an assessment method include an oral or  writtem exam, the subsmission of a project or an eligibility.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#EducationalActivity"
+                  title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">assessment method</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#isAssessmentMethodOf"
+                  title="http://purl.org/ontology/UniOn#isAssessmentMethodOf">is assessment method of</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasCampus">
+      <h3>has campus<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasCampus</p>
+      <div class="comment">
+         <span class="markdown">A property that associates the degree programme to the particular place where the university campus is located.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+                  title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">place</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#isCampusOf" title="http://purl.org/ontology/UniOn#isCampusOf">is campus of</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasCurriculum">
+      <h3>has curriculum<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasCurriculum</p>
+      <div class="comment">
+         <span class="markdown">A property linking a degree programme to the curricula it offers.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Curriculum" title="http://purl.org/ontology/UniOn#Curriculum">curriculum</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#isCurriculumOf" title="http://purl.org/ontology/UniOn#isCurriculumOf">is curriculum of</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasEducationalActivity">
+      <h3>has educational activity<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasEducationalActivity</p>
+      <div class="comment">
+         <span class="markdown">A property that associates a degree programme to the educational activities it delivers.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#EducationalActivity"
+                  title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#isEducationalActivityOf"
+                  title="http://purl.org/ontology/UniOn#isEducationalActivityOf">is educational activity of</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart">
+      <h3>has part<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart</p>
+      <div class="comment">
+         <span class="markdown">A property indicating that one entity (the university) includes another entity (the department).</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#ItalianPublicUniversity"
+                  title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Department" title="http://purl.org/ontology/UniOn#Department">department</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"
+                  title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf">is part of</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasPlaceOfTeaching">
+      <h3>has place of teaching<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasPlaceOfTeaching</p>
+      <div class="comment">
+         <span class="markdown">A property that relates the degree programme to the place where its educational activities take place.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+                  title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">place</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#isPlaceOfTeachingOf"
+                  title="http://purl.org/ontology/UniOn#isPlaceOfTeachingOf">is place of teaching of</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isAcademicFieldOf">
+      <h3>is academic field of<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#isAcademicFieldOf</p>
+      <div class="comment">
+         <span class="markdown">A property describing the academic field to which a degree programme belongs.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#AcademicField" title="http://purl.org/ontology/UniOn#AcademicField">academic field</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#hasAcademicField" title="http://purl.org/ontology/UniOn#hasAcademicField">has academic field</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isAccessTypeOf">
+      <h3>is access type of<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#isAccessTypeOf</p>
+      <div class="comment">
+         <span class="markdown">A property indicating the modality of access a degree programme requires.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">access type</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#hasAccessType" title="http://purl.org/ontology/UniOn#hasAccessType">has access type</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isAssessmentMethodOf">
+      <h3>is assessment method of<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#isAssessmentMethodOf</p>
+      <div class="comment">
+         <span class="markdown">A property expressing  the evaluation modality of an educational activity. Example of an assessment method include an oral or  writtem exam, the subsmission of a project or an eligibility.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">assessment method</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#EducationalActivity"
+                  title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#hasAssessmentMethod"
+                  title="http://purl.org/ontology/UniOn#hasAssessmentMethod">has assessment method</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isCampusOf">
+      <h3>is campus of<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#isCampusOf</p>
+      <div class="comment">
+         <span class="markdown">A property indicating the place where the campus of a particular degree programme is located.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+                  title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">place</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#hasCampus" title="http://purl.org/ontology/UniOn#hasCampus">has campus</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isCurriculumOf">
+      <h3>is curriculum of<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#isCurriculumOf</p>
+      <div class="comment">
+         <span class="markdown">A property that  indicates the curricula offered by the same degree programme.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Curriculum" title="http://purl.org/ontology/UniOn#Curriculum">curriculum</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#hasCurriculum" title="http://purl.org/ontology/UniOn#hasCurriculum">has curriculum</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isDeliveredBy">
+      <h3>is delivered by<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#isDeliveredBy</p>
+      <div class="comment">
+         <span class="markdown">A property indicating the degree programmes delivered by an italian public university.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#ItalianPublicUniversity"
+                  title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#delivers" title="http://purl.org/ontology/UniOn#delivers">delivers</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isEducationalActivityOf">
+      <h3>is educational activity of<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#isEducationalActivityOf</p>
+      <div class="comment">
+         <span class="markdown">A property indicating the educational activity delivered by a degree programme.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#EducationalActivity"
+                  title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#hasEducationalActivity"
+                  title="http://purl.org/ontology/UniOn#hasEducationalActivity">has educational activity</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isManagedBy">
+      <h3>is managed by<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#isManagedBy</p>
+      <div class="comment">
+         <span class="markdown">A property indicating the university department managed by a public italian university.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Department" title="http://purl.org/ontology/UniOn#Department">department</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#manages" title="http://purl.org/ontology/UniOn#manages">manages</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isOfferedBy">
+      <h3>is offered by<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#isOfferedBy</p>
+      <div class="comment">
+         <span class="markdown">Superproperty that joins an educational activity to a particular italian public university via the degree programme.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#EducationalActivity"
+                  title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#ItalianPublicUniversity"
+                  title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#offers" title="http://purl.org/ontology/UniOn#offers">offers</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf">
+      <h3>is part of<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf</p>
+      <div class="comment">
+         <span class="markdown">A property indicating that one entity (the department) is a part of another entity (the university).</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Department" title="http://purl.org/ontology/UniOn#Department">department</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#ItalianPublicUniversity"
+                  title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart"
+                  title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart">has part</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isPlaceOfTeachingOf">
+      <h3>is place of teaching of<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#isPlaceOfTeachingOf</p>
+      <div class="comment">
+         <span class="markdown">A property that indicates the location where the degree programme's educational acitvities take place.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+                  title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">place</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#hasPlaceOfTeaching"
+                  title="http://purl.org/ontology/UniOn#hasPlaceOfTeaching">has place of teaching</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isReleasedBy">
+      <h3>is released by<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#isReleasedBy</p>
+      <div class="comment">
+         <span class="markdown">A property expressing the official qualification released to the student after the completion of a degree programme.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">qualification</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#releases" title="http://purl.org/ontology/UniOn#releases">releases</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="manages">
+      <h3>manages<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#manages</p>
+      <div class="comment">
+         <span class="markdown">A property that associates the university deparment to the degree programme it manages.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Department" title="http://purl.org/ontology/UniOn#Department">department</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#isManagedBy" title="http://purl.org/ontology/UniOn#isManagedBy">is managed by</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="offers">
+      <h3>offers<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#offers</p>
+      <div class="comment">
+         <span class="markdown">Superproperty that joins an italian public university with a particular educational activity via the degree programme.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#ItalianPublicUniversity"
+                  title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#EducationalActivity"
+                  title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#isOfferedBy" title="http://purl.org/ontology/UniOn#isOfferedBy">is offered by</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has sub-property chains</dt>
+            <dd>
+               <a href="#delivers" title="http://purl.org/ontology/UniOn#delivers">delivers</a>
+               <sup class="type-op" title="object property">op</sup> 
+               <span class="logic">o</span> 
+               <a href="#hasEducationalActivity"
+                  title="http://purl.org/ontology/UniOn#hasEducationalActivity">has educational activity</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="releases">
+      <h3>releases<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#releases</p>
+      <div class="comment">
+         <span class="markdown">A property that relates the degree programme to the official qualification the students receives after completing the study programme.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">qualification</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is inverse of</dt>
+            <dd>
+               <a href="#isReleasedBy" title="http://purl.org/ontology/UniOn#isReleasedBy">is released by</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+   <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#hasAcademicYear" title="http://purl.org/ontology/UniOn#hasAcademicYear">
+            <span>has academic year</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasCfu" title="http://purl.org/ontology/UniOn#hasCfu">
+            <span>has cfu</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasDegreeClass" title="http://purl.org/ontology/UniOn#hasDegreeClass">
+            <span>has degree class</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasIdentifier" title="http://purl.org/ontology/UniOn#hasIdentifier">
+            <span>has identifier</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasSsd" title="http://purl.org/ontology/UniOn#hasSsd">
+            <span>has ssd</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasTeachingCode" title="http://purl.org/ontology/UniOn#hasTeachingCode">
+            <span>has teaching code</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasTeachingLanguage"
+            title="http://purl.org/ontology/UniOn#hasTeachingLanguage">
+            <span>has teaching language</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasUrl" title="http://purl.org/ontology/UniOn#hasUrl">
+            <span>has url</span>
+         </a>
+      </li>
+      <li>
+         <a href="#hasYearsOfDuration"
+            title="http://purl.org/ontology/UniOn#hasYearsOfDuration">
+            <span>has years of duration</span>
+         </a>
+      </li>
+      <li>
+         <a href="#isCompulsory" title="http://purl.org/ontology/UniOn#isCompulsory">
+            <span>is compulsory</span>
+         </a>
+      </li>
+   </ul>
+   <div class="entity" id="hasAcademicYear">
+      <h3>has academic year<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasAcademicYear</p>
+      <div class="comment">
+         <span class="markdown">The period in which the degree programme carries its traning activity.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasCfu">
+      <h3>has cfu<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasCfu</p>
+      <div class="comment">
+         <span class="markdown">The CFUs of a particular educational activity. CFUs (university formative credits) are a numerical measure of the workload for each exam or activity.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#EducationalActivity"
+                  title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasDegreeClass">
+      <h3>has degree class<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasDegreeClass</p>
+      <div class="comment">
+         <span class="markdown">The degree class (a unique code) of each degree programme. (E.g. LM-43 - Information technology methods for the humanities)</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#hasIdentifier" title="http://purl.org/ontology/UniOn#hasIdentifier">has identifier</a>
+               <sup class="type-dp" title="data property">dp</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasIdentifier">
+      <h3>has identifier<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasIdentifier</p>
+      <div class="comment">
+         <span class="markdown">A property that expresses the particular identifiers used by the italian university system to describe and identify degree programmes and educational activities. (E.g. Degree Class, Ssd and Teaching Code)</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has sub-properties</dt>
+            <dd>
+               <a href="#hasDegreeClass" title="http://purl.org/ontology/UniOn#hasDegreeClass">has degree class</a>
+               <sup class="type-dp" title="data property">dp</sup>, <a href="#hasSsd" title="http://purl.org/ontology/UniOn#hasSsd">has ssd</a>
+               <sup class="type-dp" title="data property">dp</sup>, <a href="#hasTeachingCode" title="http://purl.org/ontology/UniOn#hasTeachingCode">has teaching code</a>
+               <sup class="type-dp" title="data property">dp</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup> 
+               <span class="logic">or</span> 
+               <a href="#EducationalActivity"
+                  title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasSsd">
+      <h3>has ssd<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasSsd</p>
+      <div class="comment">
+         <span class="markdown">The SSD of an educational activity. SSD stands for ‘scientific-disciplinary sectors’: they point to the disciplinary areas to which each educational activity belongs to.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#hasIdentifier" title="http://purl.org/ontology/UniOn#hasIdentifier">has identifier</a>
+               <sup class="type-dp" title="data property">dp</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#EducationalActivity"
+                  title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasTeachingCode">
+      <h3>has teaching code<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasTeachingCode</p>
+      <div class="comment">
+         <span class="markdown">A numerical code chosen by each university to univocally identify its educational activities.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#hasIdentifier" title="http://purl.org/ontology/UniOn#hasIdentifier">has identifier</a>
+               <sup class="type-dp" title="data property">dp</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#EducationalActivity"
+                  title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasTeachingLanguage">
+      <h3>has teaching language<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasTeachingLanguage</p>
+      <div class="comment">
+         <span class="markdown">The language in which the degree programme is taught.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasUrl">
+      <h3>has url<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasUrl</p>
+      <div class="comment">
+         <span class="markdown">The Url pointing to the website of the degree programme.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="hasYearsOfDuration">
+      <h3>has years of duration<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#hasYearsOfDuration</p>
+      <div class="comment">
+         <span class="markdown">The duration of a degree programme.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="isCompulsory">
+      <h3>is compulsory<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#isCompulsory</p>
+      <div class="comment">
+         <span class="markdown">The property indicates if an educational activity is compulsory or not.</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#EducationalActivity"
+                  title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="namedindividuals">
+   <h3 id="namedindividuals" class="list">Named Individuals</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#Eligibility" title="http://purl.org/ontology/UniOn#Eligibility">Eligibility</a>
+      </li>
+      <li>
+         <a href="#JointQualification"
+            title="http://purl.org/ontology/UniOn#JointQualification">Joint Qualification</a>
+      </li>
+      <li>
+         <a href="#LimitedAccess" title="http://purl.org/ontology/UniOn#LimitedAccess">Limited Access</a>
+      </li>
+      <li>
+         <a href="#MultipleQualification"
+            title="http://purl.org/ontology/UniOn#MultipleQualification">Multiple Qualification</a>
+      </li>
+      <li>
+         <a href="#OpenAccess" title="http://purl.org/ontology/UniOn#OpenAccess">Open Access</a>
+      </li>
+      <li>
+         <a href="#OralExam" title="http://purl.org/ontology/UniOn#OralExam">Oral Exam</a>
+      </li>
+      <li>
+         <a href="#Project" title="http://purl.org/ontology/UniOn#Project">Project</a>
+      </li>
+      <li>
+         <a href="#SingleQualification"
+            title="http://purl.org/ontology/UniOn#SingleQualification">Single Qualification</a>
+      </li>
+      <li>
+         <a href="#WrittenExam" title="http://purl.org/ontology/UniOn#WrittenExam">Written Exam</a>
+      </li>
+   </ul>
+   <div class="entity" id="Eligibility">
+      <h3>Eligibility<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#Eligibility</p>
+      <div class="comment">
+         <span class="markdown">Exam without grade (with eligible or not eligible result) which assesses the candidate competencies.</span>
+      </div>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">assessment method</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="JointQualification">
+      <h3>Joint Qualification<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#JointQualification</p>
+      <div class="comment">
+         <span class="markdown">Joint qualification means obtaining a single qualification recognised and validated by all the institutions running the joint programme.</span>
+      </div>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">qualification</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="LimitedAccess">
+      <h3>Limited Access<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#LimitedAccess</p>
+      <div class="comment">
+         <span class="markdown">The type of access indicating that the places available are limited and enrollment is only possible after overcoming a selection.</span>
+      </div>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">access type</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="MultipleQualification">
+      <h3>Multiple Qualification<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#MultipleQualification</p>
+      <div class="comment">
+         <span class="markdown">Double or multiple qualifications implies that, at the end of the programme, students obtain not only a degree from their home university but also the academic qualifications from the other participating universities where they have obtained learning credits</span>
+      </div>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">qualification</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="OpenAccess">
+      <h3>Open Access<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#OpenAccess</p>
+      <div class="comment">
+         <span class="markdown">The type of access indicating that there is no maximum number of available places and enrollment does not entail passing through a selection. An entry test, however may be required.</span>
+      </div>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">access type</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="OralExam">
+      <h3>Oral Exam<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#OralExam</p>
+      <div class="comment">
+         <span class="markdown">An examination in spoken form to show how well a student has understood the material studied in the program.</span>
+      </div>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">assessment method</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Project">
+      <h3>Project<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#Project</p>
+      <div class="comment">
+         <span class="markdown">Project-based assessments are an alternative to tests that allow students to engage with their learning in more concrete ways. Instead of merely studying theory, a hands-on project asks students to apply what they've learned to an in-depth exploration of a topic.</span>
+      </div>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">assessment method</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="SingleQualification">
+      <h3>Single Qualification<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#SingleQualification</p>
+      <div class="comment">
+         <span class="markdown">A single qualification issued by the university.</span>
+      </div>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">qualification</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="WrittenExam">
+      <h3>Written Exam<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/UniOn#WrittenExam</p>
+      <div class="comment">
+         <span class="markdown">An assessment method that requires the student to answer some questions in writing (or electronically).</span>
+      </div>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">assessment method</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>

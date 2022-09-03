@@ -1,0 +1,551 @@
+<http://purl.org/ontology/UniOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://purl.org/ontology/UniOn> <http://www.w3.org/2002/07/owl#versionIRI> <http://purl.org/ontology/UniOn/09-2022> .
+<http://purl.org/ontology/UniOn> <http://www.w3.org/2000/01/rdf-schema#comment> "UniOn is an ontology representing Universities educational offer. It includes information to describe academic fields, degree programs, access methods and requirements, educational activities, titles and qualifications, location, organization and more" .
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/ontology/UniOn#delivers
+<http://purl.org/ontology/UniOn#delivers> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#delivers> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/UniOn#isDeliveredBy> .
+<http://purl.org/ontology/UniOn#delivers> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#ItalianPublicUniversity> .
+<http://purl.org/ontology/UniOn#delivers> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#delivers> <http://www.w3.org/2000/01/rdf-schema#comment> "A property that relates an italian public university to the degree programmes it delivers." .
+# 
+# http://purl.org/ontology/UniOn#hasAcademicField
+<http://purl.org/ontology/UniOn#hasAcademicField> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#hasAcademicField> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/UniOn#isAcademicFieldOf> .
+<http://purl.org/ontology/UniOn#hasAcademicField> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#hasAcademicField> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#AcademicField> .
+<http://purl.org/ontology/UniOn#hasAcademicField> <http://www.w3.org/2000/01/rdf-schema#comment> "A property linking the degree programme to the academic field to which it belongs." .
+# 
+# http://purl.org/ontology/UniOn#hasAccessType
+<http://purl.org/ontology/UniOn#hasAccessType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#hasAccessType> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/UniOn#isAccessTypeOf> .
+<http://purl.org/ontology/UniOn#hasAccessType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#hasAccessType> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#AccessType> .
+<http://purl.org/ontology/UniOn#hasAccessType> <http://www.w3.org/2000/01/rdf-schema#comment> "A property relating the degree programme to the modality of access it requires." .
+# 
+# http://purl.org/ontology/UniOn#hasAssessmentMethod
+<http://purl.org/ontology/UniOn#hasAssessmentMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#hasAssessmentMethod> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/UniOn#isAssessmentMethodOf> .
+<http://purl.org/ontology/UniOn#hasAssessmentMethod> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#hasAssessmentMethod> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#AssessmentMethod> .
+<http://purl.org/ontology/UniOn#hasAssessmentMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "A property that relates an educational activity to a particular evaluation modality. Example of an assessment method include an oral or  writtem exam, the subsmission of a project or an eligibility." .
+# 
+# http://purl.org/ontology/UniOn#hasCampus
+<http://purl.org/ontology/UniOn#hasCampus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#hasCampus> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/UniOn#isCampusOf> .
+<http://purl.org/ontology/UniOn#hasCampus> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#hasCampus> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place> .
+<http://purl.org/ontology/UniOn#hasCampus> <http://www.w3.org/2000/01/rdf-schema#comment> "A property that associates the degree programme to the particular place where the university campus is located." .
+# 
+# http://purl.org/ontology/UniOn#hasCurriculum
+<http://purl.org/ontology/UniOn#hasCurriculum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#hasCurriculum> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/UniOn#isCurriculumOf> .
+<http://purl.org/ontology/UniOn#hasCurriculum> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#hasCurriculum> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#Curriculum> .
+<http://purl.org/ontology/UniOn#hasCurriculum> <http://www.w3.org/2000/01/rdf-schema#comment> "A property linking a degree programme to the curricula it offers." .
+# 
+# http://purl.org/ontology/UniOn#hasEducationalActivity
+<http://purl.org/ontology/UniOn#hasEducationalActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#hasEducationalActivity> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/UniOn#isEducationalActivityOf> .
+<http://purl.org/ontology/UniOn#hasEducationalActivity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#hasEducationalActivity> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#hasEducationalActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "A property that associates a degree programme to the educational activities it delivers." .
+# 
+# http://purl.org/ontology/UniOn#hasPlaceOfTeaching
+<http://purl.org/ontology/UniOn#hasPlaceOfTeaching> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#hasPlaceOfTeaching> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/UniOn#isPlaceOfTeachingOf> .
+<http://purl.org/ontology/UniOn#hasPlaceOfTeaching> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#hasPlaceOfTeaching> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place> .
+<http://purl.org/ontology/UniOn#hasPlaceOfTeaching> <http://www.w3.org/2000/01/rdf-schema#comment> "A property that relates the degree programme to the place where its educational activities take place." .
+# 
+# http://purl.org/ontology/UniOn#isAcademicFieldOf
+<http://purl.org/ontology/UniOn#isAcademicFieldOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#isAcademicFieldOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#AcademicField> .
+<http://purl.org/ontology/UniOn#isAcademicFieldOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#isAcademicFieldOf> <http://www.w3.org/2000/01/rdf-schema#comment> "A property describing the academic field to which a degree programme belongs." .
+# 
+# http://purl.org/ontology/UniOn#isAccessTypeOf
+<http://purl.org/ontology/UniOn#isAccessTypeOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#isAccessTypeOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#AccessType> .
+<http://purl.org/ontology/UniOn#isAccessTypeOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#isAccessTypeOf> <http://www.w3.org/2000/01/rdf-schema#comment> "A property indicating the modality of access a degree programme requires." .
+# 
+# http://purl.org/ontology/UniOn#isAssessmentMethodOf
+<http://purl.org/ontology/UniOn#isAssessmentMethodOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#isAssessmentMethodOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#AssessmentMethod> .
+<http://purl.org/ontology/UniOn#isAssessmentMethodOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#isAssessmentMethodOf> <http://www.w3.org/2000/01/rdf-schema#comment> "A property expressing  the evaluation modality of an educational activity. Example of an assessment method include an oral or  writtem exam, the subsmission of a project or an eligibility." .
+# 
+# http://purl.org/ontology/UniOn#isCampusOf
+<http://purl.org/ontology/UniOn#isCampusOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#isCampusOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place> .
+<http://purl.org/ontology/UniOn#isCampusOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#isCampusOf> <http://www.w3.org/2000/01/rdf-schema#comment> "A property indicating the place where the campus of a particular degree programme is located." .
+# 
+# http://purl.org/ontology/UniOn#isCurriculumOf
+<http://purl.org/ontology/UniOn#isCurriculumOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#isCurriculumOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#Curriculum> .
+<http://purl.org/ontology/UniOn#isCurriculumOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#isCurriculumOf> <http://www.w3.org/2000/01/rdf-schema#comment> "A property that  indicates the curricula offered by the same degree programme." .
+# 
+# http://purl.org/ontology/UniOn#isDeliveredBy
+<http://purl.org/ontology/UniOn#isDeliveredBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#isDeliveredBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#isDeliveredBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#ItalianPublicUniversity> .
+<http://purl.org/ontology/UniOn#isDeliveredBy> <http://www.w3.org/2000/01/rdf-schema#comment> "A property indicating the degree programmes delivered by an italian public university." .
+# 
+# http://purl.org/ontology/UniOn#isEducationalActivityOf
+<http://purl.org/ontology/UniOn#isEducationalActivityOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#isEducationalActivityOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#isEducationalActivityOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#isEducationalActivityOf> <http://www.w3.org/2000/01/rdf-schema#comment> "A property indicating the educational activity delivered by a degree programme." .
+# 
+# http://purl.org/ontology/UniOn#isManagedBy
+<http://purl.org/ontology/UniOn#isManagedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#isManagedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/UniOn#manages> .
+<http://purl.org/ontology/UniOn#isManagedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#isManagedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#Department> .
+<http://purl.org/ontology/UniOn#isManagedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "A property indicating the university department managed by a public italian university." .
+# 
+# http://purl.org/ontology/UniOn#isOfferedBy
+<http://purl.org/ontology/UniOn#isOfferedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#isOfferedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/UniOn#offers> .
+<http://purl.org/ontology/UniOn#isOfferedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#isOfferedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#ItalianPublicUniversity> .
+<http://purl.org/ontology/UniOn#isOfferedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Superproperty that joins an educational activity to a particular italian public university via the degree programme." .
+# 
+# http://purl.org/ontology/UniOn#isPlaceOfTeachingOf
+<http://purl.org/ontology/UniOn#isPlaceOfTeachingOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#isPlaceOfTeachingOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place> .
+<http://purl.org/ontology/UniOn#isPlaceOfTeachingOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#isPlaceOfTeachingOf> <http://www.w3.org/2000/01/rdf-schema#comment> "A property that indicates the location where the degree programme's educational acitvities take place." .
+# 
+# http://purl.org/ontology/UniOn#isReleasedBy
+<http://purl.org/ontology/UniOn#isReleasedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#isReleasedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.org/ontology/UniOn#releases> .
+<http://purl.org/ontology/UniOn#isReleasedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#Qualification> .
+<http://purl.org/ontology/UniOn#isReleasedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#isReleasedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "A property expressing the official qualification released to the student after the completion of a degree programme." .
+# 
+# http://purl.org/ontology/UniOn#manages
+<http://purl.org/ontology/UniOn#manages> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#manages> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#Department> .
+<http://purl.org/ontology/UniOn#manages> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#manages> <http://www.w3.org/2000/01/rdf-schema#comment> "A property that associates the university deparment to the degree programme it manages." .
+# 
+# http://purl.org/ontology/UniOn#offers
+<http://purl.org/ontology/UniOn#offers> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#offers> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#ItalianPublicUniversity> .
+<http://purl.org/ontology/UniOn#offers> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#offers> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:genid2 .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid1 .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/UniOn#hasEducationalActivity> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/UniOn#delivers> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://purl.org/ontology/UniOn#offers> <http://www.w3.org/2000/01/rdf-schema#comment> "Superproperty that joins an italian public university with a particular educational activity via the degree programme." .
+# 
+# http://purl.org/ontology/UniOn#releases
+<http://purl.org/ontology/UniOn#releases> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/ontology/UniOn#releases> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#releases> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#Qualification> .
+<http://purl.org/ontology/UniOn#releases> <http://www.w3.org/2000/01/rdf-schema#comment> "A property that relates the degree programme to the official qualification the students receives after completing the study programme." .
+# 
+# http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf> .
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#ItalianPublicUniversity> .
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#Department> .
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart> <http://www.w3.org/2000/01/rdf-schema#comment> "A property indicating that one entity (the university) includes another entity (the department)." .
+# 
+# http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#Department> .
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/ontology/UniOn#ItalianPublicUniversity> .
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf> <http://www.w3.org/2000/01/rdf-schema#comment> "A property indicating that one entity (the department) is a part of another entity (the university)." .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/ontology/UniOn#hasAcademicYear
+<http://purl.org/ontology/UniOn#hasAcademicYear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/ontology/UniOn#hasAcademicYear> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#hasAcademicYear> <http://www.w3.org/2000/01/rdf-schema#comment> "The period in which the degree programme carries its traning activity." .
+# 
+# http://purl.org/ontology/UniOn#hasCfu
+<http://purl.org/ontology/UniOn#hasCfu> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/ontology/UniOn#hasCfu> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#hasCfu> <http://www.w3.org/2000/01/rdf-schema#comment> "The CFUs of a particular educational activity. CFUs (university formative credits) are a numerical measure of the workload for each exam or activity." .
+# 
+# http://purl.org/ontology/UniOn#hasDegreeClass
+<http://purl.org/ontology/UniOn#hasDegreeClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/ontology/UniOn#hasDegreeClass> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ontology/UniOn#hasIdentifier> .
+<http://purl.org/ontology/UniOn#hasDegreeClass> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#hasDegreeClass> <http://www.w3.org/2000/01/rdf-schema#comment> "The degree class (a unique code) of each degree programme. (E.g. LM-43 - Information technology methods for the humanities)" .
+# 
+# http://purl.org/ontology/UniOn#hasIdentifier
+<http://purl.org/ontology/UniOn#hasIdentifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/ontology/UniOn#hasIdentifier> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid3 .
+_:genid3 <http://www.w3.org/2002/07/owl#unionOf> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid4 .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/UniOn#EducationalActivity> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#hasIdentifier> <http://www.w3.org/2000/01/rdf-schema#comment> "A property that expresses the particular identifiers used by the italian university system to describe and identify degree programmes and educational activities. (E.g. Degree Class, Ssd and Teaching Code)" .
+# 
+# http://purl.org/ontology/UniOn#hasSsd
+<http://purl.org/ontology/UniOn#hasSsd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/ontology/UniOn#hasSsd> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ontology/UniOn#hasIdentifier> .
+<http://purl.org/ontology/UniOn#hasSsd> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#hasSsd> <http://www.w3.org/2000/01/rdf-schema#comment> "The SSD of an educational activity. SSD stands for ‘scientific-disciplinary sectors’: they point to the disciplinary areas to which each educational activity belongs to." .
+# 
+# http://purl.org/ontology/UniOn#hasTeachingCode
+<http://purl.org/ontology/UniOn#hasTeachingCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/ontology/UniOn#hasTeachingCode> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ontology/UniOn#hasIdentifier> .
+<http://purl.org/ontology/UniOn#hasTeachingCode> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#hasTeachingCode> <http://www.w3.org/2000/01/rdf-schema#comment> "A numerical code chosen by each university to univocally identify its educational activities." .
+# 
+# http://purl.org/ontology/UniOn#hasTeachingLanguage
+<http://purl.org/ontology/UniOn#hasTeachingLanguage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/ontology/UniOn#hasTeachingLanguage> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#hasTeachingLanguage> <http://www.w3.org/2000/01/rdf-schema#comment> "The language in which the degree programme is taught." .
+# 
+# http://purl.org/ontology/UniOn#hasUrl
+<http://purl.org/ontology/UniOn#hasUrl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/ontology/UniOn#hasUrl> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#hasUrl> <http://www.w3.org/2000/01/rdf-schema#comment> "The Url pointing to the website of the degree programme." .
+# 
+# http://purl.org/ontology/UniOn#hasYearsOfDuration
+<http://purl.org/ontology/UniOn#hasYearsOfDuration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/ontology/UniOn#hasYearsOfDuration> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#hasYearsOfDuration> <http://www.w3.org/2000/01/rdf-schema#comment> "The duration of a degree programme." .
+# 
+# http://purl.org/ontology/UniOn#isCompulsory
+<http://purl.org/ontology/UniOn#isCompulsory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/ontology/UniOn#isCompulsory> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#isCompulsory> <http://www.w3.org/2000/01/rdf-schema#comment> "The property indicates if an educational activity is compulsory or not." .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/ontology/UniOn#AcademicField
+<http://purl.org/ontology/UniOn#AcademicField> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#AcademicField> <http://www.w3.org/2000/01/rdf-schema#comment> "The fields involved in an educational offer of a university (e.g. Humanities, Business, Sciences etc.)." .
+# 
+# http://purl.org/ontology/UniOn#AccessType
+<http://purl.org/ontology/UniOn#AccessType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#AccessType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid6 .
+_:genid6 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+_:genid6 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/UniOn#isAccessTypeOf> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ontology/UniOn#AccessType> <http://www.w3.org/2000/01/rdf-schema#comment> "The modality of  access the degree courses require." .
+# 
+# http://purl.org/ontology/UniOn#AssessmentMethod
+<http://purl.org/ontology/UniOn#AssessmentMethod> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#AssessmentMethod> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid7 .
+_:genid7 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ontology/UniOn#EducationalActivity> .
+_:genid7 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/UniOn#isAssessmentMethodOf> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ontology/UniOn#AssessmentMethod> <http://www.w3.org/2000/01/rdf-schema#comment> "The evaluation modality for each educational activity (e.g. Written exam, Oral exam etc.)" .
+# 
+# http://purl.org/ontology/UniOn#BachelorDegree
+<http://purl.org/ontology/UniOn#BachelorDegree> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#BachelorDegree> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#BachelorDegree> <http://www.w3.org/2000/01/rdf-schema#comment> "The bachelor degree (180 CFU) is a first cycle degree whose normative time to completion is three years." .
+# 
+# http://purl.org/ontology/UniOn#Course
+<http://purl.org/ontology/UniOn#Course> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#Course> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#Course> <http://www.w3.org/2000/01/rdf-schema#comment> "A university course is made up of a set of lessons held by one teacher or several teachers." .
+# 
+# http://purl.org/ontology/UniOn#Curriculum
+<http://purl.org/ontology/UniOn#Curriculum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#Curriculum> <http://www.w3.org/2000/01/rdf-schema#comment> "The same degree program can have multiple curricula that include different  training activities. E.g.  For the degree course in \"Literature\", it is possible to choose between the curriculum in Classical or Modern studies." .
+# 
+# http://purl.org/ontology/UniOn#DegreeProgramme
+<http://purl.org/ontology/UniOn#DegreeProgramme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#DegreeProgramme> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid8 .
+_:genid8 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ontology/UniOn#AcademicField> .
+_:genid8 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/UniOn#hasAcademicField> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ontology/UniOn#DegreeProgramme> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid9 .
+_:genid9 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place> .
+_:genid9 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/UniOn#hasCampus> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ontology/UniOn#DegreeProgramme> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid10 .
+_:genid10 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place> .
+_:genid10 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/UniOn#hasPlaceOfTeaching> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ontology/UniOn#DegreeProgramme> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid11 .
+_:genid11 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ontology/UniOn#ItalianPublicUniversity> .
+_:genid11 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/UniOn#isDeliveredBy> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ontology/UniOn#DegreeProgramme> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid12 .
+_:genid12 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ontology/UniOn#Department> .
+_:genid12 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/UniOn#isManagedBy> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ontology/UniOn#DegreeProgramme> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid13 .
+_:genid13 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ontology/UniOn#Qualification> .
+_:genid13 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/UniOn#releases> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ontology/UniOn#DegreeProgramme> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid14 .
+_:genid14 <http://www.w3.org/2002/07/owl#onClass> <http://purl.org/ontology/UniOn#Curriculum> .
+_:genid14 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid14 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/UniOn#hasCurriculum> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ontology/UniOn#DegreeProgramme> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid15 .
+_:genid15 <http://www.w3.org/2002/07/owl#onClass> <http://purl.org/ontology/UniOn#EducationalActivity> .
+_:genid15 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid15 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/UniOn#hasEducationalActivity> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ontology/UniOn#DegreeProgramme> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid16 .
+_:genid16 <http://www.w3.org/2002/07/owl#onClass> <http://purl.org/ontology/UniOn#AccessType> .
+_:genid16 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid16 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/UniOn#hasAccessType> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/ontology/UniOn#DegreeProgramme> <http://www.w3.org/2000/01/rdf-schema#comment> "A university-specific degree programme referring to a more general academic field (e.g. Digital Humanities and Digital Knowledge degree programme at UniBo)" .
+# 
+# http://purl.org/ontology/UniOn#Department
+<http://purl.org/ontology/UniOn#Department> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#Department> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid17 .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid17 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid20 .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid18 .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid19 .
+_:genid19 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ontology/UniOn#ItalianPublicUniversity> .
+_:genid19 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf> .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid21 .
+_:genid21 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+_:genid21 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/UniOn#manages> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://purl.org/ontology/UniOn#Department> <http://www.w3.org/2000/01/rdf-schema#comment> "Organizational structure that within Italian universities promotes and coordinates the activities of one or more sectors of scientific research that are homogeneous in terms of aims and methods." .
+# 
+# http://purl.org/ontology/UniOn#EducationalActivity
+<http://purl.org/ontology/UniOn#EducationalActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#EducationalActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "Any kind of educational activity: exams, internships, laboratories, seminars etc." .
+# 
+# http://purl.org/ontology/UniOn#FinalTest
+<http://purl.org/ontology/UniOn#FinalTest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#FinalTest> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#FinalTest> <http://www.w3.org/2000/01/rdf-schema#comment> "The final examination: it consists in producing a dissertation on a topic that is consistent with the learning objectives of the degree programme, drafted in an original manner under the guidance of a supervising professor" .
+# 
+# http://purl.org/ontology/UniOn#InternationalDegree
+<http://purl.org/ontology/UniOn#InternationalDegree> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#InternationalDegree> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#InternationalDegree> <http://www.w3.org/2000/01/rdf-schema#comment> "A degree programme delivered in a foreign language." .
+# 
+# http://purl.org/ontology/UniOn#Internship
+<http://purl.org/ontology/UniOn#Internship> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#Internship> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#Internship> <http://www.w3.org/2000/01/rdf-schema#comment> "An internship is a period of work experience offered by an organization or an institution for a limited period of time." .
+# 
+# http://purl.org/ontology/UniOn#ItalianPublicUniversity
+<http://purl.org/ontology/UniOn#ItalianPublicUniversity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#ItalianPublicUniversity> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid22 .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid22 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid25 .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid23 .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid24 .
+_:genid24 <http://www.w3.org/2002/07/owl#onClass> <http://purl.org/ontology/UniOn#Department> .
+_:genid24 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid24 <http://www.w3.org/2002/07/owl#onProperty> <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart> .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid26 .
+_:genid26 <http://www.w3.org/2002/07/owl#onClass> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+_:genid26 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid26 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/UniOn#delivers> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://purl.org/ontology/UniOn#ItalianPublicUniversity> <http://www.w3.org/2000/01/rdf-schema#comment> "A specific public italian university (e.g. Unibo)" .
+# 
+# http://purl.org/ontology/UniOn#Laboratory
+<http://purl.org/ontology/UniOn#Laboratory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#Laboratory> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#Laboratory> <http://www.w3.org/2000/01/rdf-schema#comment> "A laboratory deals with specific topics related to the degree programme and involves practical activities." .
+# 
+# http://purl.org/ontology/UniOn#LimitedAccessDegree
+<http://purl.org/ontology/UniOn#LimitedAccessDegree> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#LimitedAccessDegree> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid27 .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid27 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid30 .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid28 .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid29 .
+_:genid29 <http://www.w3.org/2002/07/owl#hasValue> <http://purl.org/ontology/UniOn#LimitedAccess> .
+_:genid29 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/UniOn#hasAccessType> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://purl.org/ontology/UniOn#LimitedAccessDegree> <http://www.w3.org/2002/07/owl#disjointWith> <http://purl.org/ontology/UniOn#OpenAccessDegree> .
+<http://purl.org/ontology/UniOn#LimitedAccessDegree> <http://www.w3.org/2000/01/rdf-schema#comment> "A degree programme in which places available are limited and enrollment is only possible after overcoming a selection." .
+# 
+# http://purl.org/ontology/UniOn#MasterDegree
+<http://purl.org/ontology/UniOn#MasterDegree> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#MasterDegree> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#MasterDegree> <http://www.w3.org/2000/01/rdf-schema#comment> "The master degree is a second cycle degree (120 CFU) which can be earned in a two-year programme after the bachelor degree." .
+# 
+# http://purl.org/ontology/UniOn#OpenAccessDegree
+<http://purl.org/ontology/UniOn#OpenAccessDegree> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#OpenAccessDegree> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid31 .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid31 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid34 .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid32 .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid33 .
+_:genid33 <http://www.w3.org/2002/07/owl#hasValue> <http://purl.org/ontology/UniOn#OpenAccess> .
+_:genid33 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/ontology/UniOn#hasAccessType> .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://purl.org/ontology/UniOn#OpenAccessDegree> <http://www.w3.org/2000/01/rdf-schema#comment> "A degree programme in which there is no maximum number of available places and enrollment does not entail passing through a selection. An entry test, however may be required." .
+# 
+# http://purl.org/ontology/UniOn#Qualification
+<http://purl.org/ontology/UniOn#Qualification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#Qualification> <http://www.w3.org/2000/01/rdf-schema#comment> "A qualification (or degree) is the official record of achievement you receive after completing a programme of study. There are several types of qualifications varying in level of study and length of time." .
+# 
+# http://purl.org/ontology/UniOn#Seminar
+<http://purl.org/ontology/UniOn#Seminar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#Seminar> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#Seminar> <http://www.w3.org/2000/01/rdf-schema#comment> "University seminars deal with a specific topic within a discipline from several points of view, involving specialists both internal and external to the university encouraging students to actively participate." .
+# 
+# http://purl.org/ontology/UniOn#SingleCycleDegree
+<http://purl.org/ontology/UniOn#SingleCycleDegree> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/ontology/UniOn#SingleCycleDegree> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/ontology/UniOn#DegreeProgramme> .
+<http://purl.org/ontology/UniOn#SingleCycleDegree> <http://www.w3.org/2000/01/rdf-schema#comment> "The single cycle degree is a five or six year degree (300 or 360 CFU), which does not require a previous first cycle degree for the admission" .
+# 
+# http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place> <http://www.w3.org/2000/01/rdf-schema#comment> "Place where the educational activity takes place and where the university campus is located." .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/ontology/UniOn#Eligibility
+<http://purl.org/ontology/UniOn#Eligibility> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://purl.org/ontology/UniOn#Eligibility> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/UniOn#AssessmentMethod> .
+<http://purl.org/ontology/UniOn#Eligibility> <http://www.w3.org/2000/01/rdf-schema#comment> "Exam without grade (with eligible or not eligible result) which assesses the candidate competencies." .
+<http://purl.org/ontology/UniOn#Eligibility> <http://www.w3.org/2000/01/rdf-schema#label> "Eligibility" .
+# 
+# http://purl.org/ontology/UniOn#JointQualification
+<http://purl.org/ontology/UniOn#JointQualification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://purl.org/ontology/UniOn#JointQualification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/UniOn#Qualification> .
+<http://purl.org/ontology/UniOn#JointQualification> <http://www.w3.org/2000/01/rdf-schema#comment> "Joint qualification means obtaining a single qualification recognised and validated by all the institutions running the joint programme." .
+<http://purl.org/ontology/UniOn#JointQualification> <http://www.w3.org/2000/01/rdf-schema#label> "Joint Qualification" .
+# 
+# http://purl.org/ontology/UniOn#LimitedAccess
+<http://purl.org/ontology/UniOn#LimitedAccess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://purl.org/ontology/UniOn#LimitedAccess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/UniOn#AccessType> .
+<http://purl.org/ontology/UniOn#LimitedAccess> <http://www.w3.org/2000/01/rdf-schema#comment> "The type of access indicating that the places available are limited and enrollment is only possible after overcoming a selection." .
+<http://purl.org/ontology/UniOn#LimitedAccess> <http://www.w3.org/2000/01/rdf-schema#label> "Limited Access" .
+# 
+# http://purl.org/ontology/UniOn#MultipleQualification
+<http://purl.org/ontology/UniOn#MultipleQualification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://purl.org/ontology/UniOn#MultipleQualification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/UniOn#Qualification> .
+<http://purl.org/ontology/UniOn#MultipleQualification> <http://www.w3.org/2000/01/rdf-schema#comment> "Double or multiple qualifications implies that, at the end of the programme, students obtain not only a degree from their home university but also the academic qualifications from the other participating universities where they have obtained learning credits" .
+<http://purl.org/ontology/UniOn#MultipleQualification> <http://www.w3.org/2000/01/rdf-schema#label> "Multiple Qualification" .
+# 
+# http://purl.org/ontology/UniOn#OpenAccess
+<http://purl.org/ontology/UniOn#OpenAccess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://purl.org/ontology/UniOn#OpenAccess> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/UniOn#AccessType> .
+<http://purl.org/ontology/UniOn#OpenAccess> <http://www.w3.org/2000/01/rdf-schema#comment> "The type of access indicating that there is no maximum number of available places and enrollment does not entail passing through a selection. An entry test, however may be required." .
+<http://purl.org/ontology/UniOn#OpenAccess> <http://www.w3.org/2000/01/rdf-schema#label> "Open Access" .
+# 
+# http://purl.org/ontology/UniOn#OralExam
+<http://purl.org/ontology/UniOn#OralExam> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://purl.org/ontology/UniOn#OralExam> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/UniOn#AssessmentMethod> .
+<http://purl.org/ontology/UniOn#OralExam> <http://www.w3.org/2000/01/rdf-schema#comment> "An examination in spoken form to show how well a student has understood the material studied in the program." .
+<http://purl.org/ontology/UniOn#OralExam> <http://www.w3.org/2000/01/rdf-schema#label> "Oral Exam" .
+# 
+# http://purl.org/ontology/UniOn#Project
+<http://purl.org/ontology/UniOn#Project> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://purl.org/ontology/UniOn#Project> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/UniOn#AssessmentMethod> .
+<http://purl.org/ontology/UniOn#Project> <http://www.w3.org/2000/01/rdf-schema#comment> "Project-based assessments are an alternative to tests that allow students to engage with their learning in more concrete ways. Instead of merely studying theory, a hands-on project asks students to apply what they've learned to an in-depth exploration of a topic." .
+<http://purl.org/ontology/UniOn#Project> <http://www.w3.org/2000/01/rdf-schema#label> "Project" .
+# 
+# http://purl.org/ontology/UniOn#SingleQualification
+<http://purl.org/ontology/UniOn#SingleQualification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://purl.org/ontology/UniOn#SingleQualification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/UniOn#Qualification> .
+<http://purl.org/ontology/UniOn#SingleQualification> <http://www.w3.org/2000/01/rdf-schema#comment> "A single qualification issued by the university." .
+<http://purl.org/ontology/UniOn#SingleQualification> <http://www.w3.org/2000/01/rdf-schema#label> "Single Qualification" .
+# 
+# http://purl.org/ontology/UniOn#WrittenExam
+<http://purl.org/ontology/UniOn#WrittenExam> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://purl.org/ontology/UniOn#WrittenExam> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/UniOn#AssessmentMethod> .
+<http://purl.org/ontology/UniOn#WrittenExam> <http://www.w3.org/2000/01/rdf-schema#comment> "An assessment method that requires the student to answer some questions in writing (or electronically)." .
+<http://purl.org/ontology/UniOn#WrittenExam> <http://www.w3.org/2000/01/rdf-schema#label> "Written Exam" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    General axioms
+# #
+# #################################################################
+# 
+# 
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid35 <http://www.w3.org/2002/07/owl#members> _:genid38 .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid37 .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid36 .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/UniOn#SingleCycleDegree> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/UniOn#MasterDegree> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/UniOn#BachelorDegree> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid39 <http://www.w3.org/2002/07/owl#members> _:genid43 .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid42 .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid41 .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid40 .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/UniOn#Seminar> .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/UniOn#Laboratory> .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/UniOn#Internship> .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://purl.org/ontology/UniOn#Course> .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
