@@ -97,21 +97,117 @@ if __name__ == "__main__":
             }
 '''
 
-#5 DA CAMBIARE QUERY IN: quale corso di studi e quanti cfu mi da in tale ssd 
+#5
 
 '''
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
             PREFIX owl: <http://www.w3.org/2002/07/owl#>
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX uo: <http://purl.org/ontology/UniOn#>
-            SELECT ?DegreeProgrammeLabel (SUM(?CFUofEducation) as ?CFU)
+            SELECT (SUM(?CFUofEducation) as ?CFU)
             WHERE {
-            ?DegreeProgramme a <http://purl.org/ontology/UniOn#BachelorDegree> ;
+            ?DegreeProgramme a uo:BachelorDegree ;
                              uo:hasEducationalActivity ?EducationalActivity ;
                              rdfs:label "Storia" .
             ?EducationalActivity uo:hasSsd "M-STO/01" .
             ?EducationalActivity uo:hasCfu ?CFUofEducation .
 
-            OPTIONAL { ?DegreeProgramme rdfs:label ?DegreeProgrammeLabel}
+            }
+'''
+
+#6
+'''
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX uo: <http://purl.org/ontology/UniOn#>
+            SELECT ?DepartmentLabel
+            WHERE {
+            ?DegreeProgramme uo:isManagedBy ?Department ;
+                             rdfs:label "Digital humanities and digital knowledge" .
+
+            OPTIONAL { ?Department rdfs:label ?DepartmentLabel }
+            }
+'''
+
+#7
+'''
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX uo: <http://purl.org/ontology/UniOn#>
+            SELECT (COUNT(?EducationalActivity) as ?LaboratoryCount)
+            WHERE {
+            ?DegreeProgramme uo:hasEducationalActivity ?EducationalActivity ;
+                            rdfs:label "Dams - discipline delle arti, della musica  e dello spettacolo" .
+            ?EducationalActivity a uo:Laboratory .
+
+            }
+'''
+
+#8
+'''
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX uo: <http://purl.org/ontology/UniOn#>
+            SELECT ?EducationalActivityLabel
+            WHERE {
+            ?DegreeProgramme uo:hasEducationalActivity ?EducationalActivity ;
+                            rdfs:label "Dams - discipline delle arti, della musica  e dello spettacolo" .
+            ?EducationalActivity a UniOn:Laboratory .
+
+            OPTIONAL { ?EducationalActivity rdfs:label ?EducationalActivityLabel }
+
+            }
+'''
+#9
+
+'''
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX uo: <http://purl.org/ontology/UniOn#>
+            SELECT ?DegreeProgrammeLabel
+            WHERE {
+            ?DegreeProgramme uo:hasDegreeClass ?DegreeClass .
+            FILTER regex(?DegreeClass, "^LM-80", "i") .
+
+            OPTIONAL { ?DegreeProgramme rdfs:label ?DegreeProgrammeLabel }
+
+            }
+'''
+
+#10
+'''
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX uo: <http://purl.org/ontology/UniOn#>
+            SELECT ?CampusLabel ?PlaceOfTeachingLabel
+            WHERE {
+            ?DegreeProgramme uo:hasPlaceOfTeaching ?PlaceOfTeaching ;
+                            uo:hasCampus ?Campus ;
+                            rdfs:label "Conservazione e restauro dei beni culturali (abilitante ai sensi del d. lgs n. 42"
+
+            OPTIONAL { ?Campus rdfs:label ?CampusLabel }
+            OPTIONAL { ?PlaceOfTeaching rdfs:label ?PlaceOfTeachingLabel }
+
+            }
+'''
+
+#11
+
+'''
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX uo: <http://purl.org/ontology/UniOn#>
+            SELECT ?DegreeProgrammeLabel
+            WHERE {
+            ?DegreeProgramme a uo:InternationalDegree .
+            ?DegreeProgramme a uo:MasterDegree .
+
+            OPTIONAL { ?DegreeProgramme rdfs:label ?DegreeProgrammeLabel }
             }
 '''
