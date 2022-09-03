@@ -2,7 +2,9 @@
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <uri id="Imports Wizard Entry" name="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl" uri="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1662128362554" name="http://www.semanticweb.org/francesca/ontologies/2022/6/uni" uri="Provola.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1662128362554" name="shadowed:http://www.semanticweb.org/francesca/ontologies/2022/6/uni" uri="Ontologia/UniOnt.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1662195919661" name="http://purl.org/ontology/UniOn" uri="UniOn.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1662195919661" name="http://www.semanticweb.org/francesca/ontologies/2022/6/uni" uri="Provola.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1662195919661" name="shadowed:http://purl.org/ontology/UniOn" uri="Ontologia/FinalUniOn.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1662195919661" name="shadowed:http://www.semanticweb.org/francesca/ontologies/2022/6/uni" uri="Ontologia/UniOnt.owl"/>
     </group>
 </catalog>
