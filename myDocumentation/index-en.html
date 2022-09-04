@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
  <link rel="stylesheet" href="resources/primer.css" media="screen" />    <link rel="stylesheet" href="resources/rec.css" media="screen" />    <link rel="stylesheet" href="resources/extra.css" media="screen" />    <link rel="stylesheet" href="resources/owl.css" media="screen" />    <title>UniOn</title>
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://purl.org/ontology/UniOn","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://purl.org/ontology/UniOn","name":"UniOn", "headline":"UniOn is an ontology representing Universities educational offer. It includes information to describe academic fields, degree programs, access methods and requirements, educational activities, titles and qualifications, location, organization and more", "datePublished":"Sat Sep 03 18:52:48 CEST 2022"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://purl.org/ontology/UniOn","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://purl.org/ontology/UniOn","name":"UniOn", "headline":"UniOn is an ontology representing Universities educational offer. It includes information to describe academic fields, degree programs, access methods and requirements, educational activities, titles and qualifications, location, organization and more.", "datePublished":"Sat Sep 03 18:52:48 CEST 2022"}</script>
 
 <script src="resources/jquery.js"></script>
 <script src="resources/marked.min.js"></script>
@@ -54,19 +55,18 @@ $(function(){
 <div class="container">
 <div class="head">
 <div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
-<h1>UniOn</h1>
 
-
+<img src="./unionlogo.jpg" width="140px"/>
+<h2>Release  September 2022</h2>
 <dl>
-<dt>This version:</dt>
-<dd><a href="http://purl.org/ontology/UniOn/09-2022">http://purl.org/ontology/UniOn/09-2022</a></dd>
-<dt>Latest version:</dt>
+
+<dt>IRI</dt>
 <dd><a href="http://purl.org/ontology/UniOn">http://purl.org/ontology/UniOn</a></dd>
 <dt>Authors:</dt>
 <dd>Alice Bordignon</dd>
 <dd>Francesca Borriello</dd>
 <dd>Lorenza Pierucci</dd>
-<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.rdf" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://insertlicenseURIhere.org" target="_blank"><img src="https://img.shields.io/badge/License-license%20name%20goes%20here-blue.svg" alt="http://insertlicenseURIhere.org" /></a>
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.rdf" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd>
 </dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
 <!-- <dt>Evaluation:</dt><dd><a href="OOPSEvaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --></dl>
 
@@ -82,14 +82,24 @@ UniOn is an ontology representing Universities educational offer. It includes in
 <p><strong>Creators</strong>: Alice Bordignon, Francesca Borriello, Lorenza Pierucci </p>
 <p><strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International</a></p>
 <p><strong>Website:</strong> <a href="https://alicebordignon.github.io/UniOn/">https://alicebordignon.github.io/UniOn/</a></p>
-<p> <a href="https://github.com/alicebordignon/KRKE-RDF">UniOnt on Github</a></p>
+<p> <a href="https://github.com/alicebordignon/KRKE-RDF">UniOn on Github <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></a></p>
+
 </div>
 <div id="toc"></div>
 
 <!--INTRODUCTION SECTION-->
     <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-<span class="markdown">
-This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+<span >
+  UniOnt is intended to represent and organize information in order to:
+  <ul>
+    <li>Orient oneself by getting an overview of university educational programs.</li>
+    <li>Compare different universities’ offers.</li>
+    <li>Extract useful information about a variety of issues.</li>
+  </ul>
+  It could thus prove useful for prospective students looking for the most suitable university course as well as for universities or other related institutions willing to describe and publish information about their training offer.
+
+</span>
 <div id="namespacedeclarations">
 <h3 id="ns" class="list">Namespace declarations</h3>
 <div id="ns" align="center">
