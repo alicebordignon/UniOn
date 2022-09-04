@@ -50,8 +50,10 @@
 		<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
 
 		<!-- Logo -->
-        <a class="logo ml-md-3" href="index.html" title="UniOn"> <img src="assets/images/UniOnCrop.png" alt="UniOn" width="130px", height="100px"/> </a>
+        <a class="logo ml-md-3" href="index.html" title="UniOn"> <img src="assets/images/UniOnCrop.png" alt="UniOn" width="130px", height="100px", padding-left="100px";/> </a>
 		<span class="text-2 ml-2"></span>
+
+
         <!-- Logo End -->
 
 		<!-- Navbar Toggler -->
@@ -95,8 +97,8 @@
 
 	<!-- Sidebar Navigation
 	============================ -->
-	<div class="idocs-navigation bg-light">
-      <ul class="nav flex-column ">
+	<div class="idocs-navigation">
+      <ul class="nav flex-column">
         <li class="nav-item"><a class="nav-link active" href="#idocs_start">The ontology</a>
           <ul class="nav flex-column">
             <li class="nav-item"><a class="nav-link" href="#idocs_installation">Goal</a></li>
@@ -164,7 +166,7 @@
 				</ul>
 			</div>
 		</div>
-        <p class="alert alert-info">If you have any questions that are beyond the scope of this help file, Please feel free to email me@studio.unibo.it lei@studio.unibo.it @ella@unibo.it</a>.</p>
+        <p class="alert alert-success">If you have any questions that are beyond the scope of this help file, Please feel free to email me@studio.unibo.it lei@studio.unibo.it @ella@unibo.it</a>.</p>
         </section>
 
 		<hr class="divider">
@@ -196,7 +198,7 @@
             <li>What is the access modality for the master’s degree in Semiotics?</li>
             <li>What is the study plan of the Law degree program at the University La Sapienza?</li>
             <li>How many CFUs in M-STO/01 does the University of Venice History Degree Program provide?</li>
-            <li>Which department manages the Digital Humanities at the University of Pisa?</li>
+            <li>Which department manages the Digital Humanities Master Degree at the University of Pisa?</li>
             <li>How many laboratories does the University of Bologna Chemistry degree program entail?</li>
             <li>Which laboratories does the University of Bologna Chemistry degree program entail?</li>
             <li>Which degree programs belonging to the class L-13 – Biology does the University of Naples offer?</li>
@@ -329,15 +331,16 @@
 		  ============================ -->
 		  <section id="idocs_sparqlAPI">
             <h2>5. SPARQL API</h2>
-            <p class="text-4">Default <a href="https://getbootstrap.com/docs/4.4/components/navs/#javascript-behavior">Bootstrap Nav</a> component combined with iDocs for unique tabs.</p>
-			<p>See below image and code for more inforamtion.</p>
-			<p><a class="popup-img" href="assets/images/tabs.jpg"><img class="img-fluid border" src="assets/images/tabs.jpg" alt=""></a></p>
+            <p> For testing our ontology through SPARQL queries we need an application programming interface (API). An API is an interface, or method/way, for two pieces of software to communicate.
+            </p>
 
   </section>
  <hr class="divider">
     <section>
-			<h4>5.1 Creating the virtual environment</h4>
-      <p>cazz</p>
+			<h4>5.1 The virtual environment and the local API</h4>
+      <p>We decided that the best starting point to do it was to create a virtual environment using python. Firstly, we created a new local folder called “sparql_endpoint” to receive the creation and activation of our virtual environment done by prompt commands. Once our virtual environment was activated, we installed all the packages needed (flask and owlready2). Then, we created and added a python script to the folder, that once run through the prompt creates a local host to send requests and load the ontology in JSON format, requiring to return results as a legible list of strings. To send requests and verify the functioning of the API we installed PostMan, an API platform for building and using APIs.</p>
+      <p>
+      We verified the working API through a simple GET request, and then we switched to POST to start querying through SPARQL within the PostMan interface, adding the <code>/free_query</code> at the end of our local host.</p>
     </section>
 
 		  <hr class="divider">
@@ -345,8 +348,300 @@
           <!-- Social Icon
 		  ============================ -->
 		  <section id="idocs_social_icon">
-            <h4>5.2 Postman or SPARQL queries</h4>
-            <p>Social links with different styles. See below code for more information.</p>
+            <h4>5.2 SPARQL queries</h4>
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                  <div class="accordion accordion-alterate arrow-right" id="popularTopics">
+                    <div class="card">
+                      <div class="card-header" id="heading1">
+                        <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">1. Which degree programs are delivered by the University of Bologna in the Humanities field?</a> </h5>
+                      </div>
+                      <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#popularTopics">
+                        <div class="card-body">
+                          <pre><code class="language-sql">
+                              PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+                              PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+                              PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+                              PREFIX uo: &lt;http://purl.org/ontology/UniOn#&gt;</span>
+                              SELECT ?DegreeProgrammeLabel (COUNT(?DegreeProgrammeLabel) as ?DegreeCount)
+                              WHERE {
+                              ?DegreeProgramme uo:isDeliveredBy ?ItalianUniversity ;
+                                               uo:hasAcademicField ?AcademicField .
+                              ?ItalianUniversity rdfs:label "University of Bologna" .
+                              ?AcademicField rdfs:label "Studi umanistici" .
+
+                              OPTIONAL { ?DegreeProgramme rdfs:label ?DegreeProgrammeLabel}
+                              }
+                              GROUP BY ?DegreeProgrammeLabel
+                              ORDER BY DESC(?DegreeCount)
+                          </code></pre>
+                          <code>
+                                "response": "[['Filosofia', 2], ['Storia', 1], ['Semiotica', 1], ['Scienze storiche e orientalistiche', 1], ['Scienze filosofiche', 1], ['Scienze della comunicazione', 1], ['Scienze del libro e del documento', 1], ['Lettere', 1], ['Italianistica, culture letterarie europee, scienze linguistiche', 1], ['Geografia e processi territoriali', 1], ['Filologia, letteratura e tradizione classica', 1], ['Fashion culture and management', 1], ['Discipline della musica e del teatro', 1], ['Digital humanities and digital knowledge', 1], ['Dams - discipline delle arti, della musica  e dello spettacolo', 1], ['Culture e tecniche della moda', 1], ['Conservazione e restauro dei beni culturali (abilitante ai sensi del d. lgs n. 42', 1], ['Cinema, televisione e produzione multimediale', 1], ['Beni culturali', 1], ['Beni archeologici, artistici e del paesaggio: storia, tutela e valorizzazione', 1], ['Arti visive', 1], ['Archeologia e culture del mondo antico', 1], [\"Antropologia, religioni, civilta' orientali\", 1], ['Antropologia culturale ed etnologia', 1]]"
+                          </code>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="heading2">
+                        <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">2. Which University offers a degree in Philosophy?</a> </h5>
+                      </div>
+                      <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#popularTopics">
+                        <div class="card-body">
+                          <pre><code class="language-sql">
+                              PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+                              PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+                              PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+                              PREFIX uo: &lt;http://purl.org/ontology/UniOn#&gt;</span>
+                              SELECT DISTINCT ?UniversityLabel
+                              WHERE {
+                              ?DegreeProgramme uo:isDeliveredBy ?University .
+                              ?DegreeProgramme rdfs:label "Filosofia" .
+
+                              OPTIONAL { ?University rdfs:label ?UniversityLabel}
+                              }
+                          </code></pre>
+                          <code>
+                              "response": "[['University of Bologna']]"
+                          </code>
+                         </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="heading3">
+                        <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">3. What is the access modality for the master’s degree in Semiotics?</a> </h5>
+                      </div>
+                      <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#popularTopics">
+                        <div class="card-body">
+                          <pre><code class="language-sql">
+                              PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+                              PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+                              PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+                              PREFIX uo: &lt;http://purl.org/ontology/UniOn#&gt;</span>
+                              SELECT ?AccessTypeLabel
+                              WHERE {
+                              ?DegreeProgramme uo:hasAccessType ?AccessType .
+                              ?DegreeProgramme rdfs:label "Semiotica" .
+
+                              OPTIONAL { ?AccessType rdfs:label ?AccessTypeLabel}
+                              }
+                          </code></pre>
+                          <code>
+                              "response": "[['Open Access']]"
+                          </code>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="heading4">
+                        <h5 class="mb-0"><a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">4. What is the study plan of the History bachelor degree program at the University of Bologna?</a> </h5>
+                      </div>
+                      <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#popularTopics">
+                        <div class="card-body">
+                          <pre><code class="language-sql">
+                              PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+                              PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+                              PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+                              PREFIX uo: &lt;http://purl.org/ontology/UniOn#&gt;</span>
+                              SELECT ?EducationalActivityLabel
+                              WHERE {
+                              ?DegreeProgramme uo:hasEducationalActivity ?EducationalActivity ;
+                                               rdfs:label "Storia" ;
+                                               a uo:BachelorDegree .
+
+                              OPTIONAL { ?EducationalActivity rdfs:label ?EducationalActivityLabel}
+                              }
+                          </code></pre>
+                          <code>
+                                  "response": "[['ANTROPOLOGIA CULTURALE (1)'], ['ANTROPOLOGIA SOCIALE (1)'], ['ARCHEOLOGIA DEL PAESAGGIO (1)'], [\"ARCHEOLOGIA E STORIA DELL'ARTE DEL MEDIOEVO (1)\"], [\"ARCHEOLOGIA E STORIA DELL'ARTE GRECA (1)\"], [\"ARCHEOLOGIA E STORIA DELL'ARTE ROMANA (1)\"], ['ARCHEOLOGIA TARDOANTICA (1)'], ['ARCHIVISTICA (1)'], ['CULTURA E LINGUA ARMENA (1)'], ['DIDATTICA DELLA STORIA (1)'], ['EPIGRAFIA E ISTITUZIONI GRECHE'], ['EPIGRAFIA E ISTITUZIONI ROMANE'], ['EPIGRAFIA GRECA (1)'], ['EPIGRAFIA ROMANA (1)'], ['ESEGESI DELLE FONTI STORICHE MEDIEVALI (1)'], ['ESTETICA'], ['FILOSOFIA DELLA SCIENZA'], ['FILOSOFIA MORALE'], ['FILOSOFIA TEORETICA'], ['GEOGRAFIA (1)'], ['INFORMATICA DI BASE'], [\"INTRODUZIONE ALL'ETRUSCOLOGIA (1)\"], ['ISTITUZIONI E ANTICHITÀ MEDIEVALI (1)'], ['ISTITUZIONI GRECHE (1)'], ['ISTITUZIONI ROMANE (1)'], ['LABORATORIO (1)'], ['LETTERATURA GRECA (1)'], ['LETTERATURA ITALIANA'], ['LETTERATURA ITALIANA CONTEMPORANEA (1)'], ['LETTERATURA LATINA (1)'], ['LINGUA LATINA (1)'], ['METODOLOGIA DELLA RICERCA ARCHEOLOGICA (1)'], ['NUMISMATICA (1)'], ['PALEOGRAFIA LATINA E DIPLOMATICA (1)'], ['PAPIROLOGIA (1)'], ['PEDAGOGIA GENERALE'], ['PROVA FINALE'], ['RELIGIONI DEL MONDO CLASSICO (1)'], ['SEMINARI (1)'], ['STORIA, SOCIETÀ E FAMIGLIA'], ['STORIA CONTEMPORANEA'], ['STORIA DEI PAESI ISLAMICI (1)'], [\"STORIA DELL'ALIMENTAZIONE (1)\"], [\"STORIA DELL'ARTE CONTEMPORANEA (1)\"], [\"STORIA DELL'ARTE MEDIEVALE (1)\"], [\"STORIA DELL'ARTE MODERNA (1)\"], [\"STORIA DELL'EBRAISMO (1)\"], [\"STORIA DELL'EDITORIA (1)\"], [\"STORIA DELL'EMILIA ROMAGNA NELL'ANTICHITÀ (1)\"], [\"STORIA DELL'ITALIA CONTEMPORANEA (1)\"], ['STORIA DELLA CHIESA MEDIEVALE (1)'], ['STORIA DELLA FILOSOFIA'], ['STORIA DELLA LINGUA ITALIANA (1)'], ['STORIA DELLA SCIENZA E DELLE TECNICHE'], ['STORIA DELLA STORIOGRAFIA MEDIEVALE (1)'], ['STORIA DELLA TARDA ANTICHITÀ (1)'], ['STORIA DELLE DONNE (1)'], ['STORIA DELLE DONNE E DI GENERE NEL MEDIOEVO (1)'], ['STORIA DELLE DONNE NEL MONDO CLASSICO (1)'], ['STORIA DELLE DOTTRINE POLITICHE'], ['STORIA DELLE ISTITUZIONI POLITICHE'], ['STORIA DELLE RELIGIONI (1)'], ['STORIA DELLE UNIVERSITÀ NEL MEDIOEVO (1)'], ['STORIA DEL CRISTIANESIMO (1)'], ['STORIA DEL LIBRO E BIBLIOTECONOMIA (1)'], ['STORIA DEL PENSIERO POLITICO MEDIEVALE (1)'], ['STORIA ECONOMICA'], ['STORIA ECONOMICA DEL MEDIOEVO (1)'], ['STORIA E ISTITUZIONI DELLA CHIESA ORTODOSSA (1)'], ['STORIA GRECA'], ['STORIA MEDIEVALE'], ['STORIA MODERNA'], ['STORIA ROMANA'], ['STORIA SOCIALE DEL MEDIOEVO (1)'], ['STORIA SOCIALE DEL MONDO ANTICO (1)'], ['STORIOGRAFIA ANTICA (1)'], ['TIROCINIO (1)']]"
+                          </code>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="heading5">
+                        <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">5. How many CFUs in M-STO/01 does the University of Bologna's History Bachelor Degree Program provide?</a> </h5>
+                      </div>
+                      <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#popularTopics">
+                        <div class="card-body">
+                          <pre><code class="language-sql">
+                              PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+                              PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+                              PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+                              PREFIX uo: &lt;http://purl.org/ontology/UniOn#&gt;</span>
+                              SELECT (SUM(?CFUofEducation) as ?CFU)
+                              WHERE {
+                              ?DegreeProgramme a uo:BachelorDegree ;
+                                               uo:hasEducationalActivity ?EducationalActivity ;
+                                               rdfs:label "Storia" .
+                              ?EducationalActivity uo:hasSsd "M-STO/01" .
+                              ?EducationalActivity uo:hasCfu ?CFUofEducation .
+                              }
+                          </code></pre>
+                          <code>
+                              "response": "[[66]]"
+                          </code>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="heading6">
+                        <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">6. Which department manages the Digital Humanities Master Degree at the University of Bologna?</a> </h5>
+                      </div>
+                      <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#popularTopics">
+                        <div class="card-body">
+                          <pre><code class="language-sql">
+                              PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+                              PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+                              PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+                              PREFIX uo: &lt;http://purl.org/ontology/UniOn#&gt;</span>
+                              SELECT ?DepartmentLabel
+                              WHERE {
+                              ?DegreeProgramme uo:isManagedBy ?Department ;
+                                               rdfs:label "Digital humanities and digital knowledge" ;
+                                               a uo:MasterDegree .
+
+                              OPTIONAL { ?Department rdfs:label ?DepartmentLabel }
+                              }
+                          </code></pre>
+                          <code>
+                               "response": "[['Filologia Classica e Italianistica - FICLIT']]"
+                          </code>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="heading7">
+                        <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">7. How many laboratories does the University of Bologna's Dams degree program entail?</a> </h5>
+                      </div>
+                      <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#popularTopics">
+                        <div class="card-body">
+                          <pre><code class="language-sql">
+                              PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+                              PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+                              PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+                              PREFIX uo: &lt;http://purl.org/ontology/UniOn#&gt;</span>
+                              SELECT (COUNT(?EducationalActivity) as ?LaboratoryCount)
+                              WHERE {
+                              ?DegreeProgramme uo:hasEducationalActivity ?EducationalActivity ;
+                                              rdfs:label "Dams - discipline delle arti, della musica  e dello spettacolo" .
+                              ?EducationalActivity a uo:Laboratory .
+                              }
+                          </code></pre>
+                          <code>
+                               "response": "[[3]]"
+                          </code>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="heading8">
+                        <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">8. Which laboratories does the University of Bologna's Dams degree program entail?</a> </h5>
+                      </div>
+                      <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#popularTopics">
+                        <div class="card-body">
+                          <pre><code class="language-sql">
+                              PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+                              PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+                              PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+                              PREFIX uo: &lt;http://purl.org/ontology/UniOn#&gt;</span>
+                              SELECT ?EducationalActivityLabel
+                              WHERE {
+                              ?DegreeProgramme uo:hasEducationalActivity ?EducationalActivity ;
+                                              rdfs:label "Dams - discipline delle arti, della musica  e dello spettacolo" .
+                              ?EducationalActivity a UniOn:Laboratory .
+
+                              OPTIONAL { ?EducationalActivity rdfs:label ?EducationalActivityLabel }
+                              }
+                          </code></pre>
+                          <code>
+                               "response": "[['LABORATORIO DI CINEMA (1)'], ['LABORATORIO DI MUSICA (1)'], ['LABORATORIO DI TEATRO (1)']]"
+                          </code>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="heading6">
+                        <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse9" aria-expanded="false" aria-controls="collapse9">9. Which degree programs belonging to the class LM-80 - Geography does the University of Bologna offer?</a></h5>
+                      </div>
+                      <div id="collapse9" class="collapse" aria-labelledby="heading6" data-parent="#popularTopics">
+                        <div class="card-body">
+                          <pre><code class="language-sql">
+                              PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+                              PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+                              PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+                              PREFIX uo: &lt;http://purl.org/ontology/UniOn#&gt;</span>
+                              SELECT ?DegreeProgrammeLabel
+                              WHERE {
+                              ?DegreeProgramme uo:hasDegreeClass ?DegreeClass .
+                              FILTER regex(?DegreeClass, "^LM-80", "i") .
+
+                              OPTIONAL { ?DegreeProgramme rdfs:label ?DegreeProgrammeLabel }
+                              }
+                          </code></pre>
+                          <code>
+                               "response": "[['Geografia e processi territoriali']]"
+                          </code>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="heading6">
+                        <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">10. Where are the Conservation and Restoration of Cultural Heritage degree program courses held?</a> </h5>
+                      </div>
+                      <div id="collapse10" class="collapse" aria-labelledby="heading10" data-parent="#popularTopics">
+                        <div class="card-body">
+                          <pre><code class="language-sql">
+                              PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+                              PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+                              PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+                              PREFIX uo: &lt;http://purl.org/ontology/UniOn#&gt;</span>
+                              SELECT ?CampusLabel ?PlaceOfTeachingLabel
+                              WHERE {
+                              ?DegreeProgramme uo:hasPlaceOfTeaching ?PlaceOfTeaching ;
+                                              uo:hasCampus ?Campus ;
+                                              rdfs:label "Conservazione e restauro dei beni culturali (abilitante ai sensi del d. lgs n. 42"
+
+                              OPTIONAL { ?Campus rdfs:label ?CampusLabel }
+                              OPTIONAL { ?PlaceOfTeaching rdfs:label ?PlaceOfTeachingLabel }
+                              }
+                          </code></pre>
+                          <code>
+                               "response": "[['Ravenna', 'Ravenna']]"
+                          </code>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="heading6">
+                        <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse11" aria-expanded="false" aria-controls="collapse11">11. Which international master’s degree programs are offered by the University of Bologna?</a></h5>
+                      </div>
+                      <div id="collapse11" class="collapse" aria-labelledby="heading11" data-parent="#popularTopics">
+                        <div class="card-body">
+                          <pre><code class="language-sql">
+                              PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+                              PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+                              PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+                              PREFIX uo: &lt;http://purl.org/ontology/UniOn#&gt;</span>
+                              SELECT ?DegreeProgrammeLabel
+                              WHERE {
+                              ?DegreeProgramme a uo:InternationalDegree .
+                              ?DegreeProgramme a uo:MasterDegree .
+
+                              OPTIONAL { ?DegreeProgramme rdfs:label ?DegreeProgrammeLabel }
+                              }
+                          </code></pre>
+                          <code>
+                            "response": "[['Arti visive'], ['Scienze filosofiche'], ['Scienze storiche e orientalistiche'], ['Archeologia e culture del mondo antico'], ['Fashion culture and management'], ['Italianistica, culture letterarie europee, scienze linguistiche'], ['Digital humanities and digital knowledge']]"
+                          </code>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </section>
       </section>
 
 
@@ -365,7 +660,7 @@
 		============================ -->
 		<section id="idocs_faq">
           <h2>7. Specifications</h2>
-          <p class="text-4">A FAQ is a list of frequently asked questions (FAQs) and answers on a particular topic.</p>
+          <p class="text-4">To publish <a href="https://alicebordignon.github.io/UniOn/myDocumentation/index-en.html">UniOn’s documentation</a> we relied on <b>WIzard for DOCumenting Ontologies (WIDOCO)</b> an open source tool which automatically creates a documentation with human readable descriptions of the ontology terms and a visualization through WebVowl.</p>
   </section>
 
 		<hr class="divider">
@@ -381,10 +676,7 @@
   <footer id="footer" class="section bg-dark footer-text-light">
     <div class="container">
       <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3">
-        <li><a data-toggle="tooltip" href="https://twitter.com/harnishdesign/" target="_blank" title="" data-original-title="Twitter"><i class="fab fa-twitter"></i></a></li>
-        <li><a data-toggle="tooltip" href="http://www.facebook.com/harnishdesign/" target="_blank" title="" data-original-title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a data-toggle="tooltip" href="http://www.dribbble.com/harnishdesign/" target="_blank" title="" data-original-title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
-        <li><a data-toggle="tooltip" href="http://www.github.com/" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+        <li><a data-toggle="tooltip" href="https://github.com/alicebordignon/UniOn" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
       </ul>
       <p class="text-center">Copyright &copy; 2020 <a href="http://www.harnishdesign.net/idocs-one-page-documentation-html-template/">iDocs</a>. All Rights Reserved.</p>
 	  <p class="text-2 text-center mb-0">Design &amp; Develop by <a class="btn-link" target="_blank" href="http://www.harnishdesign.net/">HarnishDesign</a>.</p>
