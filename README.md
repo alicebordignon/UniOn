@@ -7,9 +7,6 @@ UniOnt is intended to represent and organize information in order to:
 * Compare different universities’ offers.
 * Extract useful information about a variety of issues.
 
-It could thus prove useful for prospective students looking for the most suitable university course as well as for universities or other related institutions willing to describe and publish information about their training offer.
-
-
 ### For whom?
 * Prospective students looking for the most suitable university course 
 * Universities willing to describe and publish information about their training offer
