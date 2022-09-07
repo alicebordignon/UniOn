@@ -303,7 +303,7 @@
       </p>
 			<p>To populate our classes we created the individuals, their labels, and established relationships among them. <br>Throughout the various steps of this phase, we performed an <b>iterative testing process</b> in order to detect errors and consequently adjust our script to build an <b>efficient population environment</b>. <br>
         The resulting population script is <b>potentially reusable by anyone having a CSV dataset(s) structured like ours</b> and carrying information for any other Universities, academic years, academic fields etc.</p>
-			<p>Once all the individuals and all the relationships among them were correctly created, we ran the Protégé logic reasoner on the populated ontology to check its consistency and integrity. Since <b>it inferred correctly what had not been declared manually</b>, we concluded that our ontology was logically structured and working.</br>
+			<p>Once all the individuals and all the relationships among them were correctly created, we ran the Protégé logic reasoner on the populated ontology to check its consistency and integrity. Since <b>it inferred correctly what had not been declared manually</b>, we concluded that our ontology was logically structured and working. Finally, we exported the inferred axioms as ontology saving it as an OWL file: it will be our <b>final OWL file</b> on which the SPARQL queries will be run. </br>
       See our <a href="https://github.com/alicebordignon/KRKE-RDF/blob/main/OntologyPopulation.ipynb">Jupyter notebook</a> for a full explanation of the ontology population steps.</p>
       <p>As we have already outlined, UniOn has been modelled pursuing a <b>balance between the completeness of the domain’s description</b> and the <b>actual availability of data</b>. This means that, for it not to be flattened on the (still defective) data, it entails more classes and properties than those that those described by our dataset. Therefore, not all its classes are populated by individuals.</p>
     </section>
@@ -490,9 +490,9 @@
                               PREFIX uo: &lt;http://purl.org/ontology/UniOn#&gt;</span>
                               SELECT ?DepartmentLabel
                               WHERE {
-                              ?DegreeProgramme uo:isManagedBy ?Department ;
-                                               rdfs:label "Digital humanities and digital knowledge" ;
-                                               a uo:MasterDegree .
+                              ?Department uo:manages ?DegreeProgramme .
+                              ?DegreeProgramme rdfs:label "Digital humanities and digital knowledge" ;
+                                              a uo:MasterDegree .
 
                               OPTIONAL { ?Department rdfs:label ?DepartmentLabel }
                               }
@@ -643,12 +643,13 @@
 		============================ -->
         <section id="idocs_conclusions">
           <h2>6. Conclusions and future developments</h2>
-          <ul>
-            <li>Comparisons with other international universities’ systems starting from available ontologies about foreign models.</li>
-            <li>Expand the ontology with other logical blocks regarding other aspects of the universities’ systems (e. G. Administration, People involved in the institution, scientific publications, etc.)</li>
-            <li>It would be interesting if all Italian universities had an Open Data project such as the one of the University of Bologna: in this way, it would be possible to exploit the potential of our ontology by making interesting comparisons.</li>
-            <li>Publication and creation of a shared host for a SPARQL-end point to enable people to test our ontology.</li>
-          </ul>
+          <p>As detailed in the previous sections we tried our best to reach a balance between completeness, feasibility, and applicability of the ontology by creating a <b>simple and consistent logical model</b> able to represent italian universities educational offers from an institutional point of view. We are aware that our model could be further expanded and developed.</p>
+          <p>A possible point for future development could be to <b>broaden the ontology</b> by adding other logical blocks regarding various aspects of the universities’ systems (e.g. administration, people and staff involved in the institution, scientific publications, etc.).<br>
+            To reach a higher level of completeness the <b>contribution of other universities</b> with the publication of Open Data project such as the one developed by the University of Bologna would be suggested: in this way, it could be possible to fully exploit the potential of our ontology by making interesting comparisons between different universities and degree programmes.  <br>
+            Another point for future development could be to model other vocabularies able to <b>depict foreign universities systems</b> that could possibly be aligned or compared to our model.<br>
+            Finally, to enable people to perform queries and test our ontology, the <b>publication of our SPARQL-end point</b> is needed.
+          </p>
+
         </section>
 
 		<hr class="divider">
