@@ -80,7 +80,7 @@ $(function(){
 UniOn is an ontology representing Universities educational offer. It includes information to describe academic fields, degree programs, access methods and requirements, educational activities, titles and qualifications, location, organization and more</span>
 <p><strong>URL:</strong> <a href="http://purl.org/ontology/UniOn">http://purl.org/ontology/UniOn</a></p>
 <p><strong>Creators</strong>: Alice Bordignon, Francesca Borriello, Lorenza Pierucci </p>
-<p><strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 International</a></p>
+
 <p><strong>Website:</strong> <a href="https://alicebordignon.github.io/UniOn/">https://alicebordignon.github.io/UniOn/</a></p>
 <p> <a href="https://github.com/alicebordignon/KRKE-RDF">UniOn on Github <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
               <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></a></p>
@@ -91,7 +91,7 @@ UniOn is an ontology representing Universities educational offer. It includes in
 <!--INTRODUCTION SECTION-->
     <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span >
-  UniOnt is intended to represent and organize information in order to:
+  UniOn is intended to represent and organize information in order to:
   <ul>
     <li>Orient oneself by getting an overview of university educational programs.</li>
     <li>Compare different universities’ offers.</li>
@@ -456,8 +456,21 @@ This ontology has the following classes and properties.</span>
 
 <!--DESCRIPTION SECTION-->
     <div id="description"><h2 id="desc" class="list">UniOn: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-<span class="markdown">
-This is a placeholder text for the description of your ontology. The description should include an explanation and a diagram explaining how the classes are related, examples of usage, etc.</span>
+<span >
+  In order to build our vocabulary, we made use of the following sources:
+
+<ul>  <li>Universities websites, specifically webpages providing information about the training offer;  </li>
+  <li>Open datasets (mainly CSV format) containing related information;  </li>
+    </ul>
+Since we intended our vocabulary to organically include information from both kinds of sources, we adopted a hybrid approach, merging top-down and bottom-up techniques:
+<ul>
+  <li>Top-down: we defined general concepts of the domain and then classified them into specific hierarchies by analyzing relevant information sources, i.e. university websites.  </li>
+  <li>Bottom-up: starting with existing data structures, we defined specific concrete concepts.  </li></ul>
+  Integrating these two approaches gave us the opportunity to effectively balance theoretical appropriateness and feasibility (concretely applying the vocabulary to existing data).</li>
+</ul>
+Moreover, in order to guarantee interoperability and reusability to UniOn, we decided to make use - when possible - of existing vocabularies, mapping our classes and properties with widely adopted ones. We thus reused some classes and properties from DULCE (DOLCE+DnS Ultralite), a foundational ontology presenting general categories and relations that come to hand when building a lower-level ontology like ours.
+
+</span>
 
 </div>
 
@@ -2582,7 +2595,7 @@ This section provides details for each class and property defined by UniOn.
   <div id="references">
 <h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
-Add your references here. It is recommended to have them as a list.</span>
+DOLCE+DnS Ultralite http://www.ontologydesignpatterns.org/ont/dul/DUL.owl</span>
 
 </div>
 <div id="acknowledgments">
