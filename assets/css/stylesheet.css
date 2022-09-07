@@ -280,8 +280,8 @@ dl, ol, ul, pre, blockquote, .table {
 }
 
 .text-2 {
-  font-size: 14px !important;
-  font-size: 0.875rem !important;
+  font-size: 8px;
+  color: transparent;
 }
 
 .text-3 {
@@ -657,6 +657,7 @@ hr {
   transition: all 0.3s;
   background-color: #d0e3cc;
   font-size: 15px;
+  color: #417740;
 }
 .idocs-navigation > .nav {
   padding: 30px 0;
@@ -671,7 +672,8 @@ hr {
   position: relative;
   padding: 6px 30px;
   line-height: 25px;
-  font-weight: 600;
+  font-weight: 400;
+  color: #417740;
 }
 .idocs-navigation .nav .nav-item:hover > .nav-link, .idocs-navigation .nav .nav-item .nav-link.active {
   font-weight: 700;
@@ -725,7 +727,7 @@ hr {
   transition: all 0.2s ease;
 }
 .idocs-navigation.docs-navigation-dark .nav .nav-link {
-  color: rgba(250, 250, 250, 0.85);
+  color: #417740;
 }
 .idocs-navigation.docs-navigation-dark .nav .nav .nav-link {
   color: rgba(250, 250, 250, 0.7);
@@ -813,7 +815,7 @@ hr {
   -ms-flex-item-align: stretch;
   align-self: stretch;
   background: #fff;
-  border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid #F7FFDD;
 }
 .primary-menu.bg-transparent {
   position: absolute;
@@ -1779,11 +1781,11 @@ hr {
   text-decoration: none;
 }
 .accordion .card-header a:hover.collapsed {
-  color: #0366d6 !important;
+  color: #417740;
 }
 .accordion:not(.accordion-alternate) .card-header a {
-  background-color: #417740;
-  color: #fff;
+  background-color: #d0e3cc;
+  color: #417740;
 }
 .accordion:not(.accordion-alternate) .card-header a.collapsed {
   background-color: #f1f2f4;
@@ -2725,7 +2727,7 @@ select.form-control:not([size]):not([multiple]):not(.form-control-sm) {
   }
 }
 .bg-primary, .badge-primary {
-  background-color: #0366d6 !important;
+  background-color: #417740 !important;
 }
 
 .bg-secondary {
@@ -2733,11 +2735,11 @@ select.form-control:not([size]):not([multiple]):not(.form-control-sm) {
 }
 
 .text-primary, .btn-light, .btn-outline-light:hover, .btn-link, .btn-outline-light:not(:disabled):not(.disabled).active, .btn-outline-light:not(:disabled):not(.disabled):active {
-  color: #0366d6 !important;
+  color: transparent;
 }
 
 .btn-link:hover {
-  color: #0355b3 !important;
+  color: transparent;
 }
 
 .text-secondary {
@@ -2963,4 +2965,17 @@ input:-internal-autofill-selected {
   right: auto;
   left: -40px;
   border-radius: 4px 0px 0px 4px;
+}
+
+#idocs_end {
+  font-size: 13px;
+}
+
+.image {
+  text-align: center;
+  padding: 10px;
+}
+
+figcaption {
+  font-size: 11px;
 }

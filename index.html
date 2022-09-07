@@ -99,7 +99,7 @@
         </li>
         <li class="nav-item"><a class="nav-link" href="#idocs_content">Data collection</a>
 			<ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link" href="#idocs_typography">The Opendata Beta project by University of Bologna</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_typography">The Opendata Beta project</a></li>
             <li class="nav-item"><a class="nav-link" href="#idocs_code">Data integration</a></li>
             <li class="nav-item"><a class="nav-link" href="#idocs_table">The final dataset</a></li>
           </ul>
@@ -108,10 +108,12 @@
         </li>
         <li class="nav-item"><a class="nav-link" href="#idocs_sparqlAPI">SPARQL API</a>
 			<ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link" href="#idocs_sparqlendpoint">Creating the virtual environment</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_pos">PostMan</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_queries">Sparql queries</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_VE">The virtual environment</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_SE">FLASK: creating the API</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_PostMan">PostMan: using the API</a></li>
           </ul>
+          <li class="nav-item"><a class="nav-link" href="#idocs_social_icon">Testing: SPARQL queries</a>
+          </li>
           <li class="nav-item"><a class="nav-link" href="#idocs_conclusions">Conclusions and further developments</a>
           </li>
 		      </li>
@@ -141,7 +143,7 @@
               <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
 
             </li>
-					<li><strong>Author:</strong>   Alice Bordignon, Francesca Borriello, Lorenza Pierucci</a></li>
+					<li><strong>Authors:</strong>   Alice Bordignon, Francesca Borriello, Lorenza Pierucci</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-6 col-lg-4">
@@ -162,21 +164,19 @@
           <h4>1.2 Goal</h4>
           <p>UniOn is intended to represent and organize information in order to:</p>
             <ul>
-                <li>Orient oneself by getting an overview of university educational programs.</li>
-                <li>Compare different universities’ offers.</li>
-                <li>Extract useful information about a variety of issues.</li>
+                <li><b>Orient oneself</b> by getting an overview of university educational programs.</li>
+                <li><b>Compare</b> different universities’ offers.</li>
+                <li><b>Extract</b> useful information about a variety of issues.</li>
             </ul>
-          <p>It could thus prove useful for prospective students looking for the most suitable university course as well as for universities or other related institutions willing to describe and publish information about their training offer.
+          <p>It could thus prove useful for <b>prospective students</b> looking for the most suitable university course as well as for universities or other related institutions willing to describe and publish information about their training offer.
           </p>
         </section>
-
-		<hr class="divider">
 
         <!-- HTML Structure
 		============================ -->
         <section id="idocs_html_structure">
           <h4>1.3 Competency questions</h4>
-          <p>In order to better understand what UniOn should be able to represent and what a user should be able to extract from it, we designed some natural language competency questions.</p>
+          <p>In order to better understand what UniOn should be able to represent and what a user should be able to extract from it, <b>we designed some natural language competency questions</b>.</p>
           <ol>
             <li>Which degree programs are delivered by the University of Bologna in the Humanities field?</li>
             <li>Which University offers a degree in Philosophy?</li>
@@ -190,7 +190,7 @@
             <li>Where are the Conservation and Restoration of Cultural Heritage degree program courses held?</li>
             <li>Which international master’s degree programs are offered by the University of Milan?</li>
           </ol>
-          <p>The CQs will later be of use in the assessment phase of the ontology development process.</p>
+          <p>The CQs will later be of use in the assessment phase of the ontology development process through SPARQL queries adapted to our available data.</p>
         </section>
 
 		<hr class="divider">
@@ -200,7 +200,6 @@
         <section id="idocs_layout">
           <h2>2. Building the Ontology</h2>
         </section>
-	<hr class="divider">
 
         <!-- Header
 		============================ -->
@@ -208,18 +207,17 @@
           <h4>2.1 Sources</h4>
           <p>In order to build our vocabulary, we made use of the following sources:</p>
           <ul>
-            <li>Universities websites, specifically webpages providing information about the training offer;</li>
-            <li>Open datasets (mainly CSV format) containing related information;</li>
+            <li><b>Universities websites</b>, specifically webpages providing information about the training offer;</li>
+            <li><b>Open datasets</b> (mainly CSV format) containing related information;</li>
           </ul>
 
         </section>
-		<hr class="divider">
 
 		<!-- Navbar
 		============================ -->
         <section id="idocs_navbar">
           <h4>2.2 A hybrid approach</h4>
-		  <p>Since we intended our vocabulary to organically include information from both kinds of sources, we adopted a hybrid approach, merging top-down and bottom-up techniques:</p>
+		  <p>Since we intended our vocabulary to organically include information from both kinds of sources, we adopted a hybrid approach, <b>merging top-down and bottom-up techniques</b>:</p>
 		  <ul>
         <li><b>Top-down</b>: we defined general concepts of the domain and then classified them into specific hierarchies by analyzing relevant information sources, i.e. university websites.</li>
         <li><b>Bottom-up</b>: starting with existing data structures, we defined specific concrete concepts.</li>
@@ -228,15 +226,18 @@
       <p>The process was, of course, an iterative one: it required a continuous comparison between our sources and a progressive adaptation of both. </p>
         </section>
 
-		<hr class="divider">
 
 		<!-- Sidebar
 		============================ -->
         <section id="idocs_sidebar">
           <h4>2.3 Completeness, feasibility and interoperability</h4>
           <p>Since the availability and completeness of data for our domain is limited and since we did not intend our ontology to be flattened on them, we worked towards a balance between <b>logical complexity, completeness and applicability</b>. This means that UniOn covers more than the existing data structures and contains some “empty” concepts without any data that represents them: we hope that soon UniOn will be able to embrace more comprehensive data.</p>
-          <p>Finally, in order to guarantee interoperability and reusability to UniOn, we decided to make use - when possible - of existing vocabularies, mapping our classes and properties with widely adopted ones. We thus reused some classes and properties from DULCE (DOLCE+DnS Ultralite), a foundational ontology presenting general categories and relations that come to hand when building a lower-level ontology like ours. </p>
+          <p>Finally, in order to guarantee interoperability and reusability to UniOn, we decided to make use - when possible - of existing vocabularies, mapping our classes and properties with widely adopted ones. We thus reused some classes and properties from <b>DULCE (DOLCE+DnS Ultralite)</b>, a foundational ontology presenting general categories and relations that come to hand when building a lower-level ontology like ours. </p>
 		    </section>
+        <div class=image>
+           <img src="assets/images/ontologyclasses.jpg" alt="UniOn Classes">
+           <figcaption>UniOn classes</figcaption>
+       </div>
 
 		<hr class="divider">
 
@@ -244,7 +245,7 @@
 		============================ -->
         <section id="idocs_content">
           <h2>3. Data collection</h2>
-          <p> As we said, in the process of modelling our ontology we worked on a few open CSV files. Once we completed the first draft of our model, we moved on to create our own dataset to merge and integrate all information – which was then scattered among several sources – into a new, all-inclusive structure. <br>
+          <p> As we said, in the process of modelling our ontology we worked on a few <b>open CSV files</b>. Once we completed the first draft of our model, we moved on to create our own dataset to merge and integrate all information – which was then scattered among several sources – into a new, all-inclusive structure. <br>
             The goal was to then use the obtained dataset to automatically populate our ontology: this would allow us to put it to the test by trying to answer our competency questions.</p>
         </section>
 
@@ -252,8 +253,8 @@
 		============================ -->
 		<section id="idocs_typography">
 		  <h4>3.1 The Opendata Beta project by University of Bologna</h4>
-		  <p>Our starting point were three datasets (CSV format) made publicly available by the University of Bologna as part of the <a href="https://dati.unibo.it/dataset">Opendata Beta project</a>. <br>
-        Since complete data was only available for the academic year 2018/2019, we restricted our analysis to this period. Also, we decided to focus on one specific academic field, the Humanities.<br>
+		  <p>Our <b>starting point</b> were <b>three datasets</b> (CSV format) made publicly available by the University of Bologna as part of the <a href="https://dati.unibo.it/dataset">Opendata Beta project</a>. <br>
+        Since complete data was only available for the <b>academic year 2018/2019</b>, we restricted our analysis to this period. Also, we decided to focus on one specific academic field, <b>the Humanities</b>.<br>
         The three files respectively contain:</p>
       <ol>
         <li><b>A catalogue of all degree programs</b> offered by the University of Bologna; for each of them, the following information is specified: webpage URL, administrative location and teaching place(s), reference academic field, degree type (bachelor’s/master’s ...), duration, whether it is international or not, released qualification, teaching language and type of access.</li>
@@ -267,13 +268,11 @@
         </li>
 		</section>
 
-		<hr class="divider">
-
 		<!-- Code
 		============================ -->
 		<section id="idocs_code">
 		  <h4>3.2 Data integration</h4>
-		  <p>Since some data was missing from our starting datasets, we needed to semi-automatically integrate the following information:</p>
+		  <p>Since some data was missing from our starting datasets, we needed to <b>semi-automatically integrate</b> the following information:</p>
         <ul>
           <li><b>The degree class</b>: a unique code of each degree program;</li>
           <li><b>The department</b>: the administrative structure managing each degree program;</li>
@@ -281,13 +280,11 @@
         </ul>
       </section>
 
-      		<hr class="divider">
-
 		<!-- Table
 		============================ -->
 		<section id="idocs_table">
 		<h4>3.3 The final dataset</h4>
-		<p>Once all information had been collected, we merged and integrated it into our final dataset. To do so, we relied on <b>Pandas</b>, a data analysis and manipulation tool which allowed us to select, align and merge information from the three CSV files.</p>
+		<p>Once all information had been collected, we <b>merged and integrated</b> it into our final dataset. To do so, we relied on <b>Pandas</b>, a data analysis and manipulation tool which allowed us to select, align and merge information from the three CSV files.</p>
     <p>You can check our code out on our jupyter notebook <a href="https://github.com/alicebordignon/KRKE-RDF/blob/main/DataCollection.ipynb">here</a>
 		<p>As a result, we obtained a data frame including:</p>
     <ul>
@@ -302,13 +299,13 @@
 		  ============================ -->
 		  <section id="idocs_components">
             <h2>4. Populating the ontology (A-box)</h2>
-			<p>We populated our ontology using OwlReady2, a package for ontology-oriented programming in Python. It can load OWL 2.0 ontologies as Python objects, modify them, save them, and perform reasoning via HermiT.
+			<p>We populated our ontology using <b>OwlReady2</b>, a package for ontology-oriented programming in Python. It can load <b>OWL 2.0 ontologies as Python objects</b>, modify them, save them, and perform reasoning via HermiT.
       </p>
-			<p>To populate our classes we created the individuals, their labels, and established relationships among them. <br>Throughout the various steps of this phase, we performed an iterative testing process in order to detect errors and consequently adjust our script to build an efficient population environment. <br>
-        The resulting population script is potentially reusable by anyone having a CSV dataset(s) structured like ours and carrying information for any other Universities, academic years, academic fields etc.</p>
-			<p>Once all the individuals and all the relationships among them were correctly created, we ran the Protégé logic reasoner on the populated ontology to check its consistency and integrity. Since it inferred correctly what had not been declared manually, we concluded that our ontology was logically structured and working.</br>
+			<p>To populate our classes we created the individuals, their labels, and established relationships among them. <br>Throughout the various steps of this phase, we performed an <b>iterative testing process</b> in order to detect errors and consequently adjust our script to build an <b>efficient population environment</b>. <br>
+        The resulting population script is <b>potentially reusable by anyone having a CSV dataset(s) structured like ours</b> and carrying information for any other Universities, academic years, academic fields etc.</p>
+			<p>Once all the individuals and all the relationships among them were correctly created, we ran the Protégé logic reasoner on the populated ontology to check its consistency and integrity. Since <b>it inferred correctly what had not been declared manually</b>, we concluded that our ontology was logically structured and working.</br>
       See our <a href="https://github.com/alicebordignon/KRKE-RDF/blob/main/OntologyPopulation.ipynb">Jupyter notebook</a> for a full explanation of the ontology population steps.</p>
-      <p>As we have already outlined, UniOn has been modelled pursuing a balance between the completeness of the domain’s description and the actual availability of data. This means that, for it not to be flattened on the (still defective) data, it entails more classes and properties than those that those described by our dataset. Therefore, not all its classes are populated by individuals.</p>
+      <p>As we have already outlined, UniOn has been modelled pursuing a <b>balance between the completeness of the domain’s description</b> and the <b>actual availability of data</b>. This means that, for it not to be flattened on the (still defective) data, it entails more classes and properties than those that those described by our dataset. Therefore, not all its classes are populated by individuals.</p>
     </section>
 
     		<hr class="divider">
@@ -316,16 +313,25 @@
 		  ============================ -->
 		  <section id="idocs_sparqlAPI">
             <h2>5. SPARQL API</h2>
-            <p> For testing our ontology through SPARQL queries we need an application programming interface (API). An API is an interface, or method/way, for two pieces of software to communicate.
+            <p> For testing our ontology through SPARQL queries we need an <b>application programming interface (API)</b>. An API is an interface, or method/way, for two pieces of software to communicate.
             </p>
 
   </section>
- <hr class="divider">
-    <section>
-			<h4>5.1 The virtual environment and the local API</h4>
-      <p>We decided that the best starting point to do it was to create a virtual environment using python. Firstly, we created a new local folder called “sparql_endpoint” to receive the creation and activation of our virtual environment done by prompt commands. Once our virtual environment was activated, we installed all the packages needed (flask and owlready2). Then, we created and added a python script to the folder, that once run through the prompt creates a local host to send requests and load the ontology in JSON format, requiring to return results as a legible list of strings. To send requests and verify the functioning of the API we installed PostMan, an API platform for building and using APIs.</p>
-      <p>
-      We verified the working API through a simple GET request, and then we switched to POST to start querying through SPARQL within the PostMan interface, adding the <code>/free_query</code> at the end of our local host.</p>
+    <section id="idocs_VE">
+			<h4>5.1 The virtual environment</h4>
+      <p>We decided that the best starting point to do it was to <b>create a virtual environment</b> using python. Firstly, we created a new local folder to receive the creation and activation of our virtual environment done by prompt commands using the <a href="https://docs.python.org/3/library/venv.html">venv module</a>. The venv module provides support for creating lightweight “virtual environments” with their own site directories, optionally isolated from system site directories.
+    </p>
+    </section>
+    <section id="idocs_SE">
+      <h4>5.2 FLASK: creating the API</h4>
+      <p>Once our virtual environment was activated, we installed all the packages and frameworks needed (Flask and Owlready2). <b>Flask</b> is a widely used <b>micro web framework</b> for <b>creating APIs</b> in Python. Then, we created and added a python script to the folder, that once run creates a <b>local port</b> to send and receive requests, loading our ontology in <b>JSON format</b>, and requiring to <b>return</b> results as a <b>legible list of strings</b>.
+      </p>
+    </section>
+    <section id="idocs_PostMan">
+			<h4>5.3 PostMan: using the API</h4>
+      <p>To send requests to the local port and verify the functioning of the API we used <b>PostMan</b>, an API platform for building and using APIs. The script that uses flask and create the local port is available on our <a href="https://github.com/alicebordignon/UniOn">GitHub repository</a>.<br>
+        We verified the working API through a simple GET request, and then we switched to POST to start querying through SPARQL within the PostMan interface, adding the <code>/free_query </code> at the end of our local host.
+    </p>
     </section>
 
 		  <hr class="divider">
@@ -333,8 +339,9 @@
           <!-- Social Icon
 		  ============================ -->
 		  <section id="idocs_social_icon">
-            <h4>5.2 SPARQL queries</h4>
-
+            <h2>5.2 Testing: SPARQL queries</h2>
+            <p>Since our data sample for testing our ontology is limited to the University of Bologna’s educational offer for humanities degree programs, <b>we adapted the SPARQL queries to our available data</b> starting from the original CQ.
+            </p>
 
             <div class="row">
                 <div class="col-lg-12">
@@ -547,7 +554,7 @@
                       </div>
                     </div>
                     <div class="card">
-                      <div class="card-header" id="heading6">
+                      <div class="card-header" id="heading9">
                         <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse9" aria-expanded="false" aria-controls="collapse9">9. Which degree programs belonging to the class LM-80 - Geography does the University of Bologna offer?</a></h5>
                       </div>
                       <div id="collapse9" class="collapse" aria-labelledby="heading6" data-parent="#popularTopics">
@@ -572,7 +579,7 @@
                       </div>
                     </div>
                     <div class="card">
-                      <div class="card-header" id="heading6">
+                      <div class="card-header" id="heading10">
                         <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">10. Where are the Conservation and Restoration of Cultural Heritage degree program courses held?</a> </h5>
                       </div>
                       <div id="collapse10" class="collapse" aria-labelledby="heading10" data-parent="#popularTopics">
@@ -599,7 +606,7 @@
                       </div>
                     </div>
                     <div class="card">
-                      <div class="card-header" id="heading6">
+                      <div class="card-header" id="heading11">
                         <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse11" aria-expanded="false" aria-controls="collapse11">11. Which international master’s degree programs are offered by the University of Bologna?</a></h5>
                       </div>
                       <div id="collapse11" class="collapse" aria-labelledby="heading11" data-parent="#popularTopics">
@@ -636,7 +643,12 @@
 		============================ -->
         <section id="idocs_conclusions">
           <h2>6. Conclusions and future developments</h2>
-          <p>ciao</p>
+          <ul>
+            <li>Comparisons with other international universities’ systems starting from available ontologies about foreign models.</li>
+            <li>Expand the ontology with other logical blocks regarding other aspects of the universities’ systems (e. G. Administration, People involved in the institution, scientific publications, etc.)</li>
+            <li>It would be interesting if all Italian universities had an Open Data project such as the one of the University of Bologna: in this way, it would be possible to exploit the potential of our ontology by making interesting comparisons.</li>
+            <li>Publication and creation of a shared host for a SPARQL-end point to enable people to test our ontology.</li>
+          </ul>
         </section>
 
 		<hr class="divider">
@@ -645,10 +657,14 @@
 		============================ -->
 		<section id="idocs_faq">
           <h2>7. Specifications</h2>
-          <p class="text-4">To publish <a href="https://alicebordignon.github.io/UniOn/myDocumentation/index-en.html">UniOn’s documentation</a> we relied on <b>WIzard for DOCumenting Ontologies (WIDOCO)</b> an open source tool which automatically creates a documentation with human readable descriptions of the ontology terms and a visualization through WebVowl.</p>
+          <p>To publish <a href="https://alicebordignon.github.io/UniOn/myDocumentation/index-en.html">UniOn’s documentation</a> we relied on <b>WIzard for DOCumenting Ontologies (WIDOCO)</b> an open source tool which automatically creates a documentation with human readable descriptions of the ontology terms and a visualization through WebVowl.</p>
   </section>
 
-		<hr class="divider">
+  		<hr class="divider">
+  <section id="idocs_end">
+    <h4>Thank you for your attention.</h4><br><p>This project and documentation has been created for the course in <b>Knowledge Representation and Extraction</b> for the Digital Humanities and Digital Knowledge's Degree Programme at the University of Bologna.</p>
+  </section>
+
 
 </div>
     </div>
@@ -658,13 +674,13 @@
 
   <!-- Footer
   ============================ -->
-  <footer id="footer" class="section bg-dark footer-text-light">
+  <footer id="footer" class="section bg-light footer-text-dark">
     <div class="container">
       <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3">
         <li><a data-toggle="tooltip" href="https://github.com/alicebordignon/UniOn" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
       </ul>
-      <p class="text-center">Copyright &copy; 2020 <a href="http://www.harnishdesign.net/idocs-one-page-documentation-html-template/">iDocs</a>. All Rights Reserved.</p>
-	  <p class="text-2 text-center mb-0">Design &amp; Develop by <a class="btn-link" target="_blank" href="http://www.harnishdesign.net/">HarnishDesign</a>.</p>
+      <p class="text-center">Copyright &copy; 2022. All Rights Reserved.</p>
+	  <p class="text-2 text-center mb-0">Design &amp; Develop by <a class="btn-link" target="_blank" id="HD" href="http://www.harnishdesign.net/">HarnishDesign</a>.</p>
     </div>
   </footer>
   <!-- Footer end -->
