@@ -133,7 +133,7 @@
         <section id="idocs_start">
         <h1>Documentation</h1>
         <h2>UniOn (UO)</h2>
-        <p class="abstract">UniOn is an ontology representing Universities educational offer. It includes information to describe academic fields, degree programs, access methods and requirements, educational activities, titles and qualifications, location, organization and more.<p>
+        <p class="abstract">UniOn is an ontology representing universities and their educational offering: it describes the available degree programs, their access methods and requirements, the provided educational activities, achievable titles and qualifications, administrative locations, teaching places and more. <p>
 		<hr>
 		<div class="row">
 			<div class="col-sm-6 col-lg-4">
@@ -153,7 +153,7 @@
 				</ul>
 			</div>
 		</div>
-        <p>If you have <b>any questions</b> that are beyond the scope of this help file, Please <b>feel free to email</b> alice.bordignon@studio.unibo.it, francesca.borriello@studio.unibo.it, lorenza.pierucci@studio.unibo.it</a>.</p>
+        <p>If you have <b>any questions</b> that are beyond the scope of this help file, please <b>feel free to email</b> alice.bordignon@studio.unibo.it, francesca.borriello@studio.unibo.it, lorenza.pierucci@studio.unibo.it</a>.</p>
         </section>
 
 		<hr class="divider">
@@ -162,13 +162,13 @@
 		============================ -->
         <section id="idocs_installation">
           <h4>1.2 Goal</h4>
-          <p>UniOn is intended to represent and organize information in order to:</p>
+          <p>UniOn allows to: </p>
             <ul>
-                <li><b>Orient oneself</b> by getting an overview of university educational programs.</li>
-                <li><b>Compare</b> different universities’ offers.</li>
-                <li><b>Extract</b> useful information about a variety of issues.</li>
+                <li><b>Understand</b> and traverse the academic domain, by getting an overview of universities’ educational programs; </li>
+                <li><b>Compare</b> different universities’ offerings;</li>
+                <li><b>Extract</b> useful information;</li>
             </ul>
-          <p>It could thus prove useful for <b>prospective students</b> looking for the most suitable university course as well as for universities or other related institutions willing to describe and publish information about their training offer.
+          <p>Potential users could thus include <b>prospective students</b> looking for the most suitable university course as well as for <b>universities</b> or other <b>related institutions</b> willing to describe and publish information about their training offer. 
           </p>
         </section>
 
@@ -217,7 +217,7 @@
 		============================ -->
         <section id="idocs_navbar">
           <h4>2.2 A hybrid approach</h4>
-		  <p>Since we intended our vocabulary to organically include information from both kinds of sources, we adopted a hybrid approach, <b>merging top-down and bottom-up techniques</b>:</p>
+		  <p>Since we intended our vocabulary to organically include information from both kinds of sources, we adopted a hybrid modelling approach, <b>merging top-down and bottom-up techniques</b>:</p>
 		  <ul>
         <li><b>Top-down</b>: we defined general concepts of the domain and then classified them into specific hierarchies by analyzing relevant information sources, i.e. university websites.</li>
         <li><b>Bottom-up</b>: starting with existing data structures, we defined specific concrete concepts.</li>
@@ -231,8 +231,9 @@
 		============================ -->
         <section id="idocs_sidebar">
           <h4>2.3 Completeness, feasibility and interoperability</h4>
-          <p>Since the availability and completeness of data for our domain is limited and since we did not intend our ontology to be flattened on them, we worked towards a balance between <b>logical complexity, completeness and applicability</b>. This means that UniOn covers more than the existing data structures and contains some “empty” concepts without any data that represents them: we hope that soon UniOn will be able to embrace more comprehensive data.</p>
-          <p>Finally, in order to guarantee interoperability and reusability to UniOn, we decided to make use - when possible - of existing vocabularies, mapping our classes and properties with widely adopted ones. We thus reused some classes and properties from <b>DULCE (DOLCE+DnS Ultralite)</b>, a foundational ontology presenting general categories and relations that come to hand when building a lower-level ontology like ours. </p>
+          <p>Available data for our specific domain are neither complete nor completely satisfying when it comes to describing it: since we did not intend UniOn to be flattened on them, the ontology ended up entailing more classes and properties than those described by our dataset. This means that it contains some “empty” concepts without instances representing them: we hope that soon UniOn will take advantage of more comprehensive data. 
+		  Finally, in order to guarantee interoperability and reusability to UniOn, we decided to make use - when possible - of existing vocabularies, mapping our classes and properties with widely adopted ones. We thus reused some classes and properties from DUL (DOLCE+DnS Ultralite), a foundational ontology presenting general categories and relations that come to hand when building a lower-level ontology like ours. </p>
+          <p>Finally, in order to guarantee interoperability and reusability to UniOn, we decided to make use - when possible - of existing vocabularies, mapping our classes and properties with widely adopted ones. We thus reused some classes and properties from <b>DUL (DOLCE+DnS Ultralite)</b>, a foundational ontology presenting general categories and relations that come to hand when building a lower-level ontology like ours. </p>
 		    </section>
         <div class=image>
            <img src="assets/images/ontologyclasses.jpg" alt="UniOn Classes">
@@ -245,7 +246,7 @@
 		============================ -->
         <section id="idocs_content">
           <h2>3. Data collection</h2>
-          <p> As we said, in the process of modelling our ontology we worked on a few <b>open CSV files</b>. Once we completed the first draft of our model, we moved on to create our own dataset to merge and integrate all information – which was then scattered among several sources – into a new, all-inclusive structure. <br>
+          <p>As we said, in the process of modelling our ontology we worked on a few <b>open CSV files</b>. Once we completed the first draft of our model, we moved on to create our own dataset to merge and integrate all information – which was then scattered among several sources – into a new, all-inclusive structure. <br>
             The goal was to then use the obtained dataset to automatically populate our ontology: this would allow us to put it to the test by trying to answer our competency questions.</p>
         </section>
 
@@ -261,7 +262,7 @@
         <li><b>A catalogue of all educational activities</b> delivered by the University of Bologna. For each educational activity, a ‘degree code’ specifies the degree program it belongs to.</li>
         <li>Specification of <b>each educational activity's SSD, Teaching code and CFUs</b>.</li>
             <ul>
-              <li><b>SSD</b> stands for ‘scientific-disciplinary sectors’: they point to the disciplinary areas to which each educational activity belongs.</li>
+              <li><b>SSD</b> stands for ‘scientific-disciplinary sectors’: they point to the disciplinary areas each educational activity belongs to.</li>
               <li><b>Teaching codes</b> are numerical codes univocally identifying each educational activity.</li>
               <li><b>CFUs</b> (university formative credits) are a numerical measure of the workload for each exam or activity. To obtain a degree, students need to acquire 180 CFUs.</li>
             </ul>
@@ -300,9 +301,9 @@
 		  <section id="idocs_components">
             <h2>4. Populating the ontology (A-box)</h2>
 			<p>We populated our ontology using <b>OwlReady2</b>, a package for ontology-oriented programming in Python. It can load <b>OWL 2.0 ontologies as Python objects</b>, modify them, save them, and perform reasoning via HermiT.
-      </p>
+      		</p>
 			<p>To populate our classes we created the individuals, their labels, and established relationships among them. <br>Throughout the various steps of this phase, we performed an <b>iterative testing process</b> in order to detect errors and consequently adjust our script to build an <b>efficient population environment</b>. <br>
-        The resulting population script is <b>potentially reusable by anyone having a CSV dataset(s) structured like ours</b> and carrying information for any other Universities, academic years, academic fields etc.</p>
+        	The resulting population script is <b>potentially reusable by anyone having a CSV dataset(s) structured like ours</b> and carrying information for any other Universities, academic years, academic fields etc.</p>
 			<p>Once all the individuals and all the relationships among them were correctly created, we ran the Protégé logic reasoner on the populated ontology to check its consistency and integrity. Since <b>it inferred correctly what had not been declared manually</b>, we concluded that our ontology was logically structured and working. Finally, we exported the inferred axioms as ontology saving it as an OWL file: it will be our <b>final OWL file</b> on which the SPARQL queries will be run. </br>
       See our <a href="https://github.com/alicebordignon/KRKE-RDF/blob/main/OntologyPopulation.ipynb">Jupyter notebook</a> for a full explanation of the ontology population steps.</p>
       <p>As we have already outlined, UniOn has been modelled pursuing a <b>balance between the completeness of the domain’s description</b> and the <b>actual availability of data</b>. This means that, for it not to be flattened on the (still defective) data, it entails more classes and properties than those that those described by our dataset. Therefore, not all its classes are populated by individuals.</p>
@@ -643,12 +644,11 @@
 		============================ -->
         <section id="idocs_conclusions">
           <h2>6. Conclusions and future developments</h2>
-          <p>As detailed in the previous sections we tried our best to reach a balance between completeness, feasibility, and applicability of the ontology by creating a <b>simple and consistent logical model</b> able to represent italian universities educational offers from an institutional point of view. We are aware that our model could be further expanded and developed.</p>
-          <p>A possible point for future development could be to <b>broaden the ontology</b> by adding other logical blocks regarding various aspects of the universities’ systems (e.g. administration, people and staff involved in the institution, scientific publications, etc.).<br>
-            To reach a higher level of completeness the <b>contribution of other universities</b> with the publication of Open Data project such as the one developed by the University of Bologna would be suggested: in this way, it could be possible to fully exploit the potential of our ontology by making interesting comparisons between different universities and degree programmes.  <br>
-            Another point for future development could be to model other vocabularies able to <b>depict foreign universities systems</b> that could possibly be aligned or compared to our model.<br>
-            Finally, to enable people to perform queries and test our ontology, the <b>publication of our SPARQL-end point</b> is needed.
-          </p>
+          <p>As detailed in the previous, sections we tried our best to reach a balance between completeness, feasibility, and applicability of the ontology by creating a <b>simple and consistent logical model</b> able to represent italian universities educational offering. We are aware that our model could be further expanded and developed.</p>
+          <p>A possible point for future development could be to <b>broaden the ontology</b> by adding other logical blocks regarding various aspects of the universities’ systems (e.g. administration, people and staff involved in the institution, scientific publications, etc.).</p>
+          <p>To reach a higher level of completeness the <b>contribution of other universities</b> with the publication of Open Data project such as the one developed by the University of Bologna would be suggested: in this way, it could be possible to fully exploit the potential of our ontology by making interesting comparisons between different universities and degree programs.</p>
+           <p>Another point for future development could be to model other vocabularies able to <b>depict foreign universities systems</b> that could possibly be aligned or compared to our model.</p>
+           <p>Finally, to enable people to perform queries and test our ontology, the <b>publication of our SPARQL-end point</b> is needed.</p>
 
         </section>
 
