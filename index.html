@@ -168,7 +168,7 @@
                 <li><b>Compare</b> different universities’ offerings;</li>
                 <li><b>Extract</b> useful information;</li>
             </ul>
-          <p>Potential users could thus include <b>prospective students</b> looking for the most suitable university course as well as for <b>universities</b> or other <b>related institutions</b> willing to describe and publish information about their training offer. 
+          <p>Potential users could thus include <b>prospective students</b> looking for the most suitable university course as well as for <b>universities</b> or other <b>related institutions</b> willing to describe and publish information about their training offer.
           </p>
         </section>
 
@@ -231,7 +231,7 @@
 		============================ -->
         <section id="idocs_sidebar">
           <h4>2.3 Completeness, feasibility and interoperability</h4>
-          <p>Available data for our specific domain are neither complete nor completely satisfying when it comes to describing it: since we did not intend UniOn to be flattened on them, the ontology ended up entailing more classes and properties than those described by our dataset. This means that it contains some “empty” concepts without instances representing them: we hope that soon UniOn will take advantage of more comprehensive data. 
+          <p>Available data for our specific domain are neither complete nor completely satisfying when it comes to describing it: since we did not intend UniOn to be flattened on them, the ontology ended up entailing more classes and properties than those described by our dataset. This means that it contains some “empty” concepts without instances representing them: we hope that soon UniOn will take advantage of more comprehensive data.
 		  Finally, in order to guarantee interoperability and reusability to UniOn, we decided to make use - when possible - of existing vocabularies, mapping our classes and properties with widely adopted ones. We thus reused some classes and properties from DUL (DOLCE+DnS Ultralite), a foundational ontology presenting general categories and relations that come to hand when building a lower-level ontology like ours. </p>
           <p>Finally, in order to guarantee interoperability and reusability to UniOn, we decided to make use - when possible - of existing vocabularies, mapping our classes and properties with widely adopted ones. We thus reused some classes and properties from <b>DUL (DOLCE+DnS Ultralite)</b>, a foundational ontology presenting general categories and relations that come to hand when building a lower-level ontology like ours. </p>
 		    </section>
@@ -543,7 +543,7 @@
                               WHERE {
                               ?DegreeProgramme uo:hasEducationalActivity ?EducationalActivity ;
                                               rdfs:label "Dams - discipline delle arti, della musica  e dello spettacolo" .
-                              ?EducationalActivity a UniOn:Laboratory .
+                              ?EducationalActivity a uo:Laboratory .
 
                               OPTIONAL { ?EducationalActivity rdfs:label ?EducationalActivityLabel }
                               }
