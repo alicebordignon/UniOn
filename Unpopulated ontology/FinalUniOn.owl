@@ -689,7 +689,7 @@
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#isReleasedBy"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#ItalianPublicUniversity"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:comment>A qualification (or degree) is the official record of achievement you receive after completing a programme of study. There are several types of qualifications varying in level of study and length of time.</rdfs:comment>
