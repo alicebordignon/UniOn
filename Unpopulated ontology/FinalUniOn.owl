@@ -422,12 +422,12 @@
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf>
+        <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#isAccessTypeOf"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
             </owl:Restriction>
-        </rdfs:subClassOf>
+        </owl:equivalentClass>
         <rdfs:comment>The modality of  access the degree courses require.</rdfs:comment>
     </owl:Class>
     
@@ -446,12 +446,12 @@
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf>
+        <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#isAssessmentMethodOf"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
             </owl:Restriction>
-        </rdfs:subClassOf>
+        </owl:equivalentClass>
         <rdfs:comment>The evaluation modality for each educational activity (e.g. Written exam, Oral exam etc.)</rdfs:comment>
     </owl:Class>
     
@@ -685,6 +685,12 @@
                     <rdf:Description rdf:about="http://purl.org/ontology/UniOn#SingleQualification"/>
                 </owl:oneOf>
             </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#isReleasedBy"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#ItalianPublicUniversity"/>
+            </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:comment>A qualification (or degree) is the official record of achievement you receive after completing a programme of study. There are several types of qualifications varying in level of study and length of time.</rdfs:comment>
     </owl:Class>
