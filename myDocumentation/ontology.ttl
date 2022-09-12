@@ -279,19 +279,31 @@
 
 ###  http://purl.org/ontology/UniOn#AccessType
 :AccessType rdf:type owl:Class ;
-            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                              owl:onProperty :isAccessTypeOf ;
-                              owl:someValuesFrom :DegreeProgramme
-                            ] ;
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:oneOf ( :LimitedAccess
+                                              :OpenAccess
+                                            )
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :isAccessTypeOf ;
+                                  owl:someValuesFrom :DegreeProgramme
+                                ] ;
             rdfs:comment "The modality of  access the degree courses require." .
 
 
 ###  http://purl.org/ontology/UniOn#AssessmentMethod
 :AssessmentMethod rdf:type owl:Class ;
-                  rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                    owl:onProperty :isAssessmentMethodOf ;
-                                    owl:someValuesFrom :EducationalActivity
-                                  ] ;
+                  owl:equivalentClass [ rdf:type owl:Class ;
+                                        owl:oneOf ( :Eligibility
+                                                    :OralExam
+                                                    :Project
+                                                    :WrittenExam
+                                                  )
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :isAssessmentMethodOf ;
+                                        owl:someValuesFrom :EducationalActivity
+                                      ] ;
                   rdfs:comment "The evaluation modality for each educational activity (e.g. Written exam, Oral exam etc.)" .
 
 
@@ -314,45 +326,48 @@
 
 ###  http://purl.org/ontology/UniOn#DegreeProgramme
 :DegreeProgramme rdf:type owl:Class ;
-                 rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasAcademicField ;
-                                   owl:someValuesFrom :AcademicField
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasCampus ;
-                                   owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasPlaceOfTeaching ;
-                                   owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :isDeliveredBy ;
-                                   owl:someValuesFrom :ItalianPublicUniversity
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :isManagedBy ;
-                                   owl:someValuesFrom :Department
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :releases ;
-                                   owl:someValuesFrom :Qualification
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasCurriculum ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :Curriculum
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasEducationalActivity ;
-                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :EducationalActivity
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasAccessType ;
-                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :AccessType
-                                 ] ;
+                 owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :hasAcademicField ;
+                                                              owl:someValuesFrom :AcademicField
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :hasCampus ;
+                                                              owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place>
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :hasPlaceOfTeaching ;
+                                                              owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place>
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :isDeliveredBy ;
+                                                              owl:someValuesFrom :ItalianPublicUniversity
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :isManagedBy ;
+                                                              owl:someValuesFrom :Department
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :releases ;
+                                                              owl:someValuesFrom :Qualification
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :hasCurriculum ;
+                                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                              owl:onClass :Curriculum
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :hasEducationalActivity ;
+                                                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                              owl:onClass :EducationalActivity
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :hasAccessType ;
+                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                              owl:onClass :AccessType
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
                  rdfs:comment "A university-specific degree programme referring to a more general academic field (e.g. Digital Humanities and Digital Knowledge degree programme at UniBo)" .
 
 
@@ -454,6 +469,16 @@
 
 ###  http://purl.org/ontology/UniOn#Qualification
 :Qualification rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Class ;
+                                     owl:oneOf ( :JointQualification
+                                                 :MultipleQualification
+                                                 :SingleQualification
+                                               )
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isReleasedBy ;
+                                     owl:someValuesFrom :DegreeProgramme
+                                   ] ;
                rdfs:comment "A qualification (or degree) is the official record of achievement you receive after completing a programme of study. There are several types of qualifications varying in level of study and length of time." .
 
 
@@ -546,6 +571,21 @@
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AcademicField
+                :AccessType
+                :AssessmentMethod
+                :Curriculum
+                :DegreeProgramme
+                :Department
+                :EducationalActivity
+                :ItalianPublicUniversity
+                :Qualification
+                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
   owl:members ( :BachelorDegree
                 :MasterDegree
                 :SingleCycleDegree
@@ -559,6 +599,20 @@
                 :Laboratory
                 :Seminar
               )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :Eligibility
+                        :JointQualification
+                        :LimitedAccess
+                        :MultipleQualification
+                        :OpenAccess
+                        :OralExam
+                        :Project
+                        :SingleQualification
+                        :WrittenExam
+                      )
 ] .
 
 

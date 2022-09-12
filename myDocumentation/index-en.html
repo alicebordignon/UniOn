@@ -453,7 +453,6 @@ This ontology has the following classes and properties.</span>
 </ul><iframe align="center" width="100%" height ="500px" src="webvowl/index.html"></iframe>
 </div>
 
-
 <!--DESCRIPTION SECTION-->
     <div id="description"><h2 id="desc" class="list">UniOn: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span >
@@ -613,6 +612,22 @@ This section provides details for each class and property defined by UniOn.
             <a href="#hasAcademicField" title="http://purl.org/ontology/UniOn#hasAcademicField">has academic field</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">access type</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">assessment method</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Curriculum" title="http://purl.org/ontology/UniOn#Curriculum">curriculum</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Department" title="http://purl.org/ontology/UniOn#Department">department</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ItalianPublicUniversity"
+               title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">qualification</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">place</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
       </dl>
    </div>
    <div class="entity" id="AccessType">
@@ -626,8 +641,15 @@ This section provides details for each class and property defined by UniOn.
          <span class="markdown">The modality of  access the degree courses require.</span>
       </div>
       <dl class="description">
-         <dt>has super-classes</dt>
-         <dd/>
+         <dt>is equivalent to</dt>
+         <dd>{ <a href="#LimitedAccess" title="http://purl.org/ontology/UniOn#LimitedAccess">Limited Access</a> , <a href="#OpenAccess" title="http://purl.org/ontology/UniOn#OpenAccess">Open Access</a> }</dd>
+         <dd>
+            <a href="#isAccessTypeOf" title="http://purl.org/ontology/UniOn#isAccessTypeOf">is access type of</a>
+            <sup class="type-op" title="object property">op</sup>
+            <span class="logic">some</span>
+            <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
          <dt>is in domain of</dt>
          <dd>
             <a href="#isAccessTypeOf" title="http://purl.org/ontology/UniOn#isAccessTypeOf">is access type of</a>
@@ -644,6 +666,22 @@ This section provides details for each class and property defined by UniOn.
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#OpenAccess" title="http://purl.org/ontology/UniOn#OpenAccess">Open Access</a>
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AcademicField" title="http://purl.org/ontology/UniOn#AcademicField">academic field</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">assessment method</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Curriculum" title="http://purl.org/ontology/UniOn#Curriculum">curriculum</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Department" title="http://purl.org/ontology/UniOn#Department">department</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ItalianPublicUniversity"
+               title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">qualification</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">place</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
       </dl>
    </div>
    <div class="entity" id="AssessmentMethod">
@@ -657,8 +695,17 @@ This section provides details for each class and property defined by UniOn.
          <span class="markdown">The evaluation modality for each educational activity (e.g. Written exam, Oral exam etc.)</span>
       </div>
       <dl class="description">
-         <dt>has super-classes</dt>
-         <dd/>
+         <dt>is equivalent to</dt>
+         <dd>{ <a href="#Eligibility" title="http://purl.org/ontology/UniOn#Eligibility">Eligibility</a> , <a href="#OralExam" title="http://purl.org/ontology/UniOn#OralExam">Oral Exam</a> , <a href="#Project" title="http://purl.org/ontology/UniOn#Project">Project</a> , <a href="#WrittenExam" title="http://purl.org/ontology/UniOn#WrittenExam">Written Exam</a> }</dd>
+         <dd>
+            <a href="#isAssessmentMethodOf"
+               title="http://purl.org/ontology/UniOn#isAssessmentMethodOf">is assessment method of</a>
+            <sup class="type-op" title="object property">op</sup>
+            <span class="logic">some</span>
+            <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
          <dt>is in domain of</dt>
          <dd>
             <a href="#isAssessmentMethodOf"
@@ -678,6 +725,22 @@ This section provides details for each class and property defined by UniOn.
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#Project" title="http://purl.org/ontology/UniOn#Project">Project</a>
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#WrittenExam" title="http://purl.org/ontology/UniOn#WrittenExam">Written Exam</a>
             <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AcademicField" title="http://purl.org/ontology/UniOn#AcademicField">academic field</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">access type</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Curriculum" title="http://purl.org/ontology/UniOn#Curriculum">curriculum</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Department" title="http://purl.org/ontology/UniOn#Department">department</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ItalianPublicUniversity"
+               title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">qualification</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">place</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -752,6 +815,22 @@ This section provides details for each class and property defined by UniOn.
             <a href="#hasCurriculum" title="http://purl.org/ontology/UniOn#hasCurriculum">has curriculum</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AcademicField" title="http://purl.org/ontology/UniOn#AcademicField">academic field</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">access type</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">assessment method</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Department" title="http://purl.org/ontology/UniOn#Department">department</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ItalianPublicUniversity"
+               title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">qualification</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">place</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
       </dl>
    </div>
    <div class="entity" id="DegreeProgramme">
@@ -765,8 +844,47 @@ This section provides details for each class and property defined by UniOn.
          <span class="markdown">A university-specific degree programme referring to a more general academic field (e.g. Digital Humanities and Digital Knowledge degree programme at UniBo)</span>
       </div>
       <dl class="description">
-         <dt>has super-classes</dt>
-         <dd/>
+         <dt>is equivalent to</dt>
+         <dd>(<a href="#hasAcademicField" title="http://purl.org/ontology/UniOn#hasAcademicField">has academic field</a>
+            <sup class="type-op" title="object property">op</sup>
+            <span class="logic">some</span>
+            <a href="#AcademicField" title="http://purl.org/ontology/UniOn#AcademicField">academic field</a>
+            <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#hasCampus" title="http://purl.org/ontology/UniOn#hasCampus">has campus</a>
+            <sup class="type-op" title="object property">op</sup>
+            <span class="logic">some</span>
+            <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">place</a>
+            <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#hasPlaceOfTeaching"
+               title="http://purl.org/ontology/UniOn#hasPlaceOfTeaching">has place of teaching</a>
+            <sup class="type-op" title="object property">op</sup>
+            <span class="logic">some</span>
+            <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">place</a>
+            <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#isDeliveredBy" title="http://purl.org/ontology/UniOn#isDeliveredBy">is delivered by</a>
+            <sup class="type-op" title="object property">op</sup>
+            <span class="logic">some</span>
+            <a href="#ItalianPublicUniversity"
+               title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+            <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#isManagedBy" title="http://purl.org/ontology/UniOn#isManagedBy">is managed by</a>
+            <sup class="type-op" title="object property">op</sup>
+            <span class="logic">some</span>
+            <a href="#Department" title="http://purl.org/ontology/UniOn#Department">department</a>
+            <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#releases" title="http://purl.org/ontology/UniOn#releases">releases</a>
+            <sup class="type-op" title="object property">op</sup>
+            <span class="logic">some</span>
+            <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">qualification</a>
+            <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#hasCurriculum" title="http://purl.org/ontology/UniOn#hasCurriculum">has curriculum</a>
+            <sup class="type-op" title="object property">op</sup>
+            <span class="logic">min</span> 0 <a href="#Curriculum" title="http://purl.org/ontology/UniOn#Curriculum">curriculum</a>
+            <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#hasEducationalActivity"
+               title="http://purl.org/ontology/UniOn#hasEducationalActivity">has educational activity</a>
+            <sup class="type-op" title="object property">op</sup>
+            <span class="logic">min</span> 1 <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>) <span class="logic">and</span> (<a href="#hasAccessType" title="http://purl.org/ontology/UniOn#hasAccessType">has access type</a>
+            <sup class="type-op" title="object property">op</sup>
+            <span class="logic">exactly</span> 1 <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">access type</a>
+            <sup class="type-c" title="class">c</sup>)</dd>
          <dt>has sub-classes</dt>
          <dd>
             <a href="#BachelorDegree" title="http://purl.org/ontology/UniOn#BachelorDegree">bachelor degree</a>
@@ -813,6 +931,22 @@ This section provides details for each class and property defined by UniOn.
             <sup class="type-op" title="object property">op</sup>, <a href="#manages" title="http://purl.org/ontology/UniOn#manages">manages</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AcademicField" title="http://purl.org/ontology/UniOn#AcademicField">academic field</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">access type</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">assessment method</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Curriculum" title="http://purl.org/ontology/UniOn#Curriculum">curriculum</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Department" title="http://purl.org/ontology/UniOn#Department">department</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ItalianPublicUniversity"
+               title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">qualification</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">place</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
       </dl>
    </div>
    <div class="entity" id="Department">
@@ -851,6 +985,22 @@ This section provides details for each class and property defined by UniOn.
                title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart">has part</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#isManagedBy" title="http://purl.org/ontology/UniOn#isManagedBy">is managed by</a>
             <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AcademicField" title="http://purl.org/ontology/UniOn#AcademicField">academic field</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">access type</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">assessment method</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Curriculum" title="http://purl.org/ontology/UniOn#Curriculum">curriculum</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ItalianPublicUniversity"
+               title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">qualification</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">place</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -895,6 +1045,21 @@ This section provides details for each class and property defined by UniOn.
                title="http://purl.org/ontology/UniOn#isAssessmentMethodOf">is assessment method of</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#offers" title="http://purl.org/ontology/UniOn#offers">offers</a>
             <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AcademicField" title="http://purl.org/ontology/UniOn#AcademicField">academic field</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">access type</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">assessment method</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Curriculum" title="http://purl.org/ontology/UniOn#Curriculum">curriculum</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Department" title="http://purl.org/ontology/UniOn#Department">department</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ItalianPublicUniversity"
+               title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">qualification</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">place</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -996,6 +1161,21 @@ This section provides details for each class and property defined by UniOn.
             <sup class="type-op" title="object property">op</sup>, <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"
                title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf">is part of</a>
             <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AcademicField" title="http://purl.org/ontology/UniOn#AcademicField">academic field</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">access type</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">assessment method</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Curriculum" title="http://purl.org/ontology/UniOn#Curriculum">curriculum</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Department" title="http://purl.org/ontology/UniOn#Department">department</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">qualification</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">place</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -1127,6 +1307,21 @@ This section provides details for each class and property defined by UniOn.
                title="http://purl.org/ontology/UniOn#hasPlaceOfTeaching">has place of teaching</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AcademicField" title="http://purl.org/ontology/UniOn#AcademicField">academic field</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">access type</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">assessment method</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Curriculum" title="http://purl.org/ontology/UniOn#Curriculum">curriculum</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Department" title="http://purl.org/ontology/UniOn#Department">department</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ItalianPublicUniversity"
+               title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Qualification" title="http://purl.org/ontology/UniOn#Qualification">qualification</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
       </dl>
    </div>
    <div class="entity" id="Qualification">
@@ -1140,6 +1335,18 @@ This section provides details for each class and property defined by UniOn.
          <span class="markdown">A qualification (or degree) is the official record of achievement you receive after completing a programme of study. There are several types of qualifications varying in level of study and length of time.</span>
       </div>
       <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>{ <a href="#JointQualification"
+               title="http://purl.org/ontology/UniOn#JointQualification">Joint Qualification</a> , <a href="#MultipleQualification"
+               title="http://purl.org/ontology/UniOn#MultipleQualification">Multiple Qualification</a> , <a href="#SingleQualification"
+               title="http://purl.org/ontology/UniOn#SingleQualification">Single Qualification</a> }</dd>
+         <dd>
+            <a href="#isReleasedBy" title="http://purl.org/ontology/UniOn#isReleasedBy">is released by</a>
+            <sup class="type-op" title="object property">op</sup>
+            <span class="logic">some</span>
+            <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
          <dt>is in domain of</dt>
          <dd>
             <a href="#isReleasedBy" title="http://purl.org/ontology/UniOn#isReleasedBy">is released by</a>
@@ -1159,6 +1366,22 @@ This section provides details for each class and property defined by UniOn.
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#SingleQualification"
                title="http://purl.org/ontology/UniOn#SingleQualification">Single Qualification</a>
             <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#AcademicField" title="http://purl.org/ontology/UniOn#AcademicField">academic field</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AccessType" title="http://purl.org/ontology/UniOn#AccessType">access type</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AssessmentMethod" title="http://purl.org/ontology/UniOn#AssessmentMethod">assessment method</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Curriculum" title="http://purl.org/ontology/UniOn#Curriculum">curriculum</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#DegreeProgramme" title="http://purl.org/ontology/UniOn#DegreeProgramme">degree programme</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Department" title="http://purl.org/ontology/UniOn#Department">department</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#EducationalActivity"
+               title="http://purl.org/ontology/UniOn#EducationalActivity">educational activity</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#ItalianPublicUniversity"
+               title="http://purl.org/ontology/UniOn#ItalianPublicUniversity">italian public university</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+               title="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place">place</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>

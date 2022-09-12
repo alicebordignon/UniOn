@@ -1,67 +1,52 @@
 [ {
   "@id" : "_:genid10",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#hasPlaceOfTeaching"
-  } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
-  } ]
-}, {
-  "@id" : "_:genid11",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#isDeliveredBy"
-  } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#ItalianPublicUniversity"
-  } ]
-}, {
-  "@id" : "_:genid12",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#isManagedBy"
-  } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#Department"
-  } ]
-}, {
-  "@id" : "_:genid13",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#releases"
-  } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#Qualification"
-  } ]
-}, {
-  "@id" : "_:genid14",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "0"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#Curriculum"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#hasCurriculum"
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#oneOf" : [ {
+    "@list" : [ {
+      "@id" : "http://purl.org/ontology/UniOn#Eligibility"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#OralExam"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#Project"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#WrittenExam"
+    } ]
   } ]
 }, {
   "@id" : "_:genid15",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#EducationalActivity"
-  } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#hasEducationalActivity"
+    "@id" : "http://purl.org/ontology/UniOn#isAssessmentMethodOf"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#EducationalActivity"
   } ]
 }, {
   "@id" : "_:genid16",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "_:genid34"
+    }, {
+      "@id" : "_:genid32"
+    }, {
+      "@id" : "_:genid30"
+    }, {
+      "@id" : "_:genid28"
+    }, {
+      "@id" : "_:genid26"
+    }, {
+      "@id" : "_:genid24"
+    }, {
+      "@id" : "_:genid22"
+    }, {
+      "@id" : "_:genid20"
+    }, {
+      "@id" : "_:genid18"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid18",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "http://purl.org/ontology/UniOn#AccessType"
@@ -74,87 +59,57 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid17",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
-    "@list" : [ {
-      "@id" : "_:genid21"
-    }, {
-      "@id" : "_:genid19"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid19",
+  "@id" : "_:genid20",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"
+  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
   } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#ItalianPublicUniversity"
-  } ]
-}, {
-  "@id" : "_:genid21",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#manages"
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#EducationalActivity"
   } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#DegreeProgramme"
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#hasEducationalActivity"
   } ]
 }, {
   "@id" : "_:genid22",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
-    "@list" : [ {
-      "@id" : "_:genid26"
-    }, {
-      "@id" : "_:genid24"
-    } ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "0"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#Curriculum"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#hasCurriculum"
   } ]
 }, {
   "@id" : "_:genid24",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#Department"
-  } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart"
+    "@id" : "http://purl.org/ontology/UniOn#releases"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#Qualification"
   } ]
 }, {
   "@id" : "_:genid26",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
-  } ],
-  "http://www.w3.org/2002/07/owl#onClass" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#DegreeProgramme"
-  } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#delivers"
+    "@id" : "http://purl.org/ontology/UniOn#isManagedBy"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#Department"
   } ]
 }, {
-  "@id" : "_:genid27",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
-    "@list" : [ {
-      "@id" : "http://purl.org/ontology/UniOn#DegreeProgramme"
-    }, {
-      "@id" : "_:genid29"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid29",
+  "@id" : "_:genid28",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#hasValue" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#LimitedAccess"
-  } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#hasAccessType"
+    "@id" : "http://purl.org/ontology/UniOn#isDeliveredBy"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#ItalianPublicUniversity"
   } ]
 }, {
   "@id" : "_:genid3",
@@ -167,17 +122,127 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid31",
+  "@id" : "_:genid30",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#hasPlaceOfTeaching"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+  } ]
+}, {
+  "@id" : "_:genid32",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#hasCampus"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+  } ]
+}, {
+  "@id" : "_:genid34",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#hasAcademicField"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#AcademicField"
+  } ]
+}, {
+  "@id" : "_:genid35",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "_:genid39"
+    }, {
+      "@id" : "_:genid37"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid37",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#ItalianPublicUniversity"
+  } ]
+}, {
+  "@id" : "_:genid39",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#manages"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#DegreeProgramme"
+  } ]
+}, {
+  "@id" : "_:genid40",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "_:genid44"
+    }, {
+      "@id" : "_:genid42"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid42",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#Department"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart"
+  } ]
+}, {
+  "@id" : "_:genid44",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#DegreeProgramme"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#delivers"
+  } ]
+}, {
+  "@id" : "_:genid45",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "http://purl.org/ontology/UniOn#DegreeProgramme"
     }, {
-      "@id" : "_:genid33"
+      "@id" : "_:genid47"
     } ]
   } ]
 }, {
-  "@id" : "_:genid33",
+  "@id" : "_:genid47",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#hasValue" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#LimitedAccess"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#hasAccessType"
+  } ]
+}, {
+  "@id" : "_:genid49",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://purl.org/ontology/UniOn#DegreeProgramme"
+    }, {
+      "@id" : "_:genid51"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid51",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#hasValue" : [ {
     "@id" : "http://purl.org/ontology/UniOn#OpenAccess"
@@ -186,7 +251,64 @@
     "@id" : "http://purl.org/ontology/UniOn#hasAccessType"
   } ]
 }, {
-  "@id" : "_:genid35",
+  "@id" : "_:genid53",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#oneOf" : [ {
+    "@list" : [ {
+      "@id" : "http://purl.org/ontology/UniOn#JointQualification"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#MultipleQualification"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#SingleQualification"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid57",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#isReleasedBy"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://purl.org/ontology/UniOn#DegreeProgramme"
+  } ]
+}, {
+  "@id" : "_:genid58",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://purl.org/ontology/UniOn#AcademicField"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#AccessType"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#AssessmentMethod"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#Curriculum"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#DegreeProgramme"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#Department"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#EducationalActivity"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#ItalianPublicUniversity"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#Qualification"
+    }, {
+      "@id" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid6",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#oneOf" : [ {
+    "@list" : [ {
+      "@id" : "http://purl.org/ontology/UniOn#LimitedAccess"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#OpenAccess"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid69",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -198,7 +320,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid39",
+  "@id" : "_:genid73",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -212,40 +334,37 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid6",
+  "@id" : "_:genid78",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDifferent" ],
+  "http://www.w3.org/2002/07/owl#distinctMembers" : [ {
+    "@list" : [ {
+      "@id" : "http://purl.org/ontology/UniOn#Eligibility"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#JointQualification"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#LimitedAccess"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#MultipleQualification"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#OpenAccess"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#OralExam"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#Project"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#SingleQualification"
+    }, {
+      "@id" : "http://purl.org/ontology/UniOn#WrittenExam"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid9",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "http://purl.org/ontology/UniOn#isAccessTypeOf"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
     "@id" : "http://purl.org/ontology/UniOn#DegreeProgramme"
-  } ]
-}, {
-  "@id" : "_:genid7",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#isAssessmentMethodOf"
-  } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#EducationalActivity"
-  } ]
-}, {
-  "@id" : "_:genid8",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#hasAcademicField"
-  } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#AcademicField"
-  } ]
-}, {
-  "@id" : "_:genid9",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#hasCampus"
-  } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"
   } ]
 }, {
   "@id" : "http://purl.org/ontology/UniOn",
@@ -268,8 +387,10 @@
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "The modality of  access the degree courses require."
   } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
     "@id" : "_:genid6"
+  }, {
+    "@id" : "_:genid9"
   } ]
 }, {
   "@id" : "http://purl.org/ontology/UniOn#AssessmentMethod",
@@ -277,8 +398,10 @@
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "The evaluation modality for each educational activity (e.g. Written exam, Oral exam etc.)"
   } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "_:genid7"
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+    "@id" : "_:genid10"
+  }, {
+    "@id" : "_:genid15"
   } ]
 }, {
   "@id" : "http://purl.org/ontology/UniOn#BachelorDegree",
@@ -310,23 +433,7 @@
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "A university-specific degree programme referring to a more general academic field (e.g. Digital Humanities and Digital Knowledge degree programme at UniBo)"
   } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "_:genid8"
-  }, {
-    "@id" : "_:genid9"
-  }, {
-    "@id" : "_:genid10"
-  }, {
-    "@id" : "_:genid11"
-  }, {
-    "@id" : "_:genid12"
-  }, {
-    "@id" : "_:genid13"
-  }, {
-    "@id" : "_:genid14"
-  }, {
-    "@id" : "_:genid15"
-  }, {
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
     "@id" : "_:genid16"
   } ]
 }, {
@@ -336,7 +443,7 @@
     "@value" : "Organizational structure that within Italian universities promotes and coordinates the activities of one or more sectors of scientific research that are homogeneous in terms of aims and methods."
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid17"
+    "@id" : "_:genid35"
   } ]
 }, {
   "@id" : "http://purl.org/ontology/UniOn#EducationalActivity",
@@ -390,7 +497,7 @@
     "@value" : "A specific public italian university (e.g. Unibo)"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid22"
+    "@id" : "_:genid40"
   } ]
 }, {
   "@id" : "http://purl.org/ontology/UniOn#JointQualification",
@@ -435,7 +542,7 @@
     "@id" : "http://purl.org/ontology/UniOn#OpenAccessDegree"
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid27"
+    "@id" : "_:genid45"
   } ]
 }, {
   "@id" : "http://purl.org/ontology/UniOn#MasterDegree",
@@ -477,7 +584,7 @@
     "@value" : "A degree programme in which there is no maximum number of available places and enrollment does not entail passing through a selection. An entry test, however may be required."
   } ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
-    "@id" : "_:genid31"
+    "@id" : "_:genid49"
   } ]
 }, {
   "@id" : "http://purl.org/ontology/UniOn#OralExam",
@@ -508,6 +615,11 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "A qualification (or degree) is the official record of achievement you receive after completing a programme of study. There are several types of qualifications varying in level of study and length of time."
+  } ],
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+    "@id" : "_:genid53"
+  }, {
+    "@id" : "_:genid57"
   } ]
 }, {
   "@id" : "http://purl.org/ontology/UniOn#Seminar",
