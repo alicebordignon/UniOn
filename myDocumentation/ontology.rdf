@@ -452,12 +452,20 @@
 
 
     <owl:Class rdf:about="http://purl.org/ontology/UniOn#AccessType">
-        <rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/ontology/UniOn#LimitedAccess"/>
+                    <rdf:Description rdf:about="http://purl.org/ontology/UniOn#OpenAccess"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#isAccessTypeOf"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
             </owl:Restriction>
-        </rdfs:subClassOf>
+        </owl:equivalentClass>
         <rdfs:comment>The modality of  access the degree courses require.</rdfs:comment>
     </owl:Class>
     
@@ -467,12 +475,22 @@
 
 
     <owl:Class rdf:about="http://purl.org/ontology/UniOn#AssessmentMethod">
-        <rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/ontology/UniOn#Eligibility"/>
+                    <rdf:Description rdf:about="http://purl.org/ontology/UniOn#OralExam"/>
+                    <rdf:Description rdf:about="http://purl.org/ontology/UniOn#Project"/>
+                    <rdf:Description rdf:about="http://purl.org/ontology/UniOn#WrittenExam"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#isAssessmentMethodOf"/>
                 <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
             </owl:Restriction>
-        </rdfs:subClassOf>
+        </owl:equivalentClass>
         <rdfs:comment>The evaluation modality for each educational activity (e.g. Written exam, Oral exam etc.)</rdfs:comment>
     </owl:Class>
     
@@ -511,63 +529,51 @@
 
 
     <owl:Class rdf:about="http://purl.org/ontology/UniOn#DegreeProgramme">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasAcademicField"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#AcademicField"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasCampus"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasPlaceOfTeaching"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#isDeliveredBy"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#ItalianPublicUniversity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#isManagedBy"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#Department"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#releases"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#Qualification"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasCurriculum"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://purl.org/ontology/UniOn#Curriculum"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasEducationalActivity"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasAccessType"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://purl.org/ontology/UniOn#AccessType"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasAcademicField"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#AcademicField"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasCampus"/>
+                        <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasPlaceOfTeaching"/>
+                        <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#isDeliveredBy"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#ItalianPublicUniversity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#isManagedBy"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#Department"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#releases"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#Qualification"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasCurriculum"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://purl.org/ontology/UniOn#Curriculum"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasEducationalActivity"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#hasAccessType"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://purl.org/ontology/UniOn#AccessType"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:comment>A university-specific degree programme referring to a more general academic field (e.g. Digital Humanities and Digital Knowledge degree programme at UniBo)</rdfs:comment>
     </owl:Class>
     
@@ -725,6 +731,21 @@
 
 
     <owl:Class rdf:about="http://purl.org/ontology/UniOn#Qualification">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/ontology/UniOn#JointQualification"/>
+                    <rdf:Description rdf:about="http://purl.org/ontology/UniOn#MultipleQualification"/>
+                    <rdf:Description rdf:about="http://purl.org/ontology/UniOn#SingleQualification"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ontology/UniOn#isReleasedBy"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
         <rdfs:comment>A qualification (or degree) is the official record of achievement you receive after completing a programme of study. There are several types of qualifications varying in level of study and length of time.</rdfs:comment>
     </owl:Class>
     
@@ -882,6 +903,21 @@
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#AcademicField"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#AccessType"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#AssessmentMethod"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#Curriculum"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#DegreeProgramme"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#Department"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#EducationalActivity"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#ItalianPublicUniversity"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#Qualification"/>
+            <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.org/ontology/UniOn#BachelorDegree"/>
             <rdf:Description rdf:about="http://purl.org/ontology/UniOn#MasterDegree"/>
             <rdf:Description rdf:about="http://purl.org/ontology/UniOn#SingleCycleDegree"/>
@@ -895,6 +931,20 @@
             <rdf:Description rdf:about="http://purl.org/ontology/UniOn#Laboratory"/>
             <rdf:Description rdf:about="http://purl.org/ontology/UniOn#Seminar"/>
         </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#Eligibility"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#JointQualification"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#LimitedAccess"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#MultipleQualification"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#OpenAccess"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#OralExam"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#Project"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#SingleQualification"/>
+            <rdf:Description rdf:about="http://purl.org/ontology/UniOn#WrittenExam"/>
+        </owl:distinctMembers>
     </rdf:Description>
 </rdf:RDF>
 
