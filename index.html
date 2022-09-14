@@ -168,7 +168,7 @@
                 <li><b>Compare</b> different universities’ offerings;</li>
                 <li><b>Extract</b> useful information;</li>
             </ul>
-          <p>Potential users could thus include <b>prospective students</b> looking for the most suitable university course as well as for <b>universities</b> or other <b>related institutions</b> willing to describe and publish information about their training offer. 
+          <p>Potential users could thus include <b>prospective students</b> looking for the most suitable university course as well as for <b>universities</b> or other <b>related institutions</b> willing to describe and publish information about their training offer.
           </p>
         </section>
 
@@ -231,8 +231,7 @@
 		============================ -->
         <section id="idocs_sidebar">
           <h4>2.3 Completeness, feasibility and interoperability</h4>
-          <p>Available data for our specific domain are neither complete nor completely satisfying when it comes to describing it: since we did not intend UniOn to be flattened on them, the ontology ended up entailing more classes and properties than those described by our dataset. This means that it contains some “empty” concepts without instances representing them: we hope that soon UniOn will take advantage of more comprehensive data. 
-		  Finally, in order to guarantee interoperability and reusability to UniOn, we decided to make use - when possible - of existing vocabularies, mapping our classes and properties with widely adopted ones. We thus reused some classes and properties from DUL (DOLCE+DnS Ultralite), a foundational ontology presenting general categories and relations that come to hand when building a lower-level ontology like ours. </p>
+          <p>Available data for our specific domain are neither complete nor completely satisfying when it comes to describing it: since we did not intend UniOn to be flattened on them, the ontology ended up entailing more classes and properties than those described by our dataset. This means that it contains some “empty” concepts without instances representing them: we hope that soon UniOn will take advantage of more comprehensive data.</p>
           <p>Finally, in order to guarantee interoperability and reusability to UniOn, we decided to make use - when possible - of existing vocabularies, mapping our classes and properties with widely adopted ones. We thus reused some classes and properties from <b>DUL (DOLCE+DnS Ultralite)</b>, a foundational ontology presenting general categories and relations that come to hand when building a lower-level ontology like ours. </p>
 		    </section>
         <div class=image>
@@ -256,15 +255,14 @@
 		  <h4>3.1 The Opendata Beta project by University of Bologna</h4>
 		  <p>Our <b>starting point</b> were <b>three datasets</b> (CSV format) made publicly available by the University of Bologna as part of the <a href="https://dati.unibo.it/dataset">Opendata Beta project</a>. <br>
         Since complete data was only available for the <b>academic year 2018/2019</b>, we restricted our analysis to this period. Also, we decided to focus on one specific academic field, <b>the Humanities</b>.<br>
-        The three files respectively contain:</p>
+        The three files' selected columns respectively contain:</p>
       <ol>
         <li><b>A catalogue of all degree programs</b> offered by the University of Bologna; for each of them, the following information is specified: webpage URL, administrative location and teaching place(s), reference academic field, degree type (bachelor’s/master’s ...), duration, whether it is international or not, released qualification, teaching language and type of access.</li>
-        <li><b>A catalogue of all educational activities</b> delivered by the University of Bologna. For each educational activity, a ‘degree code’ specifies the degree program it belongs to.</li>
-        <li>Specification of <b>each educational activity's SSD, Teaching code and CFUs</b>.</li>
+        <li><b>A catalogue of all educational activities</b> delivered by the University of Bologna, including their <b>teaching codes</b>. For each educational activity, a ‘degree code’ specifies the degree program it belongs to. <b>Teaching codes</b> are numerical codes univocally identifying each educational activity.</li>
+        <li>Specification of <b>each educational activity's SSD and CFUs</b>. For each educational activity, the 'teaching code' specifies the educational activity the SSD and CFUs belong to.</li>
             <ul>
               <li><b>SSD</b> stands for ‘scientific-disciplinary sectors’: they point to the disciplinary areas each educational activity belongs to.</li>
-              <li><b>Teaching codes</b> are numerical codes univocally identifying each educational activity.</li>
-              <li><b>CFUs</b> (university formative credits) are a numerical measure of the workload for each exam or activity. To obtain a degree, students need to acquire 180 CFUs.</li>
+              <li><b>CFUs</b> (university formative credits) are a numerical measure of the workload for each exam or activity.</li>
             </ul>
         </li>
 		</section>
@@ -275,7 +273,7 @@
 		  <h4>3.2 Data integration</h4>
 		  <p>Since some data was missing from our starting datasets, we needed to <b>semi-automatically integrate</b> the following information:</p>
         <ul>
-          <li><b>The degree class</b>: a unique code of each degree program;</li>
+          <li><b>The degree class</b>: an alphanumeric string which defines the faculty the degree program belongs to;​</li>
           <li><b>The department</b>: the administrative structure managing each degree program;</li>
           <li><b>The different types of educational activity</b>: exams, seminars, laboratories, internships and final tests.</li>
         </ul>
@@ -543,7 +541,7 @@
                               WHERE {
                               ?DegreeProgramme uo:hasEducationalActivity ?EducationalActivity ;
                                               rdfs:label "Dams - discipline delle arti, della musica  e dello spettacolo" .
-                              ?EducationalActivity a UniOn:Laboratory .
+                              ?EducationalActivity a uo:Laboratory .
 
                               OPTIONAL { ?EducationalActivity rdfs:label ?EducationalActivityLabel }
                               }
@@ -663,7 +661,7 @@
 
   		<hr class="divider">
   <section id="idocs_end">
-    <h4>Thank you for your attention.</h4><br><p>This project and documentation has been created for the course in <b>Knowledge Representation and Extraction</b> for the Digital Humanities and Digital Knowledge's Degree Programme at the University of Bologna.</p>
+    <h4>Thank you for your attention.</h4><br><p>This project and documentation have been created for the course in <b>Knowledge Representation and Extraction</b> for the Digital Humanities and Digital Knowledge's Degree Programme at the University of Bologna.</p>
   </section>
 
 
