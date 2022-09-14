@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://purl.org/ontology/UniOn#"
      xml:base="http://purl.org/ontology/UniOn"
+     xmlns:uo="http://purl.org/ontology/UniOn#"
      xmlns:DUL="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:UniOn="http://purl.org/ontology/UniOn#">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://purl.org/ontology/UniOn">
         <rdfs:comment>UniOn is an ontology representing Universities educational offer. It includes information to describe academic fields, degree programs, access methods and requirements, educational activities, titles and qualifications, location, organization and more</rdfs:comment>
     </owl:Ontology>
