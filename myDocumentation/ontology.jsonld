@@ -829,7 +829,7 @@
     "@value" : "The SSD of an educational activity. SSD stands for ‘scientific-disciplinary sectors’: they point to the disciplinary areas to which each educational activity belongs to."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://purl.org/ontology/UniOn#EducationalActivity"
+    "@id" : "http://purl.org/ontology/UniOn#Course"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
     "@id" : "http://purl.org/ontology/UniOn#hasIdentifier"

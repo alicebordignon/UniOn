@@ -214,7 +214,7 @@ _:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 # http://purl.org/ontology/UniOn#hasSsd
 <http://purl.org/ontology/UniOn#hasSsd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://purl.org/ontology/UniOn#hasSsd> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/ontology/UniOn#hasIdentifier> .
-<http://purl.org/ontology/UniOn#hasSsd> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#EducationalActivity> .
+<http://purl.org/ontology/UniOn#hasSsd> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/UniOn#Course> .
 <http://purl.org/ontology/UniOn#hasSsd> <http://www.w3.org/2000/01/rdf-schema#comment> "The SSD of an educational activity. SSD stands for ‘scientific-disciplinary sectors’: they point to the disciplinary areas to which each educational activity belongs to." .
 # 
 # http://purl.org/ontology/UniOn#hasTeachingCode
