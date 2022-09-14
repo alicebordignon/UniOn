@@ -340,7 +340,7 @@
 
     <owl:DatatypeProperty rdf:about="http://purl.org/ontology/UniOn#hasSsd">
         <rdfs:subPropertyOf rdf:resource="http://purl.org/ontology/UniOn#hasIdentifier"/>
-        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#EducationalActivity"/>
+        <rdfs:domain rdf:resource="http://purl.org/ontology/UniOn#Course"/>
         <rdfs:comment>The SSD of an educational activity. SSD stands for ‘scientific-disciplinary sectors’: they point to the disciplinary areas to which each educational activity belongs to.</rdfs:comment>
     </owl:DatatypeProperty>
     
